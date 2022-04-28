@@ -1,1 +1,9 @@
-<p>login works!</p>
+<form class="contenedor" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput formControlName="usuario" placeholder="Usuario" pInputText>
+    </mat-form-field>
+    <mat-form-field class="d-flex p-ai-center p-mb-2">
+        <input matInput formControlName="contrasenia" type="password" placeholder="Contraseña">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" >Ingresar</button>
+</form>
