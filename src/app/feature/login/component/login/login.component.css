@@ -4,3 +4,7 @@
     margin:1rem auto;
     max-width: 600px;
 }  
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: blue;
+  }

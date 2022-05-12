@@ -15,15 +15,15 @@ export class AutorizacionService {
 
   login(autenticacion:Autenticacion): Observable<boolean>{
     console.log('autenticacion',autenticacion)
+    console.log('JWT',localStorage.getItem('ng2-webstorage|jwt'))
+    this.limpiarLocalStorage();
    return this.httpClient.post<Autorizacion>(`${this.endPoint}/auth/authenticate`,autenticacion).pipe(map(data =>{
-      this.localStorageService.store('jwt',data.jwt);
-      this.localStorageService.store('scope',data.scope);
-      this.localStorageService.store('sub',data.sub);
+     this.cargarLocalStorage(data);
       return true; 
     }));
   }
 
-  estaAutenticado(): Boolean{
+  estaAutenticado(): boolean{
     return this.localStorageService.retrieve('jwt') != null;
   }
 
@@ -37,6 +37,19 @@ export class AutorizacionService {
 
    obtenerCorreo(): string{
      return this.localStorageService.retrieve('sub');
+   }
+
+   cargarLocalStorage(data: Autorizacion){
+    this.localStorageService.store('jwt',data.jwt);
+    this.localStorageService.store('scope',data.scope);
+    this.localStorageService.store('sub',data.sub);
+   }
+
+   limpiarLocalStorage(): void{
+     //Revisar si cambiar por IMsalService
+    this.localStorageService.clear('jwt')
+    this.localStorageService.clear('scope')
+    this.localStorageService.clear('sub')
    }
    
 }

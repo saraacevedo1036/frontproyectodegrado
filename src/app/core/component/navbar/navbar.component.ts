@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private autorizacionService: AutorizacionService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.autorizacionService.limpiarLocalStorage();
+    console.log('Esta autenticado: ',this.autorizacionService.estaAutenticado())
+    this.router.navigate(['/login']);
   }
 
 }

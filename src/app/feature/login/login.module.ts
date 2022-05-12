@@ -6,6 +6,7 @@ import { AutorizacionService } from './shared/service/autorizacion.service';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule} from '@angular/common/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
+import { LoginRoutingModule } from './login-routing.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
   ],
   imports: [
     CommonModule,
+    LoginRoutingModule,
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
