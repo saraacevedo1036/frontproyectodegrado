@@ -19,7 +19,16 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.autorizacionService.limpiarLocalStorage();
-    console.log('Esta autenticado: ',this.autorizacionService.estaAutenticado())
+    this.router.navigate(['/login']);
+  }
+
+  crearDocente(){
+    this.autorizacionService.limpiarLocalStorage();
+    this.router.navigate(['/login']);
+  }
+
+  crearEstudiante(){
+    this.autorizacionService.limpiarLocalStorage();
     this.router.navigate(['/login']);
   }
 

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
+import {MatGridListModule} from '@angular/material/grid-list'
 import { MatInputModule } from '@angular/material/input';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,13 +14,15 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule, 
     MatButtonModule,
     MatInputModule,
-    FormsModule 
+    FormsModule, 
+    MatGridListModule 
   ],
   exports:[
     MatToolbarModule, 
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

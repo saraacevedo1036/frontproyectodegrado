@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './feature/material/material.module';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './feature/home/component/home/home.component';
+import { LoginModule } from './feature/login/login.module';
+import { CursosModule } from './feature/cursos/cursos.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HomeComponent } from './feature/home/component/home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    MaterialModule
+    MaterialModule,
+    LoginModule,
+    CursosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

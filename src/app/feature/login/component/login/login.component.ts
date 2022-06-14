@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   iniciarSesion(){
     this.autorizacionService.login(this.generarComandoAutenticacion()).subscribe((data)=>{
       if(data){
-        this.router.navigateByUrl('home');
+        this.router.navigateByUrl('listado-cursos');
       }else{
         console.log('No tiene acceso a la aplicación. mostrar mensaje')
       }

@@ -1,0 +1,10 @@
+<mat-grid-list cols="3" rowHeight="170px" style="height: 200px;" gutterSize="5px">
+    <mat-grid-tile *ngFor="let curso of listaCursos"
+    [colspan]="2"
+    [rowspan]="1">
+    {{curso.nombre}}
+    <mat-grid-tile-footer>
+        <button mat-raised-button color="primary">Ir al curso</button>
+    </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>  
