@@ -13,11 +13,11 @@ export class ListadoCursosComponent implements OnInit {
   constructor(private cursoService: CursoService) { }
 
   ngOnInit(): void {
-    this.obtenerListadoCursos(1);
+    this.obtenerListadoCursos();
   }
 
-  obtenerListadoCursos(idDocente:number){
-    this.cursoService.listarCursosPorDocenteId(idDocente).subscribe((data)=>{
+  obtenerListadoCursos(){
+    this.cursoService.listarCursosPorDocenteId().subscribe((data)=>{
       if(data){
         this.listaCursos = data;
       }else{
