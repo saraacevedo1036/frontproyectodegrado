@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Curso } from '../../shared/model/curso.model';
 import { CursoService } from '../../shared/service/curso.service';
 
@@ -10,7 +11,7 @@ import { CursoService } from '../../shared/service/curso.service';
 export class ListadoCursosComponent implements OnInit {
 
   listaCursos: Curso[] = []; 
-  constructor(private cursoService: CursoService) { }
+  constructor(private cursoService: CursoService,private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerListadoCursos();
@@ -24,5 +25,9 @@ export class ListadoCursosComponent implements OnInit {
         console.log('No tiene cursos, mostrar este emnsaje')
       }
     });
+  }
+
+  listarCategoria(){
+    this.router.navigateByUrl('listado-categoria');
   }
 }
