@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Categoria } from '../../shared/model/categoria.model';
 import { CategoriaService } from '../../shared/service/categoria.service';
@@ -11,23 +12,16 @@ import { CategoriaService } from '../../shared/service/categoria.service';
 
 export class ListadoCategoriasComponent implements OnInit {
 
-  listaCategorias: Categoria[] = [{idCategoriaContenido:1,idPregunta:2,nombre:'suma'},
-  {idCategoriaContenido:1,idPregunta:2,nombre:'resta'}]; 
 
-
-  constructor(private categoriaService:CategoriaService) { }
+  constructor( public modal: MatDialogRef<ListadoCategoriasComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Categoria[]) { }
 
   ngOnInit(): void {
-    this.obtenerListadoCursos(1);
+    console.log(this.data)
   }
 
-  obtenerListadoCursos(idCurso: number){
-    this.categoriaService.listarCategoriasPorIdCurso(idCurso).subscribe((data)=>{
-      if(data){
-        this.listaCategorias = data;
-      }else{
-        console.log('No tiene Categorias, mostrar este mensaje')
-      }
-    });
+  cerrarModal(): void{
+    this.modal.close();
   }
+
 }
