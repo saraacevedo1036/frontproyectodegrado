@@ -15,8 +15,7 @@ import { ListadoCategoriasComponent } from '../listado-categorias/listado-catego
 export class ListadoCursosComponent implements OnInit {
 
   
-  listaCategorias: Categoria[] = [{idCategoriaContenido:1,idPregunta:2,nombre:'suma'},
-  {idCategoriaContenido:1,idPregunta:2,nombre:'resta'}]; 
+  listaCategorias: Categoria[] = []; 
   listaCursos: Curso[] = []; 
   constructor(private cursoService: CursoService,private router: Router,
     private categoriaService:CategoriaService, public modal: MatDialog
@@ -36,27 +35,25 @@ export class ListadoCursosComponent implements OnInit {
     });
   }
 
- /* listarCategoria(){
-    this.router.navigateByUrl('listado-categoria');
-  }*/
-
-  abrirModalCategorias(idCurso: number): void{
-    const listaCategorias = this.obtenerListadoCategorias(idCurso);
-    console.log(listaCategorias)
-    this.modal.open(ListadoCategoriasComponent,{
-      width: '450px',
-      data: this.listaCategorias
-    });
-
+  modalCategoria(categoriasCurso:Categoria[]){
+    if(categoriasCurso.length > 0){
+      this.modal.open(ListadoCategoriasComponent,{
+        width: '450px',
+        data: categoriasCurso
+      });
+    }
   }
 
-  obtenerListadoCategorias(idCurso: number){
+  obtenerListadoCategorias(idCurso: number): Categoria[]{
     this.categoriaService.listarCategoriasPorIdCurso(idCurso).subscribe((data)=>{
       if(data.length > 0){
-        this.listaCategorias = data;
+         this.listaCategorias = data;
+         this.modalCategoria(data);
       }else{
         console.log('No tiene Categorias, mostrar este mensaje')
+        this.listaCategorias = [];
       }
     });
+    return this.listaCategorias;
   }
 }

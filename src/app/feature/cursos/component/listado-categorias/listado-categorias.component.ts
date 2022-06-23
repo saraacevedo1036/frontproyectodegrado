@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Categoria } from '../../shared/model/categoria.model';
-import { CategoriaService } from '../../shared/service/categoria.service';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -17,7 +16,7 @@ export class ListadoCategoriasComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Categoria[]) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    console.log('Información enviada',this.data)
   }
 
   cerrarModal(): void{

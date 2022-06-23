@@ -1,7 +1,11 @@
 <h1 mat-dialog-title>Categorias</h1>
 <div mat-dialog-content *ngFor="let categoria of data">
-    <h3> {{categoria.nombre}}</h3>
-    <button mat-raised-button color="primary">Ir a contenido</button>
+  <ul>
+    <li>
+      <h3> {{categoria.nombre}}</h3>
+      <button mat-raised-button color="primary">Ir a contenido</button>
+    </li>
+  </ul>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cerrarModal()">Cerrar</button>
