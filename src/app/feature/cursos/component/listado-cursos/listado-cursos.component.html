@@ -1,10 +1,16 @@
-<mat-grid-list cols="3" rowHeight="170px" style="height: 200px;" gutterSize="5px">
+<body>
+<p>Cursos</p>
+<mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px" >
     <mat-grid-tile *ngFor="let curso of listaCursos"
     [colspan]="2"
-    [rowspan]="1">
-    {{curso.nombre}}
-    <mat-grid-tile-footer>
-        <button mat-raised-button color="primary"  (click)="obtenerListadoCategorias(curso.idCursos)">Ir al curso</button>
+    [rowspan]="1"
+    >
+    <button mat-raised-button  (click)="obtenerListadoCategorias(curso.idCursos)" >    {{curso.nombre}}
+    </button>
+    <mat-grid-tile-footer >
+        {{curso.nombre}}
+
     </mat-grid-tile-footer>
     </mat-grid-tile>
 </mat-grid-list>  
+</body>
