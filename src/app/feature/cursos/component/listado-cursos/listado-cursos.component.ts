@@ -35,11 +35,11 @@ export class ListadoCursosComponent implements OnInit {
     });
   }
 
-  modalCategoria(categoriasCurso:Categoria[]){
+  modalCategoria(categoriasCurso:Categoria[], idCurso:number){
     if(categoriasCurso.length > 0){
       this.modal.open(ListadoCategoriasComponent,{
         width: '450px',
-        data: categoriasCurso
+        data: {categorias : categoriasCurso , idCurso: idCurso}
       });
     }
   }
@@ -48,7 +48,7 @@ export class ListadoCursosComponent implements OnInit {
     this.categoriaService.listarCategoriasPorIdCurso(idCurso).subscribe((data)=>{
       if(data.length > 0){
          this.listaCategorias = data;
-         this.modalCategoria(data);
+         this.modalCategoria(data,idCurso);
       }else{
         console.log('No tiene Categorias, mostrar este mensaje')
         this.listaCategorias = [];

@@ -5,6 +5,7 @@ import { MaterialModule } from '../feature/material/material.module';
 import { HttpClientInterceptorService } from './interceptor/http-client-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginModule } from '../feature/login/login.module';
+import { EventosService } from './service/eventos.service';
 
 
 
@@ -22,7 +23,8 @@ import { LoginModule } from '../feature/login/login.module';
     NavbarComponent
   ],
   providers:[
-    { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptorService, multi: true },
+    EventosService
   ],
 })
 export class CoreModule { }

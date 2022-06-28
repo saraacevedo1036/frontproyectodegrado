@@ -6,6 +6,8 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule, 
     MatGridListModule,
-    MatDialogModule 
+    MatDialogModule,
+    MatTableModule, 
   ],
   exports:[
     MatToolbarModule, 
@@ -24,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Categoria } from '../../shared/model/categoria.model';
-
+import { EventosService } from 'src/app/core/service/eventos.service';
 @Component({
   selector: 'app-listado-categorias',
   templateUrl: './listado-categorias.component.html',
@@ -13,10 +12,23 @@ export class ListadoCategoriasComponent implements OnInit {
 
 
   constructor( public modal: MatDialogRef<ListadoCategoriasComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Categoria[]) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private eventosService: EventosService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    console.log('Información enviada',this.data)
+    console.log('Información enviada categorias',this.data.categorias)
+    console.log('Información enviada curso id: ',this.data.idCurso)
+
+  }
+
+  irAContenido(idCategoria: number){
+    this.router.navigateByUrl('listado-contenido');
+    this.eventosService.disparador.emit(
+      {idCategoria:idCategoria,
+        idCurso:this.data.idCurso}
+    );
+    this.modal.close();
   }
 
   cerrarModal(): void{

@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './feature/home/component/home/home.component';
 import { LoginModule } from './feature/login/login.module';
 import { CursosModule } from './feature/cursos/cursos.module';
+import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CursosModule } from './feature/cursos/cursos.module';
     CoreModule,
     MaterialModule,
     LoginModule,
-    CursosModule
+    CursosModule,
+    ContenidoCursoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

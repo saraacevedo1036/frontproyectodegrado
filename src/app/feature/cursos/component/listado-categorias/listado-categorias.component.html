@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Categorias</h1>
-<div mat-dialog-content *ngFor="let categoria of data">
+<div mat-dialog-content *ngFor="let categoria of data.categorias">
   <ul>
     <li>
       <h3> {{categoria.nombre}}</h3>
-      <button mat-raised-button color="primary">Ir a contenido</button>
+      <button mat-raised-button color="primary" (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
     </li>
   </ul>
 </div>
