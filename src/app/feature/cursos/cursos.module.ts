@@ -15,6 +15,7 @@ import { RetoCursoComponent } from './component/reto-curso/reto-curso.component'
 import { JuegoCursoComponent } from './component/juego-curso/juego-curso.component';
 import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
+import { RetoService } from './shared/service/reto.service';
 
 
 @NgModule({
@@ -35,6 +36,6 @@ import { PrincipalRetoComponent } from './component/principal-reto/principal-ret
     HttpClientModule,
     Ng2Webstorage.forRoot()
   ],
-  providers: [CursoService,CategoriaService]
+  providers: [CursoService, CategoriaService, RetoService]
 })
 export class CursosModule { }

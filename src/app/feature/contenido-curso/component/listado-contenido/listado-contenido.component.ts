@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { take } from 'rxjs';
 import { EventosService } from 'src/app/core/service/eventos.service';
-import { Categoria } from 'src/app/feature/cursos/shared/model/categoria.model';
 import { Contenido } from '../../shared/model/contenido.model';
 import { ContenidoService } from '../../shared/service/contenido.service';
 
@@ -13,17 +12,10 @@ import { ContenidoService } from '../../shared/service/contenido.service';
 })
 export class ListadoContenidoComponent implements OnInit, OnDestroy {
 
-  listaContenidos: Contenido[] = [{
-    idCursoContenido: 1,
-    idCategoriaContenido: 1,
-    idCurso: 1,
-    comentario: "contenido 1",
-    descripcion: "sad",
-    imagen: "contenido 1",
-    video: "sad"
-}]; 
+  listaContenidos: Contenido[] = []; 
   displayedColumns : string [] = [ 'descripcion'];
-  @ViewChild(MatTable) table: MatTable<Categoria>;
+  //@ViewChild(MatTable) table: MatTable<>;
+  dataSource = new MatTableDataSource<Contenido>([]);
 
   constructor(private eventosService: EventosService,
     private contenidoService: ContenidoService) { }
@@ -45,13 +37,14 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
     .subscribe(contenidos =>{
       if(contenidos.length > 0){
         this.listaContenidos = contenidos;
+        this.dataSource.data = contenidos;
       }else{
         console.log('No tiene Contenidos, mostrar este mensaje')
         this.listaContenidos = [];
       }
       console.log('Contenidos: ',  this.listaContenidos)
-      //this.table.renderRows();
-      console.log('DataSourse:',this.table.dataSource)
+      console.log('dataSourse: ',  this.dataSource.data)
+
     });
   }
   

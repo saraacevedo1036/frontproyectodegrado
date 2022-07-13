@@ -31,6 +31,22 @@ export class ListadoCategoriasComponent implements OnInit {
     this.modal.close();
   }
 
+  irRetos(): void{
+    this.router.navigateByUrl('principal-retos');
+    this.eventosService.disparadorReto.emit(
+      {idCurso:this.data.idCurso}
+    );
+    this.modal.close();
+  } 
+
+  irJuegos(): void{
+    this.router.navigateByUrl('principal-juegos');
+    this.eventosService.disparadorJuego.emit(
+      { idCurso:this.data.idCurso}
+    );
+    this.modal.close();
+  } 
+
   cerrarModal(): void{
     this.modal.close();
   }
