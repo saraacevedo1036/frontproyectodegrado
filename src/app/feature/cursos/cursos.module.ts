@@ -11,6 +11,10 @@ import { CategoriaCursoComponent } from './component/categoria-curso/categoria-c
 import { ListadoCategoriasComponent } from './component/listado-categorias/listado-categorias.component';
 import { CursoService } from './shared/service/curso.service';
 import { CategoriaService } from './shared/service/categoria.service';
+import { RetoCursoComponent } from './component/reto-curso/reto-curso.component';
+import { JuegoCursoComponent } from './component/juego-curso/juego-curso.component';
+import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
+import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { CategoriaService } from './shared/service/categoria.service';
     ListadoCursosComponent,
     DetalleCursoComponent,
     CategoriaCursoComponent,
-    ListadoCategoriasComponent
+    ListadoCategoriasComponent,
+    RetoCursoComponent,
+    JuegoCursoComponent,
+    PrincipalJuegoComponent,
+    PrincipalRetoComponent
   ],
   imports: [
     CommonModule,

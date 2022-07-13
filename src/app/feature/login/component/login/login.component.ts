@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Autenticacion } from '../../shared/model/autenticacion.model';
@@ -10,6 +10,7 @@ import { AutorizacionService } from '../../shared/service/autorizacion.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('username') namekey!: ElementRef;
 
   formularioLogin = this.formBuilder.group({
     usuario:[''],
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.autorizacionService.login(this.generarComandoAutenticacion()).subscribe((data)=>{
       if(data){
         this.router.navigateByUrl('listado-cursos');
+        
       }else{
         console.log('No tiene acceso a la aplicación. mostrar mensaje')
       }

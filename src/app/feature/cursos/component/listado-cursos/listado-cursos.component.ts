@@ -30,7 +30,7 @@ export class ListadoCursosComponent implements OnInit {
       if(data.length > 0){
         this.listaCursos = data;
       }else{
-        console.log('No tiene cursos, mostrar este emnsaje')
+        console.log('No tiene cursos, mostrar este mensaje')
       }
     });
   }

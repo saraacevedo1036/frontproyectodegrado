@@ -16,10 +16,23 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  login(){
+    this.autorizacionService.limpiarLocalStorage();
+    this.router.navigate(['/login']);
+  }
+  reto(){
+    this.autorizacionService.limpiarLocalStorage();
+    this.router.navigate(['/reto']);
+  }
   logout(){
     this.autorizacionService.limpiarLocalStorage();
     this.router.navigate(['/login']);
+  }
+  blog(){
+    this.router.navigate(['/blog']);
+  }
+  juego(){
+    this.router.navigate(['/juego']);
   }
 
   crearDocente(){
@@ -28,8 +41,8 @@ export class NavbarComponent implements OnInit {
   }
 
   crearEstudiante(){
-    this.autorizacionService.limpiarLocalStorage();
-    this.router.navigate(['/login']);
+    
+    this.router.navigate(['/CrearEstudiante']);
   }
 
 }

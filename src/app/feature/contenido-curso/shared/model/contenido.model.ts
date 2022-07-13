@@ -4,6 +4,6 @@ export interface Contenido{
     idCurso: number,
     comentario: string,
     descripcion: string,
-    imagen: string,
-    video: string
+    imagen?: string,
+    video?: string
 }

@@ -1,0 +1,25 @@
+.card{
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+}
+li{
+    list-style-type: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+li.card:hover{
+    border: 1px solid blue;
+}
+ol{
+    padding: 0;
+}
+li.card input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+  }
+h5 {
+    text-align: center;
+    font-size: 40px;
+}
