@@ -16,6 +16,7 @@ import { JuegoCursoComponent } from './component/juego-curso/juego-curso.compone
 import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 import { RetoService } from './shared/service/reto.service';
+import { CrearCategoriaComponent } from './component/crear-categoria/crear-categoria.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RetoService } from './shared/service/reto.service';
     RetoCursoComponent,
     JuegoCursoComponent,
     PrincipalJuegoComponent,
-    PrincipalRetoComponent
+    PrincipalRetoComponent,
+    CrearCategoriaComponent
   ],
   imports: [
     CommonModule,

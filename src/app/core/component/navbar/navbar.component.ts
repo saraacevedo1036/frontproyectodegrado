@@ -34,6 +34,9 @@ export class NavbarComponent implements OnInit {
   juego(){
     this.router.navigate(['/juego']);
   }
+  inicial(){
+    this.router.navigate(['/listado-cursos']);
+  }
 
   crearDocente(){
     this.autorizacionService.limpiarLocalStorage();

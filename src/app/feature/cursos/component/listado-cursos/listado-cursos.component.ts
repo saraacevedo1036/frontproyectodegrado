@@ -34,26 +34,9 @@ export class ListadoCursosComponent implements OnInit {
       }
     });
   }
+  irInicio(): void{
+    this.router.navigateByUrl('inicio');
+    
+  } 
 
-  modalCategoria(categoriasCurso:Categoria[], idCurso:number){
-    if(categoriasCurso.length > 0){
-      this.modal.open(ListadoCategoriasComponent,{
-        width: '450px',
-        data: {categorias : categoriasCurso , idCurso: idCurso}
-      });
-    }
-  }
-
-  obtenerListadoCategorias(idCurso: number): Categoria[]{
-    this.categoriaService.listarCategoriasPorIdCurso(idCurso).subscribe((data)=>{
-      if(data.length > 0){
-         this.listaCategorias = data;
-         this.modalCategoria(data,idCurso);
-      }else{
-        console.log('No tiene Categorias, mostrar este mensaje')
-        this.listaCategorias = [];
-      }
-    });
-    return this.listaCategorias;
-  }
 }

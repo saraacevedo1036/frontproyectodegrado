@@ -10,6 +10,8 @@ import { HomeComponent } from './feature/home/component/home/home.component';
 import { LoginModule } from './feature/login/login.module';
 import { CursosModule } from './feature/cursos/cursos.module';
 import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.module';
+import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.module';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.
     MaterialModule,
     LoginModule,
     CursosModule,
-    ContenidoCursoModule
+    ContenidoCursoModule,
+    FuncionesCursoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

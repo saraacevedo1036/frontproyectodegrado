@@ -1,0 +1,12 @@
+button{
+    margin-right: 50px;
+    margin-top: 25%;
+    width: auto;
+    border-color: blueviolet;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+div {
+    text-align: center;
+}
