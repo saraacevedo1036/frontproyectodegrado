@@ -1,12 +1,51 @@
-button{
-    margin-right: 50px;
-    margin-top: 25%;
-    width: auto;
-    border-color: blueviolet;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+body {
+    margin: 40px;
+    padding: 0px;
+    background: rgba(69, 19, 69, 0);
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+  }
+  button  {
+    background-color: rgba(155, 146, 221, 0.541);
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    border: #87F;
+    border-radius: 20px;
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+		0 0 0.2em #87F
+    
+
+    
+  }
+  button:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+  }
+  p{
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+		0 0 0.2em #87F
+    
+
+  }
+  mat-grid-list {
+    margin: 90px;
+    padding: 50px;
+  }
+  mat-grid-tile-footer {
+    border-radius: 20px;
+  }
+mat-grid-title{
+    
+    background-color:rgb(32, 168, 213);
 }
+
 div {
     text-align: center;
+    
 }

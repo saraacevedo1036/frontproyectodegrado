@@ -5,11 +5,13 @@
     [colspan]="2"
     [rowspan]="1"
     >
-    <button mat-raised-button  [routerLink]="['curso',curso.idCursos]" >    {{curso.nombre}}
+    <button  mat-raised-button  [routerLink]="['curso',curso.idCursos]" >    {{curso.nombre}}
     </button>
     </mat-grid-tile>
 </mat-grid-list>  
-<div style="position: relative; left: 0%; bottom: 0;">
-    <button id="agregar" mat-button ><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button>
+<div>
+  <div class="pull-right">
+      <button ><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button>
   </div>
+</div>
 </body>

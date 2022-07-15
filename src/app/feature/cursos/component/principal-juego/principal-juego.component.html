@@ -1,1 +1,18 @@
-<p>principal-juego works!</p>
+
+<body>
+    <p>Juegos</p>
+    <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px" >
+        <mat-grid-tile *ngFor="let juego of listaJuegos"
+        [colspan]="2"
+        [rowspan]="1"
+        >
+        <button mat-raised-button > {{juego.titulo}}
+        </button>
+        </mat-grid-tile>
+    </mat-grid-list>  
+      <div>
+        <div class="pull-right">
+            <button ><i class="fa fa-plus fa-3x" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</body>
