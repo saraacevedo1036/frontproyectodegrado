@@ -17,6 +17,7 @@ import { PrincipalJuegoComponent } from './component/principal-juego/principal-j
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 import { RetoService } from './shared/service/reto.service';
 import { CrearCategoriaComponent } from './component/crear-categoria/crear-categoria.component';
+import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CrearCategoriaComponent } from './component/crear-categoria/crear-categ
     JuegoCursoComponent,
     PrincipalJuegoComponent,
     PrincipalRetoComponent,
-    CrearCategoriaComponent
+    CrearCategoriaComponent,
+    CrearJuegoComponent
   ],
   imports: [
     CommonModule,

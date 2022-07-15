@@ -1,0 +1,24 @@
+
+<h1 mat-dialog-title>Crear Juego</h1>
+<form >
+    <div class="form-group">
+        <label >Titulo</label>
+        <input type="text" class="form-control" id="categoria"  placeholder="Nombre">
+    </div>
+    <div class="form-group">
+        <label >Descripcion</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label >Comentario</label>
+        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+    </div>
+</form>
+<div mat-dialog-actions>
+  <button id="volver" mat-button (click)="cerrarModal()">Volver</button>
+  
+<div style="position: relative; left: 55%; bottom: 0;">
+  <button id="agregar" ><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></button>
+</div>
+  
+</div>
