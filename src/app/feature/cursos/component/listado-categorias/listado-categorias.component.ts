@@ -24,7 +24,9 @@ export class ListadoCategoriasComponent implements OnInit {
   }
 
   irAContenido(idCategoria: number){
-    this.router.navigateByUrl('listado-contenido');
+
+    this.router.navigate(['listado-contenido','curso',this.data.idCurso,'categoria',idCategoria]);
+
     this.eventosService.disparador.emit(
       {idCategoria:idCategoria,
         idCurso:this.data.idCurso}

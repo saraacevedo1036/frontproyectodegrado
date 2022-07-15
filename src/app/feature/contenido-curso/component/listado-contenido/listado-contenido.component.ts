@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { take } from 'rxjs';
-import { EventosService } from 'src/app/core/service/eventos.service';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Contenido } from '../../shared/model/contenido.model';
 import { ContenidoService } from '../../shared/service/contenido.service';
 
@@ -14,26 +13,32 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
 
   listaContenidos: Contenido[] = []; 
   displayedColumns : string [] = [ 'descripcion'];
+  idCurso:number;
+  idCategoria:number;
   //@ViewChild(MatTable) table: MatTable<>;
   dataSource = new MatTableDataSource<Contenido>([]);
 
-  constructor(private eventosService: EventosService,
-    private contenidoService: ContenidoService) { }
+  constructor(
+    private contenidoService: ContenidoService,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this.listaContenidos = [];
-    this.inicializarSuscripciones();
+    this.activeRoute.params.subscribe((params:Params)=>{
+      this.idCurso = params.idCurso;
+      this.idCategoria = params.idCategoria;
+      this.obtenerlistadoContenido(this.idCategoria, this.idCurso);
+    });
   }
 
-  inicializarSuscripciones(){
+ /* inicializarSuscripciones(){
     this.eventosService.disparador.pipe(take(1)).subscribe(data =>{
       this.obtenerlistadoContenido(data);
       console.log('Recibiendo data:', data)
     })
-  }
+  }*/
 
-  obtenerlistadoContenido(data:any){
-    this.contenidoService.listarContenidoPorIdCategoriaYIdCurso(data.idCategoria, data.idCurso)
+  obtenerlistadoContenido(idCategoria:number, idCurso:number){
+    this.contenidoService.listarContenidoPorIdCategoriaYIdCurso(idCategoria, idCurso)
     .subscribe(contenidos =>{
       if(contenidos.length > 0){
         this.listaContenidos = contenidos;

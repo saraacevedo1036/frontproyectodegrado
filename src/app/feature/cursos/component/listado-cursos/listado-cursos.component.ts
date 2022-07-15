@@ -34,6 +34,7 @@ export class ListadoCursosComponent implements OnInit {
       }
     });
   }
+  
   irInicio(): void{
     this.router.navigateByUrl('inicio');
     

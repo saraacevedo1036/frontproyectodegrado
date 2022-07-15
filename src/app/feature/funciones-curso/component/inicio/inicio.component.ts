@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ListadoCategoriasComponent } from 'src/app/feature/cursos/component/listado-categorias/listado-categorias.component';
 import { Categoria } from 'src/app/feature/cursos/shared/model/categoria.model';
 import { CategoriaService } from 'src/app/feature/cursos/shared/service/categoria.service';
@@ -12,12 +12,17 @@ import { CategoriaService } from 'src/app/feature/cursos/shared/service/categori
 })
 export class InicioComponent implements OnInit {
   listaCategorias: Categoria[];
+  idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
-    private router: Router) { }
+    private router: Router,   private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((params:Params)=>{
+      this.idCurso = params.idCursos
+    })
   }
+
   modalCategoria(categoriasCurso:Categoria[], idCurso:number){
     if(categoriasCurso.length > 0){
       this.modal.open(ListadoCategoriasComponent,{
@@ -39,13 +44,15 @@ export class InicioComponent implements OnInit {
     });
     return this.listaCategorias;
   }
+
   irJuego(): void{
-    this.router.navigateByUrl('lista-juegos');
+    this.router.navigate(['cursos',this.idCurso,'juego']);
     
   } 
+
   irReto(): void{
-    this.router.navigateByUrl('lista-reto');
-    
+    this.router.navigate(['cursos',this.idCurso,'reto']);
+
   } 
 
 }

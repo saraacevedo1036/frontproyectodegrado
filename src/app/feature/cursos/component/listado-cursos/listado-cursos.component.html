@@ -5,7 +5,7 @@
     [colspan]="2"
     [rowspan]="1"
     >
-    <button mat-raised-button  (click)="irInicio()" >    {{curso.nombre}}
+    <button mat-raised-button  [routerLink]="['curso',curso.idCursos]" >    {{curso.nombre}}
     </button>
     </mat-grid-tile>
 </mat-grid-list>  
