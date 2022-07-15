@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contenido } from '../../shared/model/contenido.model';
 import { ContenidoService } from '../../shared/service/contenido.service';
 
@@ -20,7 +20,8 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
 
   constructor(
     private contenidoService: ContenidoService,
-    private activeRoute: ActivatedRoute) { }
+    private activeRoute: ActivatedRoute, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -52,7 +53,10 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
 
     });
   }
-  
+  postBlog(){
+    
+    this.router.navigate(['/post-blog']);
+  }
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
   }

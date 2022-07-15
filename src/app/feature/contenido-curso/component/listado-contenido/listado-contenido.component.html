@@ -8,4 +8,11 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+    
   </table>
+  <div>
+    <div class="pull-right">
+        <button id="agregar" mat-button (click)="postBlog()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+    </div>
+</div>
