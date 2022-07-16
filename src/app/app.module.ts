@@ -11,13 +11,15 @@ import { LoginModule } from './feature/login/login.module';
 import { CursosModule } from './feature/cursos/cursos.module';
 import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.module';
 import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.module';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.
     LoginModule,
     CursosModule,
     ContenidoCursoModule,
-    FuncionesCursoModule
+    FuncionesCursoModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
