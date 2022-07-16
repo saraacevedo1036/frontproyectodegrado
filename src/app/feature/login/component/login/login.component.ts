@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Autenticacion } from '../../shared/model/autenticacion.model';
 import { AutorizacionService } from '../../shared/service/autorizacion.service';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }); 
   autenticacion:Autenticacion = {};
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private autorizacionService: AutorizacionService,
     private router: Router) { 
       this.inicializarFormularioLogin();

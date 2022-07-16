@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Docente } from '../../shared/model/docente.model';
 import { Estudiante } from '../../shared/model/estudiante.model';
 import { DocenteService } from '../../shared/service/docente.service';
@@ -28,7 +28,7 @@ export class RegistroComponent implements OnInit {
   //estudiante: Estudiante;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private docenteService: DocenteService,
     private estudianteService:EstudianteService) {
       this.inicializarFormularioRegistro();

@@ -104,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "proyecto-de-grado"
+  "cli": {
+    "analytics": "f2328b67-9ac1-47cd-9c5d-86133dc33367"
+  }
 }
