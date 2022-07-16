@@ -13,6 +13,7 @@ import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.
 import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.module';
 import {   YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule } from '@angular/forms';
+import { BlogModule } from './feature/blog/blog.module';
 
 
 
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
+    
     
   ],
   imports: [
@@ -33,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     ContenidoCursoModule,
     FuncionesCursoModule,
     YouTubePlayerModule,
-    FormsModule
+    FormsModule,
+    BlogModule
     
   ],
   providers: [],
