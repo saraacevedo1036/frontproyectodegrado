@@ -14,6 +14,7 @@ import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.
 import {   YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule } from '@angular/forms';
 import { BlogModule } from './feature/blog/blog.module';
+import { UsuarioModule } from './feature/usuario/usuario.module';
 
 
 
@@ -36,6 +37,8 @@ import { BlogModule } from './feature/blog/blog.module';
     FuncionesCursoModule,
     YouTubePlayerModule,
     FormsModule,
+    BlogModule,
+    UsuarioModule,
     BlogModule
     
   ],

@@ -3,34 +3,30 @@
 
 <body>
 <h2>Nueva entrada</h2>
-<form action="Insertar Contenido" method="post" enctype="multipart/form-data" name="form1">
-<table >
-<tr>
-  <td>Comentario: 
-    <label for="campo_titulo"></label></td>
-  <td><input type="text" name="campo_titulo" id="campo_titulo"></td>
-  
-  
-  </tr>
-  <tr><td>Descripcion: 
-    <label for="area_comentarios"></label></td>
-    <td><textarea name="area_comentarios" id="area_comentarios" rows="10" cols="50"></textarea></td>
-    </tr>
-    <input type="hidden" name="MAX_TAM" value="2097152">
-    <tr>
-        <td>Url imagen: 
-          <label for="campo_imagen"></label></td>
-        <td><input type="text" name="campo_imagen" id="campo_imagen"></td>
-        </tr>
-    <tr>
-            <td>Url video: 
-              <label for="campo_video"></label></td>
-            <td><input type="text" name="campo_video" id="campo_video"></td>
-            </tr>
-    <input type="submit" name="btn_enviar"  id="btn_enviar" value="Enviar"  >
- 
-  
-  </table>
+<body>
+  <form class="contenedor" [formGroup]="formularioBlog"  >
+
+  <div class="login-box">
+   <div class="Principal">
+    <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
+      <label class="enunciadoPrincipal" for="titulo">Titulo</label>
+      <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
+      <label class="enunciadoPrincipal" for="descripcion">Descripción</label>
+      <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
+      <label class="enunciadoPrincipal" for="imagen">Imagen</label>
+      <input type="text" class="form-control" formControlName="imagen"  placeholder="Ingresa URL de la imagen" pInputText id="imagen" required="" >
+      <label class="enunciadoPrincipal" for="video">Video</label>
+      <input type="text" class="form-control" formControlName="video"  placeholder="Ingresa URL del video" pInputText id="video" required="" >
+      <label class="enunciadoPrincipal" for="categoria">Categoria</label>
+      <mat-select class="respuesta" placeholder="Categoria">
+        
+        <mat-option value="Opcion 1"> Opcion 1</mat-option>
+        <mat-option value="Opcion 2"> Opcion 2</mat-option>
+        <mat-option value="Opcion 3"> Opcion 3</mat-option>
+        <mat-option value="Opcion 4"> Opcion 4</mat-option>
+      </mat-select>
+    </div>
+  </div> 
 </form>
 <p>&nbsp;</p>
 

@@ -1,19 +1,62 @@
-body{
-    background-color:rgb(144, 140, 144);
+.preguntaTitulo{
+    text-align: center;
+    margin-top: 15px;
 }
+
 mat-form-field{
-    margin-left: 8px;
+    margin-left: 9%;
     margin-top: 30px;
     
+    
+}
+.enunciadoPrincipal{
+    margin-left: 5%;
+    margin-top: 10px;
+    
+}
+.form-control{
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 90%;
+    border-color: blueviolet;
 }
  #btnagregar {
     text-align: center;
 }
-#creajuego{
+.creajuego{
+    margin-top: 15px;
     text-align: center;
 }
 #guardar{
     border-radius: 40px;
     background-color: blueviolet;
     border-color: azure;
+}
+.imagen {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 83%;
+}
+.opcion1 {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 37%;
+}
+.opcion2 {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 37%;
+}
+.opcion3 {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 37%;
+}
+.pregunta {
+    width: 83%;
+    background-color: rgba(83, 81, 84, 0.967);
+}
+.opcion4 {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 37%;
+}
+.respuesta {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 83%;
 }

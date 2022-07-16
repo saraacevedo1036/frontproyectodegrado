@@ -50,5 +50,7 @@ export class ListadoCategoriasComponent implements OnInit {
       this.modalCat.open(CrearCategoriaComponent,{
         width: '450px'});
     }
+    
   }
+
 

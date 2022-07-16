@@ -1,1 +1,21 @@
 <p>docente works!</p>
+<body>
+    <form class="contenedor" [formGroup]="formularioUsuario"  >
+  
+    <div class="login-box">
+     
+      <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
+      <h1 id="creajuego">Crea tu Juego</h1>
+        <label for="titulo">Titulo</label>
+        <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
+        <label for="descripcion">Descripcion</label>
+        <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
+        <label for="Comentario">Comentario</label>
+        
+        <input type="text" class="form-control" formControlName="comentario"  placeholder="comentario" pInputText id="comentario"  required="" >
+        
+  </div>
+  </form>
+  
+  </body>
+  

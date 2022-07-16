@@ -2,55 +2,56 @@
   <form class="contenedor" [formGroup]="formularioJuego" (ngSubmit)="onSubmit()" >
 
   <div class="login-box">
-   
+   <div class="Principal">
     <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
-    <h1 id="creajuego">Crea tu Juego</h1>
-      <label for="titulo">Titulo</label>
+    <h1 class="creajuego">Crea tu Juego</h1>
+      <label class="enunciadoPrincipal" for="titulo">Titulo</label>
       <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
-      <label for="descripcion">Descripcion</label>
+      <label class="enunciadoPrincipal" for="descripcion">Descripcion</label>
       <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
-      <label for="Comentario">Comentario</label>
-      
+      <label class="enunciadoPrincipal" for="Comentario">Comentario</label>
       <input type="text" class="form-control" formControlName="comentario"  placeholder="comentario" pInputText id="comentario"  required="" >
-      
+    </div> 
      
       
  
   <div class="addPreguntaForm" [formGroup]="form">
     <ng-container formArrayName="preguntas">
-      <ng-container *ngFor="let preguntaForm of preguntas.controls; let i=index">
+      <ng-container class="preguntasborder" *ngFor="let preguntaForm of preguntas.controls; let i=index">
+        <h1 class="preguntaTitulo" >Pregunta {{i+1}}</h1>
         <div class="preguntaForm-row" [formGroup]="preguntaForm">
-          <mat-form-field appearance="fill">
+          <mat-form-field class="pregunta" appearance="fill">
             <input matInput 
             formControlName="pregunta" 
             placeholder="Pregunta">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="imagen" appearance="fill">
+
             <input matInput 
             formControlName="imagen" 
-            placeholder="imagen">
+            placeholder="Imagen">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="opcion1" appearance="fill">
             <input matInput 
             formControlName="opcion1" 
-            placeholder="opcion 1">
+            placeholder="Opción 1">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="opcion2" appearance="fill">
             <input matInput 
             formControlName="opcion2" 
-            placeholder="opcion 2">
+            placeholder="Opción 2">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="opcion3" appearance="fill">
             <input matInput 
             formControlName="opcion3" 
-            placeholder="opcion 3">
+            placeholder="Opción 3">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="opcion4" appearance="fill">
             <input matInput 
             formControlName="opcion4" 
-            placeholder="opcion 4">
+            placeholder="Opción 4">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field class="respuesta" appearance="fill">
             <mat-select placeholder="Respuesta">
               <mat-option value="Opcion 1"> Opcion 1</mat-option>
               <mat-option value="Opcion 2"> Opcion 2</mat-option>
@@ -61,7 +62,10 @@
             formControlName="opcion4" 
             >
           </mat-form-field>
-          <mat-icon  class="delete-btn" (click)="borrarPregunta(i)">delete_forever</mat-icon>
+          <a class="btn btn-danger" >
+            <mat-icon  class="delete-btn" (click)="borrarPregunta(i)"><i class="fa fa-trash-o fa-lg" (click)="borrarPregunta(i)"></i></mat-icon>
+          </a>
+            
         </div>
 
       </ng-container>
