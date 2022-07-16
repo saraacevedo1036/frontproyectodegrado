@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { Reto } from '../../shared/model/reto.model';
@@ -18,7 +18,8 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
   idCurso:number 
   listaRetos: Reto[] = [];
   constructor(private eventosService: EventosService,
-    private retoService: RetoService,  private activeRoute: ActivatedRoute, public modalJueg: MatDialog) { }
+    private retoService: RetoService,  private activeRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -33,11 +34,12 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
       console.log('Retos: ',  retos)
     });
   }
-  modalCrearJuego(){
+  
+  irCrearJuego(): void{
+    this.router.navigateByUrl('crear-juego');
     
-    this.modalJueg.open(CrearJuegoComponent,{
-      width: '450px'});
-  }
+    
+  } 
 
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();

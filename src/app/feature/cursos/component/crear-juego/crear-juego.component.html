@@ -1,24 +1,92 @@
+<body>
+  <form class="contenedor" [formGroup]="formularioJuego" (ngSubmit)="onSubmit()" >
 
-<h1 mat-dialog-title>Crear Juego</h1>
-<form >
-    <div class="form-group">
-        <label >Titulo</label>
-        <input type="text" class="form-control" id="categoria"  placeholder="Nombre">
-    </div>
-    <div class="form-group">
-        <label >Descripcion</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label >Comentario</label>
-        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
-    </div>
+  <div class="login-box">
+   
+    <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
+    <h1 id="creajuego">Crea tu Juego</h1>
+      <label for="titulo">Titulo</label>
+      <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
+      <label for="Comentario">Comentario</label>
+      
+      <input type="text" class="form-control" formControlName="comentario"  placeholder="comentario" pInputText id="comentario"  required="" >
+      
+     
+      
+ 
+  <div class="addPreguntaForm" [formGroup]="form">
+    <ng-container formArrayName="preguntas">
+      <ng-container *ngFor="let preguntaForm of preguntas.controls; let i=index">
+        <div class="preguntaForm-row" [formGroup]="preguntaForm">
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="pregunta" 
+            placeholder="Pregunta">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="imagen" 
+            placeholder="imagen">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="opcion1" 
+            placeholder="opcion 1">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="opcion2" 
+            placeholder="opcion 2">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="opcion3" 
+            placeholder="opcion 3">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput 
+            formControlName="opcion4" 
+            placeholder="opcion 4">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Respuesta">
+              <mat-option value="Opcion 1"> Opcion 1</mat-option>
+              <mat-option value="Opcion 2"> Opcion 2</mat-option>
+              <mat-option value="Opcion 3"> Opcion 3</mat-option>
+              <mat-option value="Opcion 4"> Opcion 4</mat-option>
+            </mat-select>
+            <input matInput 
+            formControlName="opcion4" 
+            >
+          </mat-form-field>
+          <mat-icon  class="delete-btn" (click)="borrarPregunta(i)">delete_forever</mat-icon>
+        </div>
+
+      </ng-container>
+
+    </ng-container>
+ <div id="btnagregar" >
+  
+  <button id="agregar" mat-mini-fab (click)="agregarPregunta()" >
+    <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-x" aria-hidden="true"></i></mat-icon>
+  </button>
+  <h1>Agregar pregunta</h1>
+</div>
+</div>
+<input type="submit" value="guardar">
+</div>
+<div>
+  <div class="pull-right">
+      <button id="volver" mat-button  >Volver</button>
+  </div>
+</div>
 </form>
-<div mat-dialog-actions>
-  <button id="volver" mat-button (click)="cerrarModal()">Volver</button>
-  
-<div style="position: relative; left: 55%; bottom: 0;">
-  <button id="agregar" ><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></button>
-</div>
-  
-</div>
+
+</body>
+
+
+
+
+

@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,7 +22,12 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule, 
     MatGridListModule,
     MatDialogModule,
-    MatTableModule, 
+    MatTableModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatIconModule,
+       
+
   ],
   exports:[
     MatToolbarModule, 
@@ -28,7 +36,10 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatGridListModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatIconModule,
   ]
 })
 export class MaterialModule { }

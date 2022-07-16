@@ -11,7 +11,8 @@ import { LoginModule } from './feature/login/login.module';
 import { CursosModule } from './feature/cursos/cursos.module';
 import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.module';
 import { FuncionesCursoModule } from './feature/funciones-curso/funciones-curso.module';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+import {   YouTubePlayerModule } from '@angular/youtube-player';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,7 +32,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CursosModule,
     ContenidoCursoModule,
     FuncionesCursoModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

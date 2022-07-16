@@ -18,6 +18,8 @@ import { PrincipalRetoComponent } from './component/principal-reto/principal-ret
 import { RetoService } from './shared/service/reto.service';
 import { CrearCategoriaComponent } from './component/crear-categoria/crear-categoria.component';
 import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,6 +39,9 @@ import { CrearJuegoComponent } from './component/crear-juego/crear-juego.compone
     CommonModule,
     CursosRoutingModule,
     MaterialModule,
+    YouTubePlayerModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     Ng2Webstorage.forRoot()
   ],

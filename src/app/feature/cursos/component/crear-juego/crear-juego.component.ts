@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventosService } from 'src/app/core/service/eventos.service';
 
@@ -9,13 +10,51 @@ import { EventosService } from 'src/app/core/service/eventos.service';
 })
 export class CrearJuegoComponent implements OnInit {
 
-  constructor(public modal: MatDialogRef<CrearJuegoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private eventosService: EventosService) { }
+  form = this.formBuilder.group({
+    preguntas: this.formBuilder.array([])
+  })
+  formularioJuego = this.formBuilder.group({
+    titulo:[''],
+    descripcion:[''],
+    comentario:['']
+  }); 
+
+  constructor(private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
   }
-  cerrarModal(): void{
-    this.modal.close();
+ 
+  inicializarFormularioLogin(){
+    this.formularioJuego = this.formBuilder.group({
+      titulo:['', Validators.required],
+      descripcion:['', Validators.required],
+      comentario:['', Validators.required]
+    });
+  }
+  onSubmit(){
+    this.agregarJuego();
+  }
+  agregarJuego(){
+
+  }
+  get preguntas(){
+    return this.form.controls["preguntas"] as FormArray;
+  }
+  agregarPregunta(){
+    const preguntaForm = this.formBuilder.group({
+      pregunta: ['', Validators. required],
+      imagen: ['', Validators. required],
+      opcion1: ['', Validators. required],
+      opcion2: ['', Validators. required],
+      opcion3: ['', Validators. required],
+      opcion4: ['', Validators. required],
+      respuesta: ['opcion 1',Validators.required]   });
+      this.preguntas.push(preguntaForm);
+
+
+  }
+  borrarPregunta(preguntaIndex:number){
+    this.preguntas.removeAt(preguntaIndex);
+
   }
 }

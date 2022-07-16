@@ -18,6 +18,7 @@ export class InicioComponent implements OnInit {
     private router: Router,   private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+   
 
     this.activeRoute.params.subscribe((params:Params)=>{
       this.idCurso = params.idCursos
