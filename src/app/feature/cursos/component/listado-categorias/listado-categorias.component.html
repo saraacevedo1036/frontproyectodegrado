@@ -1,15 +1,15 @@
-<h1 mat-dialog-title>Categorias</h1>
+<h1 id="categoria" mat-dialog-title>Categorias</h1>
 <div mat-dialog-content *ngFor="let categoria of data.categorias">
   <ul>
     <li>
       <h3> {{categoria.nombre}}</h3>
-      <button mat-raised-button color="primary" (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
+      <button id="irContenido" mat-raised-button color="primary" (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
     </li>
   </ul>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cerrarModal()">Cerrar</button>
-<div style="position: relative; left: 50%; bottom: 0;">
+<div style="position: relative; left: 65%; bottom: 0;">
   <button id="agregar" mat-button (click)="modalCrearCategoria()"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
 </div>
   

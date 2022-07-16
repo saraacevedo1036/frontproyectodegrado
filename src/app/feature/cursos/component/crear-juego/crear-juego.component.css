@@ -12,6 +12,8 @@ mat-form-field{
 #creajuego{
     text-align: center;
 }
-#volver{
-    background-color: aliceblue;
+#guardar{
+    border-radius: 40px;
+    background-color: blueviolet;
+    border-color: azure;
 }
