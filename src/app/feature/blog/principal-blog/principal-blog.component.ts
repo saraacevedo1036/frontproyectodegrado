@@ -83,7 +83,7 @@ export class PrincipalBlogComponent implements OnInit {
   guardarContenido(){
     this.contenidoService.guardarContenido(this.armarObjetoContenido())
     .subscribe(contenido =>{
-      console.log('Se guarda contenido', contenido)
+      console.log('Se guarda contenido:', contenido)
     });
   }
 
