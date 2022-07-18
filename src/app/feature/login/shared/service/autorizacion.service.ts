@@ -10,6 +10,10 @@ import { LocalStorageService } from 'ngx-webstorage';
   providedIn: 'root'
 })
 export class AutorizacionService {
+
+  ROLE_DOCENTE:string = "ROLE_DOCENTE"
+  ROLE_ESTUDIANTE:string = "ROLE_ESTUDIANTE"
+
   private endPoint = 'http://localhost:8080';
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
 
@@ -44,6 +48,14 @@ export class AutorizacionService {
     this.localStorageService.store('scope',data.scope);
     this.localStorageService.store('sub',data.sub);
    }
+
+   esRolDocente():boolean{
+    return  this.obtenerRol() === this.ROLE_DOCENTE;
+  }
+
+  esRolEstudiante():boolean{
+    return  this.obtenerRol() === this.ROLE_ESTUDIANTE;
+  }
 
    limpiarLocalStorage(): void{
      //Revisar si cambiar por IMsalService
