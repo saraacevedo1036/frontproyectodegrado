@@ -19,6 +19,7 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Contenido>([]);
 
   constructor(
+
     private contenidoService: ContenidoService,
     private activeRoute: ActivatedRoute, 
     private router: Router) { }
@@ -60,5 +61,6 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
   }
+  
 
 }

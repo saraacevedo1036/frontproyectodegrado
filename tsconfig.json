@@ -22,7 +22,9 @@
       "es2020",
       "dom"
     ],
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false, 
+    "strictNullChecks":false
+
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

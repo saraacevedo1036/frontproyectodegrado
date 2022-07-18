@@ -1,3 +1,5 @@
+
+
 <body>
   <form class="contenedor" [formGroup]="formularioJuego" (ngSubmit)="onSubmit()" >
 
@@ -15,7 +17,7 @@
      
       
  
-  <div class="addPreguntaForm" [formGroup]="form">
+  <div class="addPreguntaForm" [formGroup]="form" (ngSubmit)="onSbmit()">
     <ng-container formArrayName="preguntas">
       <ng-container class="preguntasborder" *ngFor="let preguntaForm of preguntas.controls; let i=index">
         <h1 class="preguntaTitulo" >Pregunta {{i+1}}</h1>
@@ -63,7 +65,7 @@
             >
           </mat-form-field>
           <a class="btn btn-danger" >
-            <mat-icon  class="delete-btn" (click)="borrarPregunta(i)"><i class="fa fa-trash-o fa-lg" (click)="borrarPregunta(i)"></i></mat-icon>
+            <mat-icon  class="delete-btn" (click)="borrarPregunta(i)"><i class="fa fa-trash-o fa-1x" aria-hidden="true"></i></mat-icon>
           </a>
             
         </div>
@@ -74,7 +76,7 @@
  <div id="btnagregar" >
   
   <button id="agregar" mat-mini-fab (click)="agregarPregunta()" >
-    <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-x" aria-hidden="true"></i></mat-icon>
+    <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></mat-icon>
   </button>
   <h1>Agregar pregunta</h1>
 </div>

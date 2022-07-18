@@ -1,1 +1,126 @@
-<p>estudiante works!</p>
+<section class="hero is-primary is-bold" >
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Crear estudiante
+        </h1>
+        
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <section class="section">
+      <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+        <div class="field">
+          <label class="label">Nombre</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input"
+            [class.is-danger]="nombreFieldInvalid"
+            [class.is-success]="nombreFieldValid" 
+             type="text" 
+             formControlName="nombre" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span *ngIf="nombreFieldInvalid" class="icon is-small is-right">
+                <i class="fas fa-times"></i>
+              </span>
+              <span *ngIf="nombreFieldValid" class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+          </div>
+          <p *ngIf="nombreFieldInvalid" class="help is-danger">Validar campo</p>
+        </div>
+        <div class="field">
+            <label class="label">Apellido</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" [class.is-danger]="apellidoFieldInvalid"
+              [class.is-success]="apellidoFieldValid"  type="text" formControlName="apellido" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span *ngIf="apellidoFieldInvalid" class="icon is-small is-right">
+                <i class="fas fa-times"></i>
+              </span>
+              <span *ngIf="apellidoFieldValid" class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+            </div>
+            <p *ngIf="apellidoFieldInvalid" class="help is-danger">Validar campo</p>
+        </div>
+        <div class="field">
+            <label class="label">Identificación</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input"
+              [class.is-danger]="identificacionFieldInvalid"
+             [class.is-success]="identificacionFieldValid" 
+              type="number" formControlName="identificacion" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span *ngIf="identificacionFieldInvalid" class="icon is-small is-right">
+                <i class="fas fa-times"></i>
+              </span>
+              <span *ngIf="identificacionFieldValid" class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+            </div>
+            <p *ngIf="identificacionFieldInvalid" class="help is-danger">Validar campo</p>
+        </div>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input"
+              [class.is-danger]="emailFieldInvalid"
+              [class.is-success]="emailFieldValid" 
+              type="email" 
+              formControlName="email" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-at"></i>
+              </span>
+              <span *ngIf="emailFieldInvalid" class="icon is-small is-right">
+                <i class="fas fa-times"></i>
+              </span>
+              <span *ngIf="emailFieldValid" class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+            </div>
+            
+            <p *ngIf="emailFieldInvalid" class="help is-danger">Validar correo</p>
+            
+          </div>
+        <div class="field">
+            <label class="label">Contraseña</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input"
+              [class.is-danger]="passwordFieldInvalid"
+              [class.is-success]="passwordFieldValid" 
+              type="password" formControlName="password" />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+              <span *ngIf="passwordFieldInvalid" class="icon is-small is-right">
+                <i class="fas fa-times"></i>
+              </span>
+              <span *ngIf="passwordFieldValid" class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+            </div>
+            <p *ngIf="passwordFieldInvalid" class="help is-danger">Validar contraseña</p>
+        </div>
+       
+
+        
+        
+        
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+          </div>
+          <div class="control">
+            <button class="button is-light" type="reset">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>

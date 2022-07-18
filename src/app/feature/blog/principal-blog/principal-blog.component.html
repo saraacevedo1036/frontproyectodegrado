@@ -18,12 +18,10 @@
       <label class="enunciadoPrincipal" for="video">Video</label>
       <input type="text" class="form-control" formControlName="video"  placeholder="Ingresa URL del video" pInputText id="video" required="" >
       <label class="enunciadoPrincipal" for="categoria">Categoria</label>
-      <mat-select class="respuesta" placeholder="Categoria">
+      <mat-select  class="respuesta" placeholder="Categoria">
+        <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
+        <mat-option  *ngFor="let categoria of listaCategorias" [value]="categoria.nombre"> {{categoria.nombre}}</mat-option>
         
-        <mat-option value="Opcion 1"> Opcion 1</mat-option>
-        <mat-option value="Opcion 2"> Opcion 2</mat-option>
-        <mat-option value="Opcion 3"> Opcion 3</mat-option>
-        <mat-option value="Opcion 4"> Opcion 4</mat-option>
       </mat-select>
     </div>
   </div> 

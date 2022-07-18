@@ -19,7 +19,7 @@ export class CrearJuegoComponent implements OnInit {
     comentario:['']
   }); 
 
-  constructor(private formBuilder: UntypedFormBuilder) { }
+  constructor( private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -31,9 +31,26 @@ export class CrearJuegoComponent implements OnInit {
       comentario:['', Validators.required]
     });
   }
+  save() {
+    
+    if (this.formularioJuego.valid  ) {
+      const value = this.formularioJuego.value;
+      console.log(value);
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
   onSubmit(){
+    const value = this.formularioJuego.value;
+      console.log(value);
     this.agregarJuego();
   }
+  onSbmit(){
+    const value = this.form.value;
+      console.log(value);
+    this.agregarJuego();
+  }
+  
   agregarJuego(){
 
   }
@@ -57,4 +74,7 @@ export class CrearJuegoComponent implements OnInit {
     this.preguntas.removeAt(preguntaIndex);
 
   }
+ 
+  
+  
 }

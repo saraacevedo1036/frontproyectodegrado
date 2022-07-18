@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './core/guard/login.guard';
+import { SegurityGuard } from './core/guard/segurity-guard.service';
 import { RegistrosBlogComponent } from './feature/blog/registros-blog/registros-blog.component';
 import { JuegoCursoComponent } from './feature/cursos/component/juego-curso/juego-curso.component';
 import { ListadoCursosComponent } from './feature/cursos/component/listado-cursos/listado-cursos.component';
@@ -9,9 +10,13 @@ import { PrincipalRetoComponent } from './feature/cursos/component/principal-ret
 import { RetoCursoComponent } from './feature/cursos/component/reto-curso/reto-curso.component';
 import { LoginComponent } from './feature/login/component/login/login.component';
 import { RegistroComponent } from './feature/registro/component/registro/registro.component';
+import { DocenteComponent } from './feature/usuario/component/docente/docente.component';
+import { EstudianteComponent } from './feature/usuario/component/estudiante/estudiante.component';
 
 const routes: Routes = [
-  
+
+   {path:'crearDocente',component: DocenteComponent,canActivate: [SegurityGuard]},
+   {path:'crearEstudiante',component: EstudianteComponent,canActivate: [SegurityGuard]},
   {path:'home',component: ListadoCursosComponent,canActivate: [LoginGuard]},
   {path: 'reto', component: RetoCursoComponent },
   {path: 'juego', component: JuegoCursoComponent },

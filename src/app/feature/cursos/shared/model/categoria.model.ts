@@ -1,5 +1,5 @@
 export interface Categoria{
-    idCategoriaContenido: number;
+    idCategoriaContenido?: number;
     idPregunta?: number;
     nombre: string;
 }

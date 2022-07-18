@@ -10,6 +10,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import {MatError, MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     MatOptionModule,
     MatIconModule,
+    MatFormFieldModule,
        
 
   ],
@@ -40,6 +42,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     MatOptionModule,
     MatIconModule,
+    MatError
   ]
 })
 export class MaterialModule { }

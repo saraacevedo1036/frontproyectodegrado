@@ -41,6 +41,12 @@ export class ListadoCategoriasComponent implements OnInit {
    
     this.modal.close();
   } 
+  crearContenido(): void{
+    this.router.navigateByUrl('crear-contenido');
+    
+   
+    this.modal.close();
+  } 
 
   cerrarModal(): void{
     this.modal.close();

@@ -8,14 +8,14 @@
     <button  mat-raised-button  [routerLink]="['curso',curso.idCursos]" >    {{curso.nombre}}
     </button>
     <mat-grid-tile-footer>
-      {{curso.nombre}}
+     Grado   {{curso.grado}}
 
   </mat-grid-tile-footer>
     </mat-grid-tile>
 </mat-grid-list>  
 <div>
   <div class="pull-right">
-      <button ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+      <button (click)="modalCrearCurso()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
   </div>
 </div>
 </body>

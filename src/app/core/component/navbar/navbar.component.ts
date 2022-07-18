@@ -39,13 +39,12 @@ export class NavbarComponent implements OnInit {
   }
 
   crearDocente(){
-    this.autorizacionService.limpiarLocalStorage();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/crearDocente']);
   }
 
   crearEstudiante(){
     
-    this.router.navigate(['/CrearEstudiante']);
+    this.router.navigate(['/crearEstudiante']);
   }
 
 }

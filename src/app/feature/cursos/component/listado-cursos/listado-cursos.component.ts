@@ -5,6 +5,7 @@ import { Categoria } from '../../shared/model/categoria.model';
 import { Curso } from '../../shared/model/curso.model';
 import { CategoriaService } from '../../shared/service/categoria.service';
 import { CursoService } from '../../shared/service/curso.service';
+import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
 import { ListadoCategoriasComponent } from '../listado-categorias/listado-categorias.component';
 
 @Component({
@@ -18,7 +19,7 @@ export class ListadoCursosComponent implements OnInit {
   listaCategorias: Categoria[] = []; 
   listaCursos: Curso[] = []; 
   constructor(private cursoService: CursoService,private router: Router,
-    private categoriaService:CategoriaService, public modal: MatDialog
+    private categoriaService:CategoriaService, public modal: MatDialog,public modalCur: MatDialog
     ) { }
 
   ngOnInit(): void {
@@ -39,5 +40,12 @@ export class ListadoCursosComponent implements OnInit {
     this.router.navigateByUrl('inicio');
     
   } 
+  modalCrearCurso(){
+    
+    this.modalCur.open(CrearCursoComponent,{
+      width: '450px'});
+  }
+  
+
 
 }
