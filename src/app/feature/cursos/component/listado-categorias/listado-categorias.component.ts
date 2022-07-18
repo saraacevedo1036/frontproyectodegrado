@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { CrearCategoriaComponent } from '../crear-categoria/crear-categoria.component';
 @Component({
@@ -20,7 +20,6 @@ export class ListadoCategoriasComponent implements OnInit {
   ngOnInit(): void {
     console.log('Información enviada categorias',this.data.categorias)
     console.log('Información enviada curso id: ',this.data.idCurso)
-
   }
 
   irAContenido(idCategoria: number){
@@ -42,9 +41,8 @@ export class ListadoCategoriasComponent implements OnInit {
     this.modal.close();
   } 
   crearContenido(): void{
-    this.router.navigateByUrl('crear-contenido');
+    this.router.navigate(['crear-contenido',this.data.idCurso]);
     
-   
     this.modal.close();
   } 
 

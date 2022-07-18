@@ -2,9 +2,9 @@
 
 
 <body>
-<h2>Nueva entrada</h2>
+<h2>Agregar contenido</h2>
 <body>
-  <form class="contenedor" [formGroup]="formularioBlog"  >
+  <form class="contenedor" [formGroup]="formularioBlog" (ngSubmit)="onSbmit()" >
 
   <div class="login-box">
    <div class="Principal">
@@ -18,13 +18,21 @@
       <label class="enunciadoPrincipal" for="video">Video</label>
       <input type="text" class="form-control" formControlName="video"  placeholder="Ingresa URL del video" pInputText id="video" required="" >
       <label class="enunciadoPrincipal" for="categoria">Categoria</label>
-      <mat-select  class="respuesta" placeholder="Categoria">
-        <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
-        <mat-option  *ngFor="let categoria of listaCategorias" [value]="categoria.nombre"> {{categoria.nombre}}</mat-option>
-        
-      </mat-select>
+      <mat-form-field>
+        <mat-select  class="respuesta" placeholder="Categoria" formControlName="categoria" >
+          <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
+          <mat-option  *ngFor="let categoria of listaCategorias"  [value]="categoria"> {{categoria.nombre}}</mat-option>
+          
+        </mat-select>
+      </mat-form-field>
+
     </div>
   </div> 
+  <div>
+    <div class="pull-right">
+      <input id="guardar" type="submit" value="guardar">
+    </div>
+  </div>
 </form>
 <p>&nbsp;</p>
 

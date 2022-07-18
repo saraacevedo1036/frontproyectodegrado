@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EventosService } from 'src/app/core/service/eventos.service';
 
@@ -9,12 +9,12 @@ import { EventosService } from 'src/app/core/service/eventos.service';
   styleUrls: ['./crear-curso.component.css']
 })
 export class CrearCursoComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
 
   constructor(public modal: MatDialogRef<CrearCursoComponent>,
     private eventosService: EventosService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
     ) { 
       this.buildForm();
     }

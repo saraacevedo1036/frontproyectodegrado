@@ -1,6 +1,9 @@
 import { Component,  OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
+import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
 import { CrearCategoriaComponent } from '../../cursos/component/crear-categoria/crear-categoria.component';
 import { Categoria } from '../../cursos/shared/model/categoria.model';
 import { CategoriaService } from '../../cursos/shared/service/categoria.service';
@@ -11,31 +14,43 @@ import { CategoriaService } from '../../cursos/shared/service/categoria.service'
   styleUrls: ['./principal-blog.component.css']
 })
 export class PrincipalBlogComponent implements OnInit {
-  listaCategorias:Categoria[]
+
+  idCurso:number;
+  listaCategorias:Categoria[] = [];
 
   formularioBlog = this.formBuilder.group({
     titulo:[''],
     descripcion:[''],
     imagen:[''],
-    video:['']
+    video:[''],
+    categoria:['']
   }); 
 
   constructor(private categoriaService:CategoriaService,
     private formBuilder: UntypedFormBuilder,
-    public modalCat: MatDialog
+    public modalCat: MatDialog,
+    private activeRoute: ActivatedRoute,
+    private contenidoService:ContenidoService
      ) { }
 
   ngOnInit(): void {
-    this.obtenerListadoCategorias(1)
-
+    this.activeRoute.params.subscribe((params:Params)=>{
+      this.idCurso = params.idCurso
+      this.obtenerListadoCategorias(this.idCurso);
+    });
+   
   }
+
   inicializarFormularioLogin(){
     this.formularioBlog = this.formBuilder.group({
       titulo:['', Validators.required],
       descripcion:['', Validators.required],
       imagen:['', Validators.required],
-      video:['', Validators.required]    });
+      video:['', Validators.required],
+      categoria:['',Validators.required]
+        });
   }
+
   obtenerListadoCategorias(idCurso: number): Categoria[]{
     this.categoriaService.listarCategoriasPorIdCurso(idCurso).subscribe((data)=>{
       if(data.length > 0){
@@ -47,11 +62,39 @@ export class PrincipalBlogComponent implements OnInit {
     });
     return this.listaCategorias;
   }
+
   modalCrearCategoria(){
     
     this.modalCat.open(CrearCategoriaComponent,{
       width: '450px'});
   }
   
+  armarObjetoContenido(): Contenido{
+    return {
+      idCategoriaContenido: this.formularioBlog.controls.categoria.value.idCategoriaContenido,
+      idCurso: this.idCurso,
+      comentario: this.formularioBlog.controls.titulo.value,
+      descripcion:  this.formularioBlog.controls.descripcion.value,
+      imagen:  this.formularioBlog.controls.imagen.value,
+      video:  this.formularioBlog.controls.video.value
+      };
+  }
+
+  guardarContenido(){
+    this.contenidoService.guardarContenido(this.armarObjetoContenido())
+    .subscribe(contenido =>{
+      console.log('Se guarda contenido', contenido)
+    });
+  }
+
+  //Obtener id categoria a partir de nombre
+  obtenerIdCategoriaSeleccionada(): number{
+    return  this.listaCategorias.find(categoria => categoria.nombre ==
+       this.formularioBlog.controls.categoria.value).idCategoriaContenido;
+  }
+
+  onSbmit(){
+    this.guardarContenido();
+  }
 
 }

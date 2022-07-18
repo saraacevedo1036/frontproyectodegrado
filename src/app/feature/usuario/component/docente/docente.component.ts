@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import { MyValidators } from 'src/app/utils/my-validations';
 
@@ -11,9 +11,9 @@ import { MyValidators } from 'src/app/utils/my-validations';
   styleUrls: ['./docente.component.css']
 })
 export class DocenteComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.buildForm();
    }
 

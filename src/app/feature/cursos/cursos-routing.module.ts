@@ -11,7 +11,7 @@ import { PrincipalRetoComponent } from './component/principal-reto/principal-ret
 
 const routes: Routes = [  
   {path:'crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard]},
-  {path:'crear-contenido', component:PrincipalBlogComponent , canActivate: [SegurityGuard]},
+  {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard]},
   {path:'listado-cursos/curso/:idCursos', component: InicioComponent, canActivate: [SegurityGuard]},
   {path:'crear-categoria', component: CrearCategoriaComponent, canActivate: [SegurityGuard]},
   {path:'listado-contenido/curso/:idCurso/categoria/:idCategoria', component: ListadoContenidoComponent, canActivate: [SegurityGuard]},

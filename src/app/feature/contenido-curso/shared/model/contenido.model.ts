@@ -1,5 +1,5 @@
 export interface Contenido{
-    idCursoContenido: number,
+    idCursoContenido?: number,
     idCategoriaContenido: number,
     idCurso: number,
     comentario: string,

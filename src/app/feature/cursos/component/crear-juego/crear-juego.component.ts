@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventosService } from 'src/app/core/service/eventos.service';
 
@@ -55,7 +55,7 @@ export class CrearJuegoComponent implements OnInit {
 
   }
   get preguntas(){
-    return this.form.controls["preguntas"] as FormArray;
+    return this.form.controls["preguntas"] as UntypedFormArray;
   }
   agregarPregunta(){
     const preguntaForm = this.formBuilder.group({
