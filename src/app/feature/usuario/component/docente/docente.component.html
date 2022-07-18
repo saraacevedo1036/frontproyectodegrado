@@ -115,18 +115,22 @@
                 <div class="control has-icons-left has-icons-right">
                 <input class="input"
                 type="password" formControlName="password2" /> 
+                
                 <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
-                  <span *ngIf="password2FieldInvalid" class="icon is-small is-right">
-                    <i class="fas fa-times"></i>
-                  </span>
                   
                 </div>
-                
-               
-                
         </div>
+        <div *ngIf="form.get('password2').touched && form.errors " >
+          <h1 *ngIf="form.hasError('match_password')">
+            No hace match
+          </h1>
+        </div>
+          
+        
+         
+        
 
         
         

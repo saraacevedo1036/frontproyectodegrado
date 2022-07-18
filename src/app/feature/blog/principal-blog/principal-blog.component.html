@@ -11,12 +11,21 @@
     <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
       <label class="enunciadoPrincipal" for="titulo">Titulo</label>
       <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
+      
       <label class="enunciadoPrincipal" for="descripcion">Descripción</label>
       <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
       <label class="enunciadoPrincipal" for="imagen">Imagen</label>
       <input type="text" class="form-control" formControlName="imagen"  placeholder="Ingresa URL de la imagen" pInputText id="imagen" required="" >
       <label class="enunciadoPrincipal" for="video">Video</label>
       <input type="text" class="form-control" formControlName="video"  placeholder="Ingresa URL del video" pInputText id="video" required="" >
+      <div class="verVideo" *ngIf="formularioBlog.get('video')?.touched" >
+        <div class=" verVideo">
+          <h2 class="tituloVideo">Previsualización del video</h2>
+          
+        <youtube-player videoId="{{verVideo()}}" suggestedQuality="highres" [height]="250" [width]="500" 
+        [startSeconds]="4" >
+        </youtube-player>
+    </div></div>
       <label class="enunciadoPrincipal" for="categoria">Categoria</label>
       <mat-form-field>
         <mat-select  class="respuesta" placeholder="Categoria" formControlName="categoria" >
