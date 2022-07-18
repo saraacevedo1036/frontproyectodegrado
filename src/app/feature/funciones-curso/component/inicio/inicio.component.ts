@@ -16,7 +16,7 @@ export class InicioComponent implements OnInit {
   idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
-    private router: Router,   private activeRoute: ActivatedRoute
+    private router: Router,   private activeRoute: ActivatedRoute, protected autorizacionService: AutorizacionService 
     ) { }
 
   ngOnInit(): void {
@@ -58,4 +58,9 @@ export class InicioComponent implements OnInit {
     this.router.navigate(['cursos',this.idCurso,'reto']);
 
   } 
+  validarRol(){
+    console.log(this.autorizacionService.esRolDocente())
+    return this.autorizacionService.esRolDocente()
+
+  }
 }

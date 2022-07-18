@@ -1,5 +1,6 @@
 
 export interface Docente{
+    idDocente?: number;
     nombre:string;
     apellido:string;
     identificacion:number;
