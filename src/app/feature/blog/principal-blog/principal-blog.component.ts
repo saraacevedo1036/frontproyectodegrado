@@ -95,6 +95,9 @@ export class PrincipalBlogComponent implements OnInit {
   verVideo(){
     return this.formularioBlog.controls.video.value
   }
+  verImagen(){
+    return this.formularioBlog.controls.imagen.value
+  }
 
   onSbmit(){
     this.guardarContenido();
