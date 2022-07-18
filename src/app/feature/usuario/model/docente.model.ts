@@ -5,6 +5,6 @@ export interface Docente{
     identificacion:number;
     correo:String;
     contrasena:string;
-    estado: Boolean; 
+    estado: boolean; 
    
 }
