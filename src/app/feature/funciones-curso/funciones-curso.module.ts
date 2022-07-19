@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { FuncionesCursoRoutingModule } from './funciones-curso-routing.module';
 import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
+import { MaterialModule } from '../material/material.module';
+import { InicioComponent } from './component/inicio/inicio.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InicioComponent
+  ],
   imports: [
     CommonModule,
     FuncionesCursoRoutingModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    MaterialModule
   ]
 })
 export class FuncionesCursoModule { }

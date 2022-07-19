@@ -1,7 +1,7 @@
 
 
 <body>
-  <form class="contenedor" [formGroup]="formularioJuego" (ngSubmit)="onSubmit()" >
+  <form class="contenedor" [formGroup]="formularioJuego" >
 
   <div class="login-box">
    <div class="Principal">
@@ -17,7 +17,7 @@
      
       
  
-  <div class="addPreguntaForm" [formGroup]="form" (ngSubmit)="onSbmit()">
+  <div class="addPreguntaForm" [formGroup]="form">
     <ng-container formArrayName="preguntas">
       <ng-container class="preguntasborder" *ngFor="let preguntaForm of preguntas.controls; let i=index">
         <h1 class="preguntaTitulo" >Pregunta {{i+1}}</h1>
@@ -85,11 +85,10 @@
 </div>
 <div>
   <div class="pull-right">
-    <input id="guardar" type="submit" value="guardar">
+    <button mat-flat-button color="accent" value="guardar" (click)="guardar()"> Guardar</button>
   </div>
 </div>
 </form>
-
 </body>
 
 

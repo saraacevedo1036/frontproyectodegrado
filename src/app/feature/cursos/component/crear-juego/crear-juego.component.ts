@@ -13,6 +13,7 @@ export class CrearJuegoComponent implements OnInit {
   form = this.formBuilder.group({
     preguntas: this.formBuilder.array([])
   })
+
   formularioJuego = this.formBuilder.group({
     titulo:[''],
     descripcion:[''],
@@ -40,23 +41,24 @@ export class CrearJuegoComponent implements OnInit {
       this.form.markAllAsTouched();
     }
   }
-  onSubmit(){
+
+  guardar(){
     const value = this.formularioJuego.value;
-      console.log(value);
-    this.agregarJuego();
-  }
-  onSbmit(){
-    const value = this.form.value;
-      console.log(value);
+      console.log('RETO: ',value);
+    const valuePre = this.form.value;
+      console.log('Preguntas: ',valuePre)
+
     this.agregarJuego();
   }
   
   agregarJuego(){
 
   }
+
   get preguntas(){
     return this.form.controls["preguntas"] as UntypedFormArray;
   }
+
   agregarPregunta(){
     const preguntaForm = this.formBuilder.group({
       pregunta: ['', Validators. required],
@@ -65,11 +67,14 @@ export class CrearJuegoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
-      respuesta: ['opcion 1',Validators.required]   });
+      respuesta: ['opcion 1',Validators.required]  
+     });
+
       this.preguntas.push(preguntaForm);
 
 
   }
+
   borrarPregunta(preguntaIndex:number){
     this.preguntas.removeAt(preguntaIndex);
 

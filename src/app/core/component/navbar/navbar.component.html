@@ -7,5 +7,5 @@
      <a mat-button >Login</a>
      <a mat-button (click)="logout()">Logout</a>
      <a mat-button *ngIf="puedeVisualizar()" (click)="crearDocente()">Crear docente</a>
-     <a mat-button *ngIf="puedeVisualizar()" (click)="crearEstudiante()">Crear Estudiante</a>
+     <a mat-button (click)="crearEstudiante()">Crear Estudiante</a>
 </mat-toolbar>

@@ -12,16 +12,18 @@ import { AutorizacionService } from 'src/app/feature/login/shared/service/autori
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  esRolDocente: boolean = false
   listaCategorias: Categoria[];
   idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
-    private router: Router,   private activeRoute: ActivatedRoute, protected autorizacionService: AutorizacionService 
+    private router: Router,   private activeRoute: ActivatedRoute,
+     protected autorizacionService: AutorizacionService 
     ) { }
 
   ngOnInit(): void {
    
-
+    this.validarRol();
     this.activeRoute.params.subscribe((params:Params)=>{
       this.idCurso = params.idCursos
     })
@@ -58,9 +60,11 @@ export class InicioComponent implements OnInit {
     this.router.navigate(['cursos',this.idCurso,'reto']);
 
   } 
+
   validarRol(){
+    this.esRolDocente = true;
     console.log(this.autorizacionService.esRolDocente())
-    return this.autorizacionService.esRolDocente()
+   // return this.autorizacionService.esRolDocente()
 
   }
 }

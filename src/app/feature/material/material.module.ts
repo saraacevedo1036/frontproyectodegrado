@@ -27,7 +27,7 @@ import {MatError, MatFormFieldModule} from '@angular/material/form-field';
     MatSelectModule,
     MatOptionModule,
     MatIconModule,
-    MatFormFieldModule,
+    MatFormFieldModule
        
 
   ],
