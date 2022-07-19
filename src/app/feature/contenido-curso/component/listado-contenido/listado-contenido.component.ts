@@ -12,9 +12,9 @@ import { ContenidoService } from '../../shared/service/contenido.service';
 export class ListadoContenidoComponent implements OnInit, OnDestroy {
 
   listaContenidos: Contenido[] = []; 
-  displayedColumns : string [] = [ 'descripcion'];
   idCurso:number;
   idCategoria:number;
+  idCursoContenido:number;
   //@ViewChild(MatTable) table: MatTable<>;
   dataSource = new MatTableDataSource<Contenido>([]);
 
@@ -25,19 +25,10 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe((params:Params)=>{
-      this.idCurso = params.idCurso;
-      this.idCategoria = params.idCategoria;
-      this.obtenerlistadoContenido(this.idCategoria, this.idCurso);
-    });
+   
   }
 
- /* inicializarSuscripciones(){
-    this.eventosService.disparador.pipe(take(1)).subscribe(data =>{
-      this.obtenerlistadoContenido(data);
-      console.log('Recibiendo data:', data)
-    })
-  }*/
+ 
 
   obtenerlistadoContenido(idCategoria:number, idCurso:number){
     this.contenidoService.listarContenidoPorIdCategoriaYIdCurso(idCategoria, idCurso)
