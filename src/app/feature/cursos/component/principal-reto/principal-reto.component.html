@@ -1,5 +1,15 @@
 <body>
-    <p>Retos</p>
+    <section class="hero is-primary is-bold" >
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+                Retos
+            </h1>
+            
+          </div>
+        </div>
+      </section>
+    
     <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px" >
         <mat-grid-tile *ngFor="let reto of listaRetos"
         [colspan]="2"
@@ -15,7 +25,7 @@
     </mat-grid-list>  
     <div>
         <div class="pull-right">
-            <button mat-button (click)="irCrearReto()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+            <button mat-flat-button color="accent" (click)="irCrearReto()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
         </div>
     </div>
 </body>
