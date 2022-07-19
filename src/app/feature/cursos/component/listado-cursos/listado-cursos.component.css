@@ -43,3 +43,10 @@ mat-grid-title{
     
     background-color:rgb(32, 168, 213);
 }
+.container{
+  align-items: center;
+  text-align: center;
+}
+.title{
+  font-size: 40px;
+}
