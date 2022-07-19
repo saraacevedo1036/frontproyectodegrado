@@ -5,6 +5,6 @@ export interface Estudiante{
     identificacion:number;
     correo:String;
     contrasena:string;
-    estado: Boolean; 
+    estado: boolean; 
    
 }

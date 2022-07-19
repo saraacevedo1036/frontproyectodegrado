@@ -14,10 +14,12 @@ export class EstudianteService {
 
   
   listarDocente(){
-    return this.httpClient.get<Estudiante[]>(`docente`);
+    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/estudiante`);
   }
 
-  guardarestudiante(estudiante:Estudiante):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`estudiante/save`, estudiante);
+  guardarDocente(docente:Estudiante):Observable<Boolean>{
+    return this.httpClient.post<Boolean>(`${this.endPoint}/estudiante/save`, docente);
   }
+  
 }
+

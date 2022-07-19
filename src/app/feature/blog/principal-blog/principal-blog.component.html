@@ -14,16 +14,9 @@
       <div class="field">
         <label class="label">Titulo</label>
         <div class="control has-icons-left has-icons-right">
-          <input class="input"
-           type="text" 
-           formControlName="titulo" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Descripción:</label>
-        <div class="control">
-          <textarea class="textarea" cols="30" rows="10" formControlName="descripcion"></textarea>
-          {{ formularioBlog.get('descripcion').value.length }}/1000
+            <input class="input"
+            type="text" 
+            formControlName="titulo" />
         </div>
       </div>
       <div class="field">
@@ -36,44 +29,83 @@
       <div class=" verImagen">
         <div class="verImagen" *ngIf="formularioBlog.get('imagen')?.touched" >
         
-        <h2 class="tituloVideo">Previsualización de la imagen</h2>
+          <h2 class="tituloVideo">Previsualización de la imagen</h2>
         
-        <img src="{{verImagen()}}" alt="Image" class="img-fluid" [height]="250" [width]="500">
+          <img src="{{verImagen()}}" alt="Image" class="img-fluid" [height]="250" [width]="500">
         </div>
       </div>
-      
       <div class="field">
-        <label class="label">Video</label>
+        <label class="label">Descripción:</label>
+        <div class="control">
+            <textarea class="textarea" cols="30" rows="10" formControlName="descripcion"></textarea>
+            {{ formularioBlog.get('descripcion').value.length }}/1000
+        </div>
+      </div>
+      <div class="field">
+          <label class="label">Video</label>
         <div class="control has-icons-left has-icons-right">
-          <input class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
-          
+            <input class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
+            
         </div>  
       </div>
       <div class=" verVideo">
         <div class="verVideo" *ngIf="formularioBlog.get('video')?.touched" >
-        
-        <h2 class="tituloVideo">Previsualización del video</h2>
-        
-          <youtube-player videoId="{{verVideo()}}" suggestedQuality="highres" [height]="250" [width]="500" 
-          [startSeconds]="4" >
-          </youtube-player>
+          
+          <h2 class="tituloVideo">Previsualización del video</h2>
+          
+            <youtube-player videoId="{{verVideo()}}" suggestedQuality="highres" [height]="250" [width]="500" 
+            [startSeconds]="4" >
+            </youtube-player>
         </div>
       </div>
-  <label class="enunciadoPrincipal" for="categoria">Categoria</label>
-      <mat-form-field>
-        <mat-select  class="respuesta" placeholder="Categoria" formControlName="categoria" >
-          <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
-          <mat-option  *ngFor="let categoria of listaCategorias"  [value]="categoria"> {{categoria.nombre}}</mat-option>
+        <div>
+          <div class="field">
+            <label class="label">Categoria:</label>
+            <div class="control">
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="crearCategoria"
+                  formControlName="crearCategoria"
+                  value="true"
+                />
+                Crear nueva categoria
+              </label>
+              
+              <div  >
+                <label class="enunciadoPrincipal"  for="categoria">Elegir categoria existente</label>
+                  <mat-form-field>
+                    <mat-select disabled="{{formularioBlog.get('crearCategoria')?.touched}}"  class="respuesta" placeholder="Categoria" formControlName="categoria" >
+                      <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
+                      <mat-option  *ngFor="let categoria of listaCategorias"  [value]="categoria"> {{categoria.nombre}}</mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+              </div>
+              <div *ngIf="formularioBlog.get('crearCategoria')?.touched" >
+                
+                
+                <div id="escoge crear categoria" >
+                  <div class="field">
+                    <label class="label">Ingresa el nombre de la nueva categoria</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input"
+                        type="text" 
+                        formControlName="categoria" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+                
+            </div>
+          </div>
           
-        </mat-select>
-      </mat-form-field>
-
-       <div>
-    <div class="pull-right">
-      <button color="primary" id="guardar" type="submit" value="guardar"> guardar</button>
+      <div class="pull-right">
+        <button mat-flat-button color="accent" id="guardar" type="submit" value="guardar"> guardar</button>
+      </div>
     </div>
-  </div>
-          </form>
+    </form>
   </section>
 </div>
 

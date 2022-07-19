@@ -23,7 +23,8 @@ export class PrincipalBlogComponent implements OnInit {
     descripcion:[''],
     imagen:[''],
     video:[''],
-    categoria:['']
+    categoria:[''],
+    crearCategoria:['']
   }); 
 
   constructor(private categoriaService:CategoriaService,
@@ -47,7 +48,8 @@ export class PrincipalBlogComponent implements OnInit {
       descripcion:['', Validators.required],
       imagen:['', Validators.required],
       video:['', Validators.required],
-      categoria:['',Validators.required]
+      categoria:['',Validators.required],
+      crearCategoria:['']
         });
   }
 
@@ -85,6 +87,14 @@ export class PrincipalBlogComponent implements OnInit {
     .subscribe(contenido =>{
       console.log('Se guarda contenido:', contenido)
     });
+  }
+  validarCategoria(){
+    if(this.formularioBlog.controls.crearCategoria.value===true){
+      return true
+
+    }else{
+      return false
+    }
   }
 
   //Obtener id categoria a partir de nombre

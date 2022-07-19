@@ -2,7 +2,7 @@
 <div mat-dialog-content *ngFor="let categoria of data.categorias">
   <ul>
     <li>
-      <h3> {{categoria.nombre}}</h3>
+      <h3> Categoria:   {{categoria.nombre}}</h3>
       <button id="irContenido" mat-raised-button color="primary" (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
     </li>
   </ul>

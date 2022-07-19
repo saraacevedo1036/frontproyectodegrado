@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MyValidators } from 'src/app/utils/my-validations';
+import { Estudiante } from '../../model/estudiante.model';
+import { EstudianteService } from '../../service/estudiante.service';
 
 @Component({
   selector: 'app-estudiante',
@@ -9,7 +11,7 @@ import { MyValidators } from 'src/app/utils/my-validations';
 })
 export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
   
-  constructor(private formBuilder: UntypedFormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder ,private estudianteService:EstudianteService ) {
     this.buildForm();
    }
 
@@ -33,6 +35,7 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
       event.preventDefault();
       if (this.form.valid) {
         const value = this.form.value;
+        this.guardarEstudiante();
         console.log(value);
       } else {
         this.form.markAllAsTouched();
@@ -109,6 +112,25 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
       return this.form.get('identificacion');
 
     }
+    armarObjetoEstudiante(): Estudiante{
+      return {
+        nombre: this.form.controls.nombre.value,
+        apellido:this.form.controls.apellido.value,
+        identificacion:this.form.controls.identificacion.value,
+        correo:this.form.controls.email.value,
+        contrasena:this.form.controls.password.value,
+        estado: true, 
+
+        };
+    }
+  
+    guardarEstudiante(){
+      this.estudianteService.guardarDocente(this.armarObjetoEstudiante())
+      .subscribe(contenido =>{
+        console.log('Se guarda contenido', contenido)
+      });
+    }
+  
     
    
   }
