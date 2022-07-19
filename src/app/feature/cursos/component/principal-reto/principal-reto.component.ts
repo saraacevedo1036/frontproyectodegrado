@@ -35,8 +35,8 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
     });
   }
   
-  irCrearJuego(): void{
-    this.router.navigateByUrl('crear-juego');
+  irCrearReto(): void{
+    this.router.navigateByUrl('crear-reto');
     
     
   } 

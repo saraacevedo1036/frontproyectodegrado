@@ -1,97 +1,117 @@
-
-
 <body>
-  <form class="contenedor" [formGroup]="formularioJuego" >
-
-  <div class="login-box">
-   <div class="Principal">
-    <!--<img src="../imgLogin/logo.png" class="avatar" alt="Avatar Image">     codigol para logo-->
-    <h1 class="creajuego">Crea tu Juego</h1>
-      <label class="enunciadoPrincipal" for="titulo">Titulo</label>
-      <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" pInputText id="titulo"  required="" >
-      <label class="enunciadoPrincipal" for="descripcion">Descripcion</label>
-      <input type="text" class="form-control" formControlName="descripcion"  placeholder="descripcion" pInputText id="descripcion"  required="" >
-      <label class="enunciadoPrincipal" for="Comentario">Comentario</label>
-      <input type="text" class="form-control" formControlName="comentario"  placeholder="comentario" pInputText id="comentario"  required="" >
-    </div> 
-     
-      
- 
-  <div class="addPreguntaForm" [formGroup]="form">
-    <ng-container formArrayName="preguntas">
-      <ng-container class="preguntasborder" *ngFor="let preguntaForm of preguntas.controls; let i=index">
-        <h1 class="preguntaTitulo" >Pregunta {{i+1}}</h1>
-        <div class="preguntaForm-row" [formGroup]="preguntaForm">
-          <mat-form-field class="pregunta" appearance="fill">
-            <input matInput 
-            formControlName="pregunta" 
-            placeholder="Pregunta">
-          </mat-form-field>
-          <mat-form-field class="imagen" appearance="fill">
-
-            <input matInput 
-            formControlName="imagen" 
-            placeholder="Imagen">
-          </mat-form-field>
-          <mat-form-field class="opcion1" appearance="fill">
-            <input matInput 
-            formControlName="opcion1" 
-            placeholder="Opción 1">
-          </mat-form-field>
-          <mat-form-field class="opcion2" appearance="fill">
-            <input matInput 
-            formControlName="opcion2" 
-            placeholder="Opción 2">
-          </mat-form-field>
-          <mat-form-field class="opcion3" appearance="fill">
-            <input matInput 
-            formControlName="opcion3" 
-            placeholder="Opción 3">
-          </mat-form-field>
-          <mat-form-field class="opcion4" appearance="fill">
-            <input matInput 
-            formControlName="opcion4" 
-            placeholder="Opción 4">
-          </mat-form-field>
-          <mat-form-field class="respuesta" appearance="fill">
-            <mat-select placeholder="Respuesta">
-              <mat-option value="Opcion 1"> Opcion 1</mat-option>
-              <mat-option value="Opcion 2"> Opcion 2</mat-option>
-              <mat-option value="Opcion 3"> Opcion 3</mat-option>
-              <mat-option value="Opcion 4"> Opcion 4</mat-option>
-            </mat-select>
-            <input matInput 
-            formControlName="opcion4" 
-            >
-          </mat-form-field>
-          <a class="btn btn-danger" >
-            <mat-icon  class="delete-btn" (click)="borrarPregunta(i)"><i class="fa fa-trash-o fa-1x" aria-hidden="true"></i></mat-icon>
-          </a>
-            
+  <section class="hero is-primary is-bold" >
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+              Crea tu juego
+          </h1>
+          
         </div>
-
-      </ng-container>
-
-    </ng-container>
- <div id="btnagregar" >
-  
-  <button id="agregar" mat-mini-fab (click)="agregarPregunta()" >
-    <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></mat-icon>
-  </button>
-  <h1>Agregar pregunta</h1>
-</div>
-</div>
-
-</div>
-<div>
-  <div class="pull-right">
-    <button mat-flat-button color="accent" value="guardar" (click)="guardar()"> Guardar</button>
+      </div>
+    </section>
+    <div class="container">
+      <section class="section">
+          <form class="contenedor" [formGroup]="formularioJuego" >
+      
+          <div class="login-box">
+          <div class="Principal">
+              <div class="field">
+                  <label class="label">Titulo</label>
+                  <div class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="titulo" formControlName="titulo" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label">Descripción:</label>
+                  <div class="control">
+                      <textarea class="textarea" cols="30" rows="3" formControlName="descripcion"></textarea>
+                      {{ formularioJuego.get('descripcion').value.length }}/45
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label">Comentario:</label>
+                  <div class="control">
+                      <textarea class="textarea" cols="30" rows="3" formControlName="comentario"></textarea>
+                      {{ formularioJuego.get('descripcion').value.length }}/45
+                  </div>
+              </div>
+          </div> 
+          
+              
+      
+          <div class="addPreguntaForm" [formGroup]="form">
+          <ng-container formArrayName="preguntas">
+              <ng-container class="preguntasborder" *ngFor="let preguntaForm of preguntas.controls; let i=index">
+              <h1 class="preguntaTitulo" >Pregunta {{i+1}}</h1>
+              <div class="preguntaForm-row" [formGroup]="preguntaForm">
+                  <mat-form-field class="pregunta" appearance="fill">
+                  <input matInput 
+                  formControlName="pregunta" 
+                  placeholder="Pregunta">
+                  </mat-form-field>
+                  <mat-form-field class="imagen" appearance="fill">
+      
+                  <input matInput 
+                  formControlName="imagen" 
+                  placeholder="Imagen">
+                  </mat-form-field>
+                  <mat-form-field class="opcion1" appearance="fill">
+                  <input matInput 
+                  formControlName="opcion1" 
+                  placeholder="Opción 1">
+                  </mat-form-field>
+                  <mat-form-field class="opcion2" appearance="fill">
+                  <input matInput 
+                  formControlName="opcion2" 
+                  placeholder="Opción 2">
+                  </mat-form-field>
+                  <mat-form-field class="opcion3" appearance="fill">
+                  <input matInput 
+                  formControlName="opcion3" 
+                  placeholder="Opción 3">
+                  </mat-form-field>
+                  <mat-form-field class="opcion4" appearance="fill">
+                  <input matInput 
+                  formControlName="opcion4" 
+                  placeholder="Opción 4">
+                  </mat-form-field>
+                  <mat-form-field class="respuesta" appearance="fill">
+                  <mat-select placeholder="Respuesta">
+                      <mat-option value="Opcion 1"> Opcion 1</mat-option>
+                      <mat-option value="Opcion 2"> Opcion 2</mat-option>
+                      <mat-option value="Opcion 3"> Opcion 3</mat-option>
+                      <mat-option value="Opcion 4"> Opcion 4</mat-option>
+                  </mat-select>
+                  <input matInput 
+                  formControlName="opcion4" 
+                  >
+                  </mat-form-field>
+                  <a class="btn btn-danger" >
+                  <mat-icon  class="delete-btn" (click)="borrarPregunta(i)"><i class="fa fa-trash-o fa-1x" aria-hidden="true"></i></mat-icon>
+                  </a>
+                  
+              </div>
+      
+              </ng-container>
+      
+          </ng-container>
+      <div id="btnagregar" >
+          
+          <button id="agregar" mat-flat-button color="accent" (click)="agregarPregunta()" >
+          <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></mat-icon>
+          </button>
+          <h1>Agregar pregunta</h1>
+      </div>
+      </div>
+      
+      </div>
+      <div>
+          <div class="pull-right">
+          <button mat-flat-button color="accent" value="guardar" (click)="guardar()"> Guardar</button>
+          </div>
+      </div>
+      </form>
+  </section>
   </div>
-</div>
-</form>
 </body>
-
-
-
-
 

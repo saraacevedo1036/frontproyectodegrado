@@ -21,6 +21,7 @@ import { CrearJuegoComponent } from './component/crear-juego/crear-juego.compone
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearCursoComponent } from './component/crear-curso/crear-curso.component';
+import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CrearCursoComponent } from './component/crear-curso/crear-curso.compone
     PrincipalRetoComponent,
     CrearCategoriaComponent,
     CrearJuegoComponent,
-    CrearCursoComponent
+    CrearCursoComponent,
+    CrearRetoComponent
   ],
   imports: [
     CommonModule,

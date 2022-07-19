@@ -11,7 +11,7 @@
   </section>
   <div class="container">
     <section class="section">
-      <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+      <form [formGroup]="form"  (ngSubmit)="save($event)">
         <div class="field">
           <label class="lNombre">Nombre</label>
           <div class="control has-icons-left has-icons-right">
