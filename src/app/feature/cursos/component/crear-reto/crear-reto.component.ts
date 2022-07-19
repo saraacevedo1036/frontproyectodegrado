@@ -53,6 +53,7 @@ export class CrearRetoComponent implements OnInit {
 
   }
 
+  
   get preguntas(){
     return this.form.controls["preguntas"] as UntypedFormArray;
   }
