@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ListadoCategoriasComponent } from 'src/app/feature/cursos/component/listado-categorias/listado-categorias.component';
 import { Categoria } from 'src/app/feature/cursos/shared/model/categoria.model';
 import { CategoriaService } from 'src/app/feature/cursos/shared/service/categoria.service';
+import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 
 @Component({
   selector: 'app-inicio',
@@ -15,7 +16,8 @@ export class InicioComponent implements OnInit {
   idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
-    private router: Router,   private activeRoute: ActivatedRoute) { }
+    private router: Router,   private activeRoute: ActivatedRoute, protected autorizacionService: AutorizacionService 
+    ) { }
 
   ngOnInit(): void {
    
@@ -56,5 +58,9 @@ export class InicioComponent implements OnInit {
     this.router.navigate(['cursos',this.idCurso,'reto']);
 
   } 
+  validarRol(){
+    console.log(this.autorizacionService.esRolDocente())
+    return this.autorizacionService.esRolDocente()
 
+  }
 }

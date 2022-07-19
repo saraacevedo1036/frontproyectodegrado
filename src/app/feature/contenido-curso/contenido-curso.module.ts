@@ -5,6 +5,7 @@ import { ContenidoCursoRoutingModule } from './contenido-curso-routing.module';
 import { ListadoContenidoComponent } from './component/listado-contenido/listado-contenido.component';
 import { MaterialModule } from '../material/material.module';
 import { ContenidoService } from './shared/service/contenido.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ContenidoService } from './shared/service/contenido.service';
   imports: [
     CommonModule,
     ContenidoCursoRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [ContenidoService]
 

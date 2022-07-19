@@ -92,6 +92,12 @@ export class PrincipalBlogComponent implements OnInit {
     return  this.listaCategorias.find(categoria => categoria.nombre ==
        this.formularioBlog.controls.categoria.value).idCategoriaContenido;
   }
+  verVideo(){
+    return this.formularioBlog.controls.video.value
+  }
+  verImagen(){
+    return this.formularioBlog.controls.imagen.value
+  }
 
   onSbmit(){
     this.guardarContenido();

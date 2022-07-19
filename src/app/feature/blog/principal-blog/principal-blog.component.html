@@ -1,1 +1,79 @@
+<section class="hero is-primary is-bold" >
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Agregar Contenido
+      </h1>
+      
+    </div>
+  </div>
+</section>
+<div class="container">
+  <section class="section">
+    <form [formGroup]="formularioBlog" novalidate (ngSubmit)="onSbmit()">
+      <div class="field">
+        <label class="label">Titulo</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input"
+           type="text" 
+           formControlName="titulo" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Descripción:</label>
+        <div class="control">
+          <textarea class="textarea" cols="30" rows="10" formControlName="descripcion"></textarea>
+          {{ formularioBlog.get('descripcion').value.length }}/1000
+        </div>
+      </div>
+      <div class="field">
+          <label class="label">Imagen</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input"  type="text" placeholder="Ingrese url de la imagen" formControlName="imagen" />
+            
+          </div>  
+      </div>
+      <div class=" verImagen">
+        <div class="verImagen" *ngIf="formularioBlog.get('imagen')?.touched" >
+        
+        <h2 class="tituloVideo">Previsualización de la imagen</h2>
+        
+        <img src="{{verImagen()}}" alt="Image" class="img-fluid" [height]="250" [width]="500">
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Video</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
+          
+        </div>  
+      </div>
+      <div class=" verVideo">
+        <div class="verVideo" *ngIf="formularioBlog.get('video')?.touched" >
+        
+        <h2 class="tituloVideo">Previsualización del video</h2>
+        
+          <youtube-player videoId="{{verVideo()}}" suggestedQuality="highres" [height]="250" [width]="500" 
+          [startSeconds]="4" >
+          </youtube-player>
+        </div>
+      </div>
+  <label class="enunciadoPrincipal" for="categoria">Categoria</label>
+      <mat-form-field>
+        <mat-select  class="respuesta" placeholder="Categoria" formControlName="categoria" >
+          <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
+          <mat-option  *ngFor="let categoria of listaCategorias"  [value]="categoria"> {{categoria.nombre}}</mat-option>
+          
+        </mat-select>
+      </mat-form-field>
+
+       <div>
+    <div class="pull-right">
+      <input id="guardar" type="submit" value="guardar">
+    </div>
+  </div>
+          </form>
+  </section>
+</div>
 

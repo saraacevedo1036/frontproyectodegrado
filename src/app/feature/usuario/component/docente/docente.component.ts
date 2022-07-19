@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { UntypedFormGroup, FormControl, FormBuilder } from '@angular/forms';
-
 import { MyValidators } from 'src/app/utils/my-validations';
+import { Docente } from '../../model/docente.model';
+import { DocenteService } from '../../service/docente.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { MyValidators } from 'src/app/utils/my-validations';
 export class DocenteComponent implements OnInit {
   form: UntypedFormGroup;
   
-  constructor(private formBuilder: UntypedFormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder,     private docenteService:DocenteService
+    ) {
     this.buildForm();
    }
 
@@ -33,9 +35,12 @@ export class DocenteComponent implements OnInit {
       }, {Validators: MyValidators.matchPasswords});
     
     }
+    
+    
     save(event: Event) {
       event.preventDefault();
       if (this.form.valid  ) {
+        this.guardarDocente();
         const value = this.form.value;
         console.log(value);
       } else {
@@ -114,14 +119,25 @@ export class DocenteComponent implements OnInit {
       return this.form.get('identificacion');
 
     }
-    passwordCorrecta(){
-      if(this.passwordField == this.password2Field){
-        return 1;
-      }
-      else{
-        return 0;
-      }
+    armarObjetoContenido(): Docente{
+      return {
+        nombre: this.form.controls.nombre.value,
+        apellido:this.form.controls.apellido.value,
+        identificacion:this.form.controls.identificacion.value,
+        correo:this.form.controls.email.value,
+        contrasena:this.form.controls.password.value,
+        estado: true, 
+
+        };
     }
+  
+    guardarDocente(){
+      this.docenteService.guardarDocente(this.armarObjetoContenido())
+      .subscribe(contenido =>{
+        console.log('Se guarda contenido', contenido)
+      });
+    }
+  
     
    
   }
