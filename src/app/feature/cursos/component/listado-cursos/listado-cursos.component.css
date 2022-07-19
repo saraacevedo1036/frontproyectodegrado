@@ -50,3 +50,8 @@ text-align: center;
 .title{
 font-size: 40px;
 }
+.agregarAsignatura{
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+}

@@ -24,7 +24,7 @@
         </mat-grid-tile>
     </mat-grid-list>  
     <div>
-        <div class="pull-right">
+        <div *ngIf="puedeVisualizar()" class="pull-right">
             <button mat-flat-button color="accent" (click)="irCrearReto()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
         </div>
     </div>

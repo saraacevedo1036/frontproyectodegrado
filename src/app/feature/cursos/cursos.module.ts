@@ -22,6 +22,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearCursoComponent } from './component/crear-curso/crear-curso.component';
 import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
+import { AgregarAsignaturaComponent } from './component/agregar-asignatura/agregar-asignatura.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CrearRetoComponent } from './component/crear-reto/crear-reto.component'
     CrearCategoriaComponent,
     CrearJuegoComponent,
     CrearCursoComponent,
-    CrearRetoComponent
+    CrearRetoComponent,
+    AgregarAsignaturaComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import { Juego } from '../../shared/model/juego.model';
 import { JuegoService } from '../../shared/service/juego.services';
 import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
@@ -18,8 +19,7 @@ export class PrincipalJuegoComponent implements OnInit {
   listaJuegos: Juego[] = [];
   constructor(private eventosService: EventosService,
     private juegoService: JuegoService,  private activeRoute: ActivatedRoute,
-     
-     private router: Router) { }
+     private router: Router, protected autorizacionService: AutorizacionService) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -44,6 +44,9 @@ export class PrincipalJuegoComponent implements OnInit {
 
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
+  }
+  puedeVisualizar():boolean{
+    return  this.autorizacionService.esRolDocente();
   }
 
 }

@@ -15,8 +15,8 @@ import { EstudianteComponent } from './feature/usuario/component/estudiante/estu
 
 const routes: Routes = [
 
-   {path:'crearDocente',component: DocenteComponent,canActivate: [SegurityGuard]},
-   {path:'crearEstudiante',component: EstudianteComponent,canActivate: [SegurityGuard]},
+   {path:'crearDocente',component: DocenteComponent},
+   {path:'crearEstudiante',component: EstudianteComponent},
   {path:'home',component: ListadoCursosComponent,canActivate: [LoginGuard]},
   {path: 'reto', component: RetoCursoComponent },
   {path: 'juego', component: JuegoCursoComponent },

@@ -36,6 +36,13 @@ export class InicioComponent implements OnInit {
         data: {categorias : categoriasCurso , idCurso: idCurso}
       });
     }
+    else{
+      this.modal.open(ListadoCategoriasComponent,{
+        width: '450px',
+        data: {categorias : categoriasCurso , idCurso: idCurso}
+      });
+
+    }
   }
 
   obtenerListadoCategorias(idCurso: number): Categoria[]{
@@ -46,6 +53,7 @@ export class InicioComponent implements OnInit {
       }else{
         console.log('No tiene Categorias, mostrar este mensaje')
         this.listaCategorias = [];
+        this.modalCategoria([],idCurso);
       }
     });
     return this.listaCategorias;

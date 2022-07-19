@@ -3,7 +3,7 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-            Cursos
+            Asignaturas
         </h1>
         
       </div>
@@ -24,8 +24,15 @@
     </mat-grid-tile>
 </mat-grid-list>  
 <div>
-  <div class="pull-right">
-      <button mat-flat-button color="accent" (click)="modalCrearCurso()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+  <div *ngIf="puedeVisualizar()"  class="pull-right">
+    <div class="agregarAsignatura"><label >Agregar asignatura</label></div>
+    
+      <button   mat-flat-button color="accent" (click)="modalCrearCurso()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+  </div>
+  <div *ngIf="puedeVisualizarEstudiante()"  class="pull-right">
+    <div class="agregarAsignatura"><label >Agregar asignatura</label></div>
+    
+      <button   mat-flat-button color="accent" (click)="modalAgregarAsignatura()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
   </div>
 </div>
 </body>
