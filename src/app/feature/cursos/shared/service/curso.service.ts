@@ -16,6 +16,7 @@ export class CursoService {
   crear(curso: Curso){
     return this.httpClient.post<Curso>(`${this.endPoint}/curso/save`,curso);
   }
+ 
 
   listarCursosPorDocenteId(){
     let params = new HttpParams().set("email",this.autorizacionService.obtenerCorreo())

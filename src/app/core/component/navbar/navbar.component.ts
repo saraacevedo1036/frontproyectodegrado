@@ -46,6 +46,17 @@ export class NavbarComponent implements OnInit {
     
     this.router.navigate(['/crearEstudiante']);
   }
+  esDocente():boolean{
+    if(this.autorizacionService.noEstaAutenticado() || this.autorizacionService.esRolDocente()){
+      return  true;
+
+    }else{
+      return false;
+
+    }
+     
+  }
+ 
   puedeVisualizar():boolean{
     if(this.autorizacionService.estaAutenticado()){
       return  false;

@@ -33,6 +33,16 @@ export class ListadoCategoriasComponent implements OnInit {
     );
     this.modal.close();
   }
+  irAContenidoBlog(idCategoria: number){
+
+    this.router.navigate(['listado-contenido','curso',this.data.idCurso,'categoria',idCategoria]);
+
+    this.eventosService.disparador.emit(
+      {idCategoria:idCategoria,
+        idCurso:this.data.idCurso}
+    );
+    this.modal.close();
+  }
 
  
   irAgregarCategoria(): void{

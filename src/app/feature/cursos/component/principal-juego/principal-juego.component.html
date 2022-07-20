@@ -16,7 +16,7 @@
         [colspan]="2"
         [rowspan]="1"
         >
-        <button mat-raised-button > {{juego.titulo}}
+        <button (click)="irJuego(juego.idReto)" mat-raised-button > {{juego.titulo}}
         </button>
         <mat-grid-tile-footer>
             {{juego.descripcion}}

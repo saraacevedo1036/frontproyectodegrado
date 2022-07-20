@@ -23,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearCursoComponent } from './component/crear-curso/crear-curso.component';
 import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
 import { AgregarAsignaturaComponent } from './component/agregar-asignatura/agregar-asignatura.component';
+import { PreguntaService } from './shared/service/pregunta.service';
+import { JuegoService } from './shared/service/juego.services';
 
 
 @NgModule({
@@ -51,6 +53,6 @@ import { AgregarAsignaturaComponent } from './component/agregar-asignatura/agreg
     HttpClientModule,
     Ng2Webstorage.forRoot()
   ],
-  providers: [CursoService, CategoriaService, RetoService]
+  providers: [CursoService, CategoriaService, RetoService,PreguntaService,JuegoService]
 })
 export class CursosModule { }

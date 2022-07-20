@@ -23,3 +23,7 @@ li.card input[type="submit"]:hover {
     text-align: center;
     font-size: 40px;
 }
+img{
+    height: 50%;
+    width: 90%;
+}

@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ListadoCategoriasComponent } from 'src/app/feature/cursos/component/listado-categorias/listado-categorias.component';
 import { Categoria } from 'src/app/feature/cursos/shared/model/categoria.model';
 import { CategoriaService } from 'src/app/feature/cursos/shared/service/categoria.service';
+import { CursoService } from 'src/app/feature/cursos/shared/service/curso.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class InicioComponent implements OnInit {
   idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
-    private router: Router,   private activeRoute: ActivatedRoute,
+    private router: Router,   private activeRoute: ActivatedRoute, private cursoService:CursoService,
+    
      protected autorizacionService: AutorizacionService 
     ) { }
 
@@ -58,6 +60,7 @@ export class InicioComponent implements OnInit {
     });
     return this.listaCategorias;
   }
+ 
 
   irJuego(): void{
     this.router.navigate(['cursos',this.idCurso,'juego']);

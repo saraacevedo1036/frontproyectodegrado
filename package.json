@@ -25,6 +25,7 @@
     "bulma": "^0.9.4",
     "material-design-icons-iconfont": "^6.7.0",
     "rxjs": "7.4",
+    "sweetalert2": "^11.4.23",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

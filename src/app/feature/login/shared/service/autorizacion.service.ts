@@ -30,6 +30,10 @@ export class AutorizacionService {
   estaAutenticado(): boolean{
     return this.localStorageService.retrieve('jwt') != null;
   }
+  noEstaAutenticado(): boolean{
+    return this.localStorageService.retrieve('jwt') == null;
+  }
+
 
   obtenerToken(): string{
     return this.localStorageService.retrieve('jwt');

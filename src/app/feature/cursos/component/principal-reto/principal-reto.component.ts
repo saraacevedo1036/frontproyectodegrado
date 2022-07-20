@@ -36,6 +36,10 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
       console.log('Retos: ',  retos)
     });
   }
+  irJuego(idJuego:number): void{
+
+    this.router.navigate(['reto',idJuego]) 
+  }
   
   irCrearReto(): void{
     this.router.navigateByUrl('crear-reto');

@@ -35,10 +35,7 @@ export class PrincipalJuegoComponent implements OnInit {
     });
   }
   irCrearJuego(): void{
-    this.router.navigateByUrl('crear-juego');
-    
-   
-    
+    this.router.navigateByUrl('crear-juego'); 
   } 
  
 
@@ -48,5 +45,10 @@ export class PrincipalJuegoComponent implements OnInit {
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
+  irJuego(idJuego:number): void{
+
+    this.router.navigate(['juego',idJuego]) 
+  }
+  
 
 }
