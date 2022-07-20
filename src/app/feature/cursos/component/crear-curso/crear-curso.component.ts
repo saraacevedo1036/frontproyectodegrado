@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import { Curso } from '../../shared/model/curso.model';
 
 @Component({
   selector: 'app-crear-curso',
@@ -66,6 +67,18 @@ export class CrearCursoComponent implements OnInit {
     return this.form.get('grado');
 
   }
+  armarObjetoCurso(): Curso{
+    return {
+      
+      nombre: this.form.controls.nombre.value,
+      grado:this.form.controls.grado.value,
+       
+
+      };
+  }
+
+  
+
   
  
   

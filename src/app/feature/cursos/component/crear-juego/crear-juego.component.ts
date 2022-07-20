@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
+import { JuegoService } from '../../shared/service/juego.services';
 
 @Component({
   selector: 'app-crear-juego',
@@ -21,7 +22,7 @@ export class CrearJuegoComponent implements OnInit {
     comentario:['']
   }); 
 
-  constructor( private formBuilder: UntypedFormBuilder) { }
+  constructor( private formBuilder: UntypedFormBuilder, private juegoService:JuegoService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +31,7 @@ export class CrearJuegoComponent implements OnInit {
     this.formularioJuego = this.formBuilder.group({
       titulo:['', Validators.required],
       descripcion:['', Validators.required],
-      comentario:['', Validators.required]
+      comentario:['']
     });
   }
   save() {
@@ -54,6 +55,10 @@ export class CrearJuegoComponent implements OnInit {
   }
   
   agregarJuego(){
+    this.juegoService.guardarJuego(this.armarObjetoAGuardar())
+      .subscribe(contenido =>{
+        console.log('Se guarda contenido', contenido)
+      });
 
   }
 
@@ -78,7 +83,7 @@ export class CrearJuegoComponent implements OnInit {
     return {    
       texto: preguntaForm.pregunta,
       imagen: preguntaForm.imagen,
-      respuesta: preguntaForm.respuesta,
+      respuesta: preguntaForm.opcion1,
       opcion1: preguntaForm.opcion1,
       opcion2: preguntaForm.opcion2,
       opcion3: preguntaForm.opcion3,
@@ -95,12 +100,12 @@ export class CrearJuegoComponent implements OnInit {
   agregarPregunta(){
     const preguntaForm = this.formBuilder.group({
       pregunta: ['', Validators. required],
-      imagen: ['', Validators. required],
+      imagen: [''],
       opcion1: ['', Validators. required],
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
-      respuesta: ['',Validators.required]  
+      
      });
 
       this.preguntas.push(preguntaForm);
@@ -112,6 +117,7 @@ export class CrearJuegoComponent implements OnInit {
     this.preguntas.removeAt(preguntaIndex);
 
   }
+  
  
   
   
