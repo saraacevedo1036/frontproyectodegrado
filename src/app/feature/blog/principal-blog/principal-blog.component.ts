@@ -24,7 +24,8 @@ export class PrincipalBlogComponent implements OnInit {
     imagen:[''],
     video:[''],
     categoria:[''],
-    crearCategoria:['']
+    crearCategoria:[''],
+    usarCategoria:['']
   }); 
 
   constructor(private categoriaService:CategoriaService,
@@ -49,7 +50,8 @@ export class PrincipalBlogComponent implements OnInit {
       imagen:['', Validators.required],
       video:['', Validators.required],
       categoria:['',Validators.required],
-      crearCategoria:['']
+      crearCategoria:[''],
+      usarCategoria:['']
         });
   }
 
@@ -88,8 +90,16 @@ export class PrincipalBlogComponent implements OnInit {
       console.log('Se guarda contenido:', contenido)
     });
   }
-  validarCategoria(){
+  validarCrearCategoria(){
     if(this.formularioBlog.controls.crearCategoria.value===true){
+      return true
+
+    }else{
+      return false
+    }
+  }
+  validarCategoria(){
+    if(this.formularioBlog.controls.usarCategoria.value===true){
       return true
 
     }else{

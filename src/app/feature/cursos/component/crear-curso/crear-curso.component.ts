@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import Swal from 'sweetalert2';
 import { Curso } from '../../shared/model/curso.model';
+import { CursoService } from '../../shared/service/curso.service';
 
 @Component({
   selector: 'app-crear-curso',
@@ -15,7 +17,7 @@ export class CrearCursoComponent implements OnInit {
 
   constructor(public modal: MatDialogRef<CrearCursoComponent>,
     private eventosService: EventosService,
-    private formBuilder: UntypedFormBuilder
+    private formBuilder: UntypedFormBuilder, private cursoService:CursoService
     ) { 
       this.buildForm();
     }
@@ -35,10 +37,14 @@ export class CrearCursoComponent implements OnInit {
   save(event: Event) {
     event.preventDefault();
     if (this.form.valid  ) {
-      const value = this.form.value;
-      console.log(value);
+      this.guardarCurso();
+      
+      this.showModalCorrecto();
+      
     } else {
+      
       this.form.markAllAsTouched();
+      this.showModalIncorrecto();
     }
   }
   
@@ -76,12 +82,28 @@ export class CrearCursoComponent implements OnInit {
 
       };
   }
-
   
 
-  
- 
-  
+  guardarCurso(){
+    this.cursoService.guardarCurso(this.armarObjetoCurso())
+    .subscribe(curso =>{
+      console.log('Se guarda contenido', curso)
+    });
+   
+  }
+  showModalCorrecto(){
+    Swal.fire({
+      icon: 'success',
+      title: 'El curso fue creado con exito',
+    })
+  }
+  showModalIncorrecto(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Validar datos invalidos',
+    })
+  }
+
  
 
 }

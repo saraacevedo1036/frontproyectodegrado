@@ -62,18 +62,29 @@
           <div class="field">
             <label class="label">Categoria:</label>
             <div class="control">
-              <label class="radio">
+              <label  class="radio">
                 <input
                   type="radio"
                   name="crearCategoria"
                   formControlName="crearCategoria"
-                  value="true"
+                  value="false"
                 />
                 Crear nueva categoria
               </label>
               
-              <div  >
-                <label class="label">Categoria:</label>
+                <label class="radio">
+                  <input
+                    type="radio"
+                    name="crearCategoria"
+                    formControlName="usarCategoria"
+                    value="false"
+                  />
+                  La categoria ya existe
+                </label>
+                
+              
+              <div *ngIf="formularioBlog.get('usarCategoria').touched"  >
+                <label  class="label">Categoria:</label>
                   <mat-form-field class="respuesta" appearance="fill">
                     <mat-select   class="respuesta" placeholder="Categoria" formControlName="categoria" >
                       <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
@@ -81,6 +92,16 @@
                       
                     </mat-select>
                   </mat-form-field>
+              </div>
+              <div *ngIf="formularioBlog.get('crearCategoria').touched">
+                <div class="field">
+                  <label class="label">Ingresa el nombre de la categoria a crear</label>
+                  <div class="control has-icons-left has-icons-right">
+                      <input class="input"
+                      type="text" 
+                      formControlName="categoria" />
+                  </div>
+                </div>
               </div>
               
               
