@@ -59,7 +59,6 @@
                     </div>
                     <div class="field">
                         <label class="label">Opcion 1</label>
-                        <label class="label">La respuesta a la pregunta se debe diligenciar en esta opcion</label>
                         <div class="control has-icons-left has-icons-right">
                           <input class="input"  type="text" placeholder="Ingrese la respuesta a la pregunta" formControlName="opcion1" />
                         
@@ -86,7 +85,15 @@
                         
                         </div>  
                     </div>
-                    
+                    <mat-form-field class="respuesta" appearance="fill">
+                        <mat-select placeholder="Respuesta">
+                            <mat-option value="{{preguntaForm.get('opcion1')}}"> opcion1</mat-option>
+                            <mat-option value="Opcion 2"> Opcion 2</mat-option>
+                            <mat-option value="Opcion 3"> Opcion 3</mat-option>
+                            <mat-option value="Opcion 4"> Opcion 4</mat-option>
+                        </mat-select>
+                        
+                        </mat-form-field>
                     
                     <a  class="btn btn-danger" >
                     <mat-icon   class="delete-btn" (click)="borrarPregunta(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
@@ -118,8 +125,6 @@
     </section>
     </div>
   </body>
-  
-  
   
   
   

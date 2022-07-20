@@ -85,7 +85,7 @@ export class CrearRetoComponent implements OnInit {
     return {    
       texto: preguntaForm.pregunta,
       imagen: preguntaForm.imagen,
-      respuesta: preguntaForm.opcion1,
+      respuesta: preguntaForm.respuesta,
       opcion1: preguntaForm.opcion1,
       opcion2: preguntaForm.opcion2,
       opcion3: preguntaForm.opcion3,
