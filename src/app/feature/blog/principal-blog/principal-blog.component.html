@@ -73,29 +73,16 @@
               </label>
               
               <div  >
-                <label class="enunciadoPrincipal"  for="categoria">Elegir categoria existente</label>
-                  <mat-form-field>
-                    <mat-select disabled="{{formularioBlog.get('crearCategoria')?.touched}}"  class="respuesta" placeholder="Categoria" formControlName="categoria" >
+                <label class="label">Categoria:</label>
+                  <mat-form-field class="respuesta" appearance="fill">
+                    <mat-select   class="respuesta" placeholder="Categoria" formControlName="categoria" >
                       <mat-option (click)="modalCrearCategoria()" value="agregar"> Agregar</mat-option>
                       <mat-option  *ngFor="let categoria of listaCategorias"  [value]="categoria"> {{categoria.nombre}}</mat-option>
                       
                     </mat-select>
                   </mat-form-field>
               </div>
-              <div *ngIf="formularioBlog.get('crearCategoria')?.touched" >
-                
-                
-                <div id="escoge crear categoria" >
-                  <div class="field">
-                    <label class="label">Ingresa el nombre de la nueva categoria</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input"
-                        type="text" 
-                        formControlName="categoria" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               
                 
             </div>

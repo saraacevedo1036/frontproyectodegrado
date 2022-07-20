@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
+import { AutorizacionService } from '../../login/shared/service/autorizacion.service';
 
 @Component({
   selector: 'app-registros-blog',
@@ -23,7 +24,8 @@ export class RegistrosBlogComponent implements OnInit {
 
     private contenidoService: ContenidoService,
     private activeRoute: ActivatedRoute, 
-    private router: Router) { }
+    private router: Router,
+    protected autorizacionService: AutorizacionService) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -62,6 +64,17 @@ export class RegistrosBlogComponent implements OnInit {
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
   }
-  
+  rolDocente(){
+    if(this.autorizacionService.esRolDocente()){
+      return true
+    }
+    else{
+      return false
+    }
+
+  }
+  borrarContenido(idCursoContenido:number){
+    
+  }
 
 }

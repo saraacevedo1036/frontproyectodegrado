@@ -38,3 +38,7 @@ mat-form-field{
     text-align: justify;
     margin-top: 1%;
 }
+.categoria {
+    background-color: rgba(83, 81, 84, 0.967);
+    width: 83%;
+}

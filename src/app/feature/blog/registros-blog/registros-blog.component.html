@@ -1,53 +1,67 @@
 <body>
 
-  <section>
-    
-    <div class="container-fluid">
-        <main class="tm-main">
-            
-   
-           
-            <div class="row tm-row">
-                <article *ngFor="let contenido of listaContenidos" class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a  >
-                        <div class="tm-post-link-inner">
-                            <img src="{{contenido.imagen}}"  >                            
-                        </div>
-                        
-                    </a>         
-                    <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{contenido.comentario}}</h2>           
-                    <p class="tm-pt-30">
-                        {{contenido.descripcion}}
-                        
-                    </p>
-                    <a class="effect-lily tm-post-link tm-pt-60">
-                        <div class=" tm-post-link-inner">
-                            <youtube-player videoId="{{contenido.video}}" suggestedQuality="highres" [height]="250" [width]="500"
-                            [startSeconds]="4"[endSeconds]="8" >
-                            </youtube-player>
-                        </div>
-                        
-                        
-                    </a>  
-                   
-                </article>
-                
+    <section>
+      
+      <div class="container-fluid">
+          <main class="tm-main">
               
+     
+             
+              <div class="row tm-row">
+                  <article *ngFor="let contenido of listaContenidos" class="col-12 col-md-6 tm-post">
+                    <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{contenido.comentario}}</h2>
+
+
+                      <hr class="tm-hr-primary">
+                      <a  >
+                          <div class="tm-post-link-inner">
+                              <img src="{{contenido.imagen}}"  >                            
+                          </div>
+                      </a>         
+                                 
+                      <p class="tm-pt-30">
+                          {{contenido.descripcion}}
+                          
+                      </p>
+                      <a class="effect-lily tm-post-link tm-pt-60">
+                          <div class=" tm-post-link-inner">
+                              <youtube-player videoId="{{contenido.video}}" suggestedQuality="highres" [height]="250" [width]="500"
+                              [startSeconds]="4"[endSeconds]="8" >
+                              </youtube-player>
+                          </div>
+                          
+                          
+                      </a> 
+                      <a *ngIf="rolDocente()"  class="btn btn-danger" >
+                        <mat-icon   class="delete-btn" (click)="borrarContenido(contenido.idCursoContenido)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                            <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                          </svg></mat-icon>
+                        </a> 
+                     
+                  </article>
+                  
                 
                   
-            </div>
-          
-               
-                      
-            <footer class="row tm-row">
-                <hr class="col-12">
-                <div class="col-md-6 col-12 tm-color-gray">
+                    
+              </div>
+              <div>
+                <div class="pull-right">
+                <button mat-flat-button color="accent"  value="guardar" > Agregar post</button>
                 </div>
-                
-            </footer>
-            <video src="https://youtu.be/mx5WVKkioLk"></video>
-        </main>
-    </div>
-    
-    
+            </div>
+            
+                 
+                        
+            
+      
+      
+
+
+
+
+
+
+
+
+
+
