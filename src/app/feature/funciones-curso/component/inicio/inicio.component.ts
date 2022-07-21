@@ -6,6 +6,8 @@ import { Categoria } from 'src/app/feature/cursos/shared/model/categoria.model';
 import { CategoriaService } from 'src/app/feature/cursos/shared/service/categoria.service';
 import { CursoService } from 'src/app/feature/cursos/shared/service/curso.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
+import { Estudiante } from 'src/app/feature/usuario/model/estudiante.model';
+import { EstudianteService } from 'src/app/feature/usuario/service/estudiante.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,12 +16,13 @@ import { AutorizacionService } from 'src/app/feature/login/shared/service/autori
 })
 export class InicioComponent implements OnInit {
   esRolDocente: boolean = false
+  listaEstudiantes: Estudiante[] = [];
   listaCategorias: Categoria[];
   idCurso: number
 
   constructor(private categoriaService:CategoriaService, public modal: MatDialog,
     private router: Router,   private activeRoute: ActivatedRoute, private cursoService:CursoService,
-    
+    private estudianteService:EstudianteService,
      protected autorizacionService: AutorizacionService 
     ) { }
 
@@ -60,8 +63,7 @@ export class InicioComponent implements OnInit {
     });
     return this.listaCategorias;
   }
- 
-
+  
   irJuego(): void{
     this.router.navigate(['cursos',this.idCurso,'juego']);
     
@@ -71,11 +73,20 @@ export class InicioComponent implements OnInit {
     this.router.navigate(['cursos',this.idCurso,'reto']);
 
   } 
+  irTablaReto(): void{
+    this.router.navigate(['cursos',this.idCurso,'reto']);
+
+  } 
+  irListaEstudiante(): void{
+    this.router.navigate(['curso',this.idCurso,'estudiante']);
+
+  } 
+
+  
 
   validarRol(){
-    this.esRolDocente = true;
-    console.log(this.autorizacionService.esRolDocente())
-   // return this.autorizacionService.esRolDocente()
+    
+   return this.autorizacionService.esRolDocente()
 
   }
 }

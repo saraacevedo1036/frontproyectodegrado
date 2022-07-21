@@ -35,8 +35,9 @@ export class CrearJuegoComponent implements OnInit {
     });
   }
   save() {
+    event.preventDefault();
     
-    if (this.formularioJuego.valid  ) {
+    if (this.formularioJuego.valid && this.form.valid  ) {
       const value = this.formularioJuego.value;
       console.log(value);
     } else {
@@ -105,6 +106,7 @@ export class CrearJuegoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
+      respuesta: ['', Validators. required],
       
      });
 

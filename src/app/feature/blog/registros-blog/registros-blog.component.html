@@ -13,7 +13,7 @@
 
 
                       <hr class="tm-hr-primary">
-                      <a  >
+                      <a *ngIf="visualizarImagen(contenido.imagen)" >
                           <div class="tm-post-link-inner">
                               <img src="{{contenido.imagen}}"  >                            
                           </div>
@@ -23,7 +23,7 @@
                           {{contenido.descripcion}}
                           
                       </p>
-                      <a class="effect-lily tm-post-link tm-pt-60">
+                      <a *ngIf="visualizarVideo(contenido.video)" class="effect-lily tm-post-link tm-pt-60">
                           <div class=" tm-post-link-inner">
                               <youtube-player videoId="{{contenido.video}}" suggestedQuality="highres" [height]="250" [width]="500"
                               [startSeconds]="4"[endSeconds]="8" >

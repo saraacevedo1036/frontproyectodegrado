@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
+import { CreacionCurso } from '../../shared/model/creacion-curso.model';
 import { Curso } from '../../shared/model/curso.model';
 import { CursoService } from '../../shared/service/curso.service';
 
@@ -17,7 +20,8 @@ export class CrearCursoComponent implements OnInit {
 
   constructor(public modal: MatDialogRef<CrearCursoComponent>,
     private eventosService: EventosService,
-    private formBuilder: UntypedFormBuilder, private cursoService:CursoService
+    private formBuilder: UntypedFormBuilder, private cursoService:CursoService,
+    protected autorizacionService: AutorizacionService ,private router: Router,
     ) { 
       this.buildForm();
     }
@@ -37,9 +41,11 @@ export class CrearCursoComponent implements OnInit {
   save(event: Event) {
     event.preventDefault();
     if (this.form.valid  ) {
+      window.location.reload();
       this.guardarCurso();
-      
+      this.modal.close();
       this.showModalCorrecto();
+
       
     } else {
       
@@ -73,9 +79,9 @@ export class CrearCursoComponent implements OnInit {
     return this.form.get('grado');
 
   }
-  armarObjetoCurso(): Curso{
+  armarObjetoCurso(): CreacionCurso{
     return {
-      
+      correoDocente: this.autorizacionService.obtenerCorreo(),
       nombre: this.form.controls.nombre.value,
       grado:this.form.controls.grado.value,
        

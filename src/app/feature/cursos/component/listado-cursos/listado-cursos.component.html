@@ -17,8 +17,8 @@
     >
     <button  mat-raised-button  [routerLink]="['curso',curso.idCursos]" >    {{curso.nombre}}
     </button>
-    <mat-grid-tile-footer>
-     Codigo:  {{curso.codigo}}
+    <mat-grid-tile-footer class="button" (click)="showModalCodigo(curso.codigo)">
+     Ver codigo del curso
 
   </mat-grid-tile-footer>
     </mat-grid-tile>

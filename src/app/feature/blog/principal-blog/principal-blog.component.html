@@ -44,7 +44,7 @@
       <div class="field">
           <label class="label">Video</label>
         <div class="control has-icons-left has-icons-right">
-            <input class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
+            <input (focus)="validarUrlYoutube()" class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
             
         </div>  
       </div>
@@ -58,32 +58,20 @@
             </youtube-player>
         </div>
       </div>
-        <div>
+        <div class="chek">
           <div class="field">
-            <label class="label">Categoria:</label>
-            <div class="control">
-              <label  class="radio">
-                <input
-                  type="radio"
-                  name="crearCategoria"
-                  formControlName="crearCategoria"
-                  value="false"
-                />
-                Crear nueva categoria
-              </label>
+            <label  class="label">Categoria:</label>
+            <div >
+              <section class="example-section" [formGroup]="toppings">
+                <p  ><mat-checkbox *ngIf="toppings.controls.usarCategoria.value==false" formControlName="crearCategoria">Crear nueva categoria</mat-checkbox></p>
+                <p ><mat-checkbox *ngIf="toppings.controls.crearCategoria.value==false" formControlName="usarCategoria">Categorisa existente</mat-checkbox></p>
+                
+              </section>
               
-                <label class="radio">
-                  <input
-                    type="radio"
-                    name="crearCategoria"
-                    formControlName="usarCategoria"
-                    value="false"
-                  />
-                  La categoria ya existe
-                </label>
+              
                 
               
-              <div *ngIf="formularioBlog.get('usarCategoria').touched"  >
+              <div *ngIf="toppings.controls.usarCategoria.value==true">
                 <label  class="label">Categoria:</label>
                   <mat-form-field class="respuesta" appearance="fill">
                     <mat-select   class="respuesta" placeholder="Categoria" formControlName="categoria" >
@@ -93,12 +81,13 @@
                     </mat-select>
                   </mat-form-field>
               </div>
-              <div *ngIf="formularioBlog.get('crearCategoria').touched">
+              <div *ngIf="toppings.controls.crearCategoria.value==true">
                 <div class="field">
-                  <label class="label">Ingresa el nombre de la categoria a crear</label>
+                  <label  class="label">Ingresa el nombre de la categoria a crear</label>
                   <div class="control has-icons-left has-icons-right">
                       <input class="input"
                       type="text" 
+                      placeholder="Ingresa el nombre de la categoria"
                       formControlName="categoria" />
                   </div>
                 </div>

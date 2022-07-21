@@ -5,9 +5,9 @@
       <button type="button" class="btn btn-default btn-lg btn-block" (click)="obtenerListadoCategorias(idCurso)" >Contenido</button>
       <button type="button" (click)="irReto()" class="btn btn-default btn-lg btn-block">Reto</button>
 
-      <div *ngIf="esRolDocente">     
-              <button  type="button"  class="btn btn-default btn-lg btn-block">Reporte</button>
-              <button  type="button"  class="btn btn-default btn-lg btn-block">Estudiantes</button>
+      <div *ngIf="validarRol()">     
+              <button  type="button"  (click)="irTablaReto()" class="btn btn-default btn-lg btn-block">Reporte</button>
+              <button  type="button"  (click)="irListaEstudiante()" class="btn btn-default btn-lg btn-block">Estudiantes</button>
               
       </div>
 </div>

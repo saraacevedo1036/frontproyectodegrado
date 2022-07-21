@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
+import Swal from 'sweetalert2';
 import { Categoria } from '../../shared/model/categoria.model';
 import { Curso } from '../../shared/model/curso.model';
 import { CategoriaService } from '../../shared/service/categoria.service';
@@ -59,6 +60,14 @@ export class ListadoCursosComponent implements OnInit {
   puedeVisualizarEstudiante():boolean{
     return  this.autorizacionService.esRolEstudiante();
   }
+  showModalCodigo(codigo:string){
+    Swal.fire({
+      icon: 'info',
+      title: 'Codigo ',
+      text: codigo,
+    })
+  }
+  
   
 
 

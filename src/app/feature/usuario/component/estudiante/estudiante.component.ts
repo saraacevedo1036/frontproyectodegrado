@@ -125,7 +125,7 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
     }
   
     guardarEstudiante(){
-      this.estudianteService.guardarDocente(this.armarObjetoEstudiante())
+      this.estudianteService.guardarEstudiante(this.armarObjetoEstudiante())
       .subscribe(contenido =>{
         console.log('Se guarda contenido', contenido)
       });

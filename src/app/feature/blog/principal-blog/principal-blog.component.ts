@@ -1,5 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
-import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
@@ -15,8 +15,10 @@ import { CategoriaService } from '../../cursos/shared/service/categoria.service'
 })
 export class PrincipalBlogComponent implements OnInit {
 
+  esCrearCategoria:boolean=false
   idCurso:number;
   listaCategorias:Categoria[] = [];
+  INICIO_URL_YOUTUBE:string='https://www.youtube.com/watch?v='
 
   formularioBlog = this.formBuilder.group({
     titulo:[''],
@@ -27,12 +29,18 @@ export class PrincipalBlogComponent implements OnInit {
     crearCategoria:[''],
     usarCategoria:['']
   }); 
+  toppings = this.formBuilder.group({
+    crearCategoria: false,
+    usarCategoria: false,
+   
+  });
 
   constructor(private categoriaService:CategoriaService,
     private formBuilder: UntypedFormBuilder,
     public modalCat: MatDialog,
     private activeRoute: ActivatedRoute,
-    private contenidoService:ContenidoService
+    private contenidoService:ContenidoService,
+    _formBuilder: FormBuilder
      ) { }
 
   ngOnInit(): void {
@@ -50,8 +58,7 @@ export class PrincipalBlogComponent implements OnInit {
       imagen:['', Validators.required],
       video:['', Validators.required],
       categoria:['',Validators.required],
-      crearCategoria:[''],
-      usarCategoria:['']
+      
         });
   }
 
@@ -91,19 +98,20 @@ export class PrincipalBlogComponent implements OnInit {
     });
   }
   validarCrearCategoria(){
-    if(this.formularioBlog.controls.crearCategoria.value===true){
-      return true
+    if(this.toppings.controls.crearCategoria.value===true){
+      
 
     }else{
-      return false
+      this.esCrearCategoria=false;
+     
     }
   }
   validarCategoria(){
     if(this.formularioBlog.controls.usarCategoria.value===true){
-      return true
+      this.esCrearCategoria=false;
 
     }else{
-      return false
+      this.esCrearCategoria=true;
     }
   }
 
@@ -118,6 +126,16 @@ export class PrincipalBlogComponent implements OnInit {
   verImagen(){
     return this.formularioBlog.controls.imagen.value
   }
+  validarUrlYoutube(){
+
+    let inicioUrlVideo:boolean=true
+    if(this.formularioBlog.controls.video.touched){
+      inicioUrlVideo=this.formularioBlog.controls.video.value.containies(this.INICIO_URL_YOUTUBE)
+      
+    }
+    this.formularioBlog.controls.video.errors.value=inicioUrlVideo;
+  }
+
 
   onSbmit(){
     this.guardarContenido();

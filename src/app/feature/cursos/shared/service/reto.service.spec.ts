@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RetoService } from './reto.service';
+import { RetoService } from '../../../../shared/service/reto.service';
 
 describe('RetoService', () => {
   let service: RetoService;

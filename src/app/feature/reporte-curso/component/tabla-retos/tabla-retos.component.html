@@ -1,0 +1,38 @@
+ <section class="hero is-primary is-bold" >
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+                Retos
+            </h1>
+            
+          </div>
+        </div>
+      </section>
+<body>
+    
+<table class="table">
+    <thead style="background-color: black ;" class="thead-dark">
+      <tr style="color: azure;">
+        <th style="color: azure;" scope="col">#</th>
+        <th style="color: azure;" scope="col">Titulo</th>
+        <th style="color: azure;" scope="col">Descripción</th>
+        <th style="color: azure;" scope="col">Ver reporte</th>
+       
+
+      </tr>
+    </thead>
+    <tbody  *ngFor="let reto of listaRetos;let i=index">
+      <tr  >
+        <th  scope="row">{{i+1}}</th>
+        <td>{{reto.titulo}}</td>
+        <td>{{reto.descripcion}}</td>
+        <a   >
+            <button  mat-flat-button color="accent" (click)="irReporte(reto.idReto)"   >Ver reporte</button>
+            </a>
+      </tr>
+   
+     
+      
+    </tbody>
+  </table>
+</body>

@@ -73,6 +73,14 @@ export class RegistrosBlogComponent implements OnInit {
     }
 
   }
+  visualizarImagen(urlImagen:string):boolean{
+    return urlImagen!==''?true:false
+    
+  }
+  visualizarVideo(urlVideo:string):boolean{
+    return urlVideo!==''?true:false
+    
+  }
   borrarContenido(idCursoContenido:number){
     
   }

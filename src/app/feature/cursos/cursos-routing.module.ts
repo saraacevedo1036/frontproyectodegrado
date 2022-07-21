@@ -9,11 +9,13 @@ import { CrearCategoriaComponent } from './component/crear-categoria/crear-categ
 import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
 import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
 import { JuegoCursoComponent } from './component/juego-curso/juego-curso.component';
+import { ListadoCursosComponent } from './component/listado-cursos/listado-cursos.component';
 import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 import { RetoCursoComponent } from './component/reto-curso/reto-curso.component';
 
-const routes: Routes = [  
+const routes: Routes = [ 
+  {path:'listado-cursos', component: ListadoCursosComponent, canActivate: [SegurityGuard]}, 
   {path:'reto/:idJuego', component: RetoCursoComponent, canActivate: [SegurityGuard]},
   {path:'juego/:idJuego', component: JuegoCursoComponent, canActivate: [SegurityGuard]},
   {path:'crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard]},

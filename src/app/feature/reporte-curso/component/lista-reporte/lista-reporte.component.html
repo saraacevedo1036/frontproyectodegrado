@@ -1,0 +1,35 @@
+<body>
+    
+
+<table class="table">
+    <thead style="background-color: black ;" class="thead-dark">
+      <tr style="color: azure;">
+        <th style="color: azure;" scope="col">#</th>
+        <th style="color: azure;" scope="col">Nombre</th>
+        <th style="color: azure;" scope="col">Correo</th>
+        <th style="color: azure;" scope="col">Identificación</th>
+        <th style="color: azure;" scope="col">Titulo del reto</th>
+        <th style="color: azure;" scope="col">Calificación</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let reporte of listaReportes;let i=index">
+      <tr >
+        <th  scope="row">{{i+1}}</th>
+        <td>{{reporte.nombre}}</td>
+        <td>{{reporte.correo}}</td>
+        <td>{{reporte.identificacion}}</td>
+        <td>{{reporte.tituloReto}}</td>
+        <td>{{reporte.calificacion}}</td>
+        <a style="background-color: red;" class="btn btn-danger" >
+            <mat-icon   class="delete-btn" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+              </svg></mat-icon>
+            </a>
+      </tr>
+   
+     
+      
+    </tbody>
+  </table>
+</body>

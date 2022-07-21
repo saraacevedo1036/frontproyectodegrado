@@ -13,11 +13,11 @@ export class EstudianteService {
   private endPoint = 'http://localhost:8080/api';
 
   
-  listarDocente(){
-    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/estudiante`);
+  listarEstudianteId(idCurso:number){
+    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/estudiante/curso/${idCurso}`);
   }
 
-  guardarDocente(docente:Estudiante):Observable<Boolean>{
+  guardarEstudiante(docente:Estudiante):Observable<Boolean>{
     return this.httpClient.post<Boolean>(`${this.endPoint}/estudiante/save`, docente);
   }
   

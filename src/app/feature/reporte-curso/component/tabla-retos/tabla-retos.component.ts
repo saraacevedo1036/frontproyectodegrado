@@ -1,19 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { take } from 'rxjs';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import { Reto } from '../../../../shared/model/reto.model';
-import { RetoService } from '../../../../shared/service/reto.service';
-import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
+import { Reto } from 'src/app/shared/model/reto.model';
+import { RetoService } from 'src/app/shared/service/reto.service';
 
 @Component({
-  selector: 'app-principal-reto',
-  templateUrl: './principal-reto.component.html',
-  styleUrls: ['./principal-reto.component.css']
+  selector: 'app-tabla-retos',
+  templateUrl: './tabla-retos.component.html',
+  styleUrls: ['./tabla-retos.component.css']
 })
-export class PrincipalRetoComponent implements OnInit, OnDestroy {
+export class TablaRetosComponent implements OnInit {
 
   TIPO_RETO: string = "R";
   idCurso:number 
@@ -36,16 +33,11 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
       console.log('Retos: ',  retos)
     });
   }
-  irJuego(idJuego:number): void{
+  irReporte(idReto:number): void{
 
-    this.router.navigate(['reto',idJuego]) 
+    this.router.navigate(['reporte',idReto]) 
   }
   
-  irCrearReto(): void{
-    this.router.navigateByUrl('crear-reto');
-    
-    
-  } 
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
