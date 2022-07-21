@@ -1,4 +1,4 @@
-import { Reto } from "src/app/shared/model/reto.model"
+import { Reto } from "src/app/feature/cursos/shared/model/reto.model"
 import { Pregunta } from "./pregunta.model"
 
 export interface CreacionReto{

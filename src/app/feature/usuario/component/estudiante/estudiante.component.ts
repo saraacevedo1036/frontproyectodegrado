@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MyValidators } from 'src/app/utils/my-validations';
+import Swal from 'sweetalert2';
 import { Estudiante } from '../../model/estudiante.model';
 import { EstudianteService } from '../../service/estudiante.service';
 
@@ -130,6 +131,8 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
         console.log('Se guarda contenido', contenido)
       });
     }
+
+    
   
     
    

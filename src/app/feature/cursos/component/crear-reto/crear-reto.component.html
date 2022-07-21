@@ -20,6 +20,8 @@
                     <div class="control has-icons-left has-icons-right">
                         <input class="input" type="text" placeholder="titulo" formControlName="titulo" />
                     </div>
+                     <span *ngIf="formularioReto.get('titulo').touched && formularioReto.get('titulo').errors " class="text-danger">El campo titulo es obligatorio</span>
+
                 </div>
                 <div class="field">
                     <label class="label">Descripción:</label>
@@ -27,13 +29,18 @@
                         <textarea class="textarea" cols="30" rows="3" formControlName="descripcion"></textarea>
                         {{ formularioReto.get('descripcion').value.length }}/45
                     </div>
+                    <span *ngIf="formularioReto.get('descripcion').touched && formularioReto.get('descripcion').value.length > 45 " class="text-danger">El campo descripcionno puede superar los 45 caracteres</span>
+                    <span *ngIf="formularioReto.get('descripcion').touched && formularioReto.get('descripcion').errors " class="text-danger">El campo descripcion es obligatorio</span>
                 </div>
                 <div class="field">
                     <label class="label">Comentario:</label>
                     <div class="control">
                         <textarea class="textarea" cols="30" rows="3" formControlName="comentario"></textarea>
-                        {{ formularioReto.get('descripcion').value.length }}/45
+                        {{ formularioReto.get('comentario').value.length }}/45
                     </div>
+                    <span *ngIf="formularioReto.get('comentario').touched && formularioReto.get('comentario').value.length > 45 " class="text-danger">El campo comentario puede superar los 45 caracteres</span>
+
+
                 </div>
             </div> 
             
@@ -49,13 +56,7 @@
                         <div class="control has-icons-left has-icons-right">
                             <input class="input" type="text" placeholder="pregunta" formControlName="pregunta" />
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Imagen</label>
-                        <div class="control has-icons-left has-icons-right">
-                          <input class="input"  type="text" placeholder="Ingrese url de la imagen" formControlName="imagen" />
-                          
-                        </div>  
+
                     </div>
                     <div class="field">
                         <label class="label">Imagen</label>
@@ -69,7 +70,8 @@
                         <div class="control has-icons-left has-icons-right">
                           <input class="input"  type="text" placeholder="Ingrese la respuesta a la pregunta" formControlName="opcion1" />
                         
-                        </div>  
+                        </div> 
+ 
                     </div>
                     <div class="field">
                         <label class="label">Opcion 2</label>
@@ -77,6 +79,7 @@
                           <input class="input"  type="text" placeholder="Ingrese la segunda opcion " formControlName="opcion2" />
                         
                         </div>  
+
                     </div>
                     <div class="field">
                         <label class="label">Opcion 3</label>
@@ -84,29 +87,31 @@
                           <input class="input"  type="text" placeholder="Ingrese la tercera opcion " formControlName="opcion3" />
                         
                         </div>  
+
                     </div>
                     <div class="field">
                         <label class="label">Opcion 4</label>
                         <div class="control has-icons-left has-icons-right">
                           <input class="input"  type="text" placeholder="Ingrese la cuarta opcion " formControlName="opcion4" />
-                        
-                        </div>  
+
+                        </div> 
+ 
                     </div>
-                    
                     <mat-form-field class="respuesta" appearance="fill">
-                    <mat-select placeholder="Respuesta">
-                        <mat-option value="Opcion 1"> {{preguntaForm.get('opcion1')}}</mat-option>
-                        <mat-option value="Opcion 2"> Opcion 2</mat-option>
-                        <mat-option value="Opcion 3"> Opcion 3</mat-option>
-                        <mat-option value="Opcion 4"> Opcion 4</mat-option>
-                    </mat-select>
+                        <mat-select formControlName="respuesta" placeholder="Respuesta" >
+                            <mat-option value="opcion1"> opcion 1</mat-option>
+                            <mat-option value="opcion2"> Opcion 2</mat-option>
+                            <mat-option value="opcion3"> Opcion 3</mat-option>
+                            <mat-option value="opcion4"> Opcion 4</mat-option>
+                        </mat-select>
+                        
+                        </mat-form-field>
                     
-                    </mat-form-field>
                     <a  class="btn btn-danger" >
-                        <mat-icon   class="delete-btn" (click)="borrarPregunta(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
-                            <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
-                          </svg></mat-icon>
-                        </a>
+                    <mat-icon   class="delete-btn" (click)="borrarPregunta(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                        <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                      </svg></mat-icon>
+                    </a>
                     
                 </div>
         
@@ -115,7 +120,7 @@
             </ng-container>
         <div id="btnagregar" >
             
-            <button id="agregar" mat-flat-button color="accent" (click)="agregarPregunta()" >
+            <button id="agregar"  mat-flat-button color="accent" (click)="agregarPregunta()" >
             <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></mat-icon>
             </button>
             <h1>Agregar pregunta</h1>
@@ -125,15 +130,13 @@
         </div>
         <div>
             <div class="pull-right">
-            <button mat-flat-button color="accent" value="guardar" (click)="guardar()"> Guardar</button>
+            <button mat-flat-button color="accent" *ngIf="agregoPregunta > 0"  value="guardar" (click)="guardar()"> Guardar</button>
             </div>
         </div>
         </form>
     </section>
     </div>
   </body>
-  
-  
   
   
   

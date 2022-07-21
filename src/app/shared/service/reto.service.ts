@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Reto } from '../model/reto.model';
+import { Reto } from '../../feature/cursos/shared/model/reto.model';
 
 @Injectable({
   providedIn: 'root'

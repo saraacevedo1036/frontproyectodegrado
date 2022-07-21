@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
@@ -11,6 +12,9 @@ import { JuegoService } from '../../shared/service/juego.services';
 })
 export class CrearRetoComponent implements OnInit {
   TIPO_RETO:string = "R";
+  agregoPregunta:number=0;
+  respuestaReto:string
+
 
   form = this.formBuilder.group({
     preguntas: this.formBuilder.array([])
@@ -45,7 +49,7 @@ export class CrearRetoComponent implements OnInit {
   }
 
   guardar(){
-    
+    if(this.formularioReto.valid&&this.form.valid ){
     const value = this.formularioReto.value;
       console.log('RETO: ',value);
     const valuePre = this.form.value.preguntas;
@@ -53,6 +57,11 @@ export class CrearRetoComponent implements OnInit {
 
     this.agregarReto();
     console.log('CREACION RETO',this.armarObjetoAGuardar())
+    this.showModalCorrecto()
+    }else{
+      this.showModalIncorrecto()
+
+    }
   }
   
   agregarReto(){
@@ -100,6 +109,8 @@ export class CrearRetoComponent implements OnInit {
   }
 
   agregarPregunta(){
+    this.agregoPregunta=this.agregoPregunta + 1;
+
     const preguntaForm = this.formBuilder.group({
       pregunta: ['', Validators. required],
       imagen: [''],
@@ -107,6 +118,7 @@ export class CrearRetoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
+      respuesta:['',]
       
      });
 
@@ -116,8 +128,45 @@ export class CrearRetoComponent implements OnInit {
   }
 
   borrarPregunta(preguntaIndex:number){
+    this.agregoPregunta=this.agregoPregunta - 1;
+
     this.preguntas.removeAt(preguntaIndex);
 
+  }
+  showModalCorrecto(){
+    Swal.fire({
+      icon: 'success',
+      title: 'El juego se guardo con exito',
+    })
+  }
+  showModalIncorrecto(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Validar los datos ingresados ',
+      text: 'Recuerda que el formulario de pregunta debe estar diligenciado',
+
+    })
+  }
+  validarRespuesta(){
+    switch (this.form.controls.imagen.value) {
+      case 'opcion1':
+         this.respuestaReto=this.form.controls.opcion1.value;
+
+          break;
+      case 'opcion2':
+         this.respuestaReto=this.form.controls.opcion2.value;
+
+          break;
+      case 'opcion3':
+            this.respuestaReto=this.form.controls.opcion3.value;
+   
+             break;
+      case 'opcion4':
+            this.respuestaReto=this.form.controls.opcion4.value;
+   
+             break;
+  }
+    
   }
   
  

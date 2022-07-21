@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import { Reto } from 'src/app/shared/model/reto.model';
+import { Reto } from 'src/app/feature/cursos/shared/model/reto.model';
 import { RetoService } from 'src/app/shared/service/reto.service';
 
 @Component({

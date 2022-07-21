@@ -3,7 +3,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import { CrearCategoriaComponent } from '../crear-categoria/crear-categoria.component';
 @Component({
   selector: 'app-listado-categorias',
   templateUrl: './listado-categorias.component.html',
@@ -60,11 +59,7 @@ export class ListadoCategoriasComponent implements OnInit {
   cerrarModal(): void{
     this.modal.close();
   }
-  modalCrearCategoria(){
-    
-      this.modalCat.open(CrearCategoriaComponent,{
-        width: '450px'});
-  }
+ 
 
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();

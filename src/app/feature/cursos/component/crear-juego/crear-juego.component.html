@@ -20,6 +20,8 @@
                     <div class="control has-icons-left has-icons-right">
                         <input class="input" type="text" placeholder="titulo" formControlName="titulo" />
                     </div>
+                     <span *ngIf="formularioJuego.get('titulo').touched && formularioJuego.get('titulo').errors " class="text-danger">El campo titulo es obligatorio</span>
+
                 </div>
                 <div class="field">
                     <label class="label">Descripción:</label>
@@ -27,13 +29,18 @@
                         <textarea class="textarea" cols="30" rows="3" formControlName="descripcion"></textarea>
                         {{ formularioJuego.get('descripcion').value.length }}/45
                     </div>
+                    <span *ngIf="formularioJuego.get('descripcion').touched && formularioJuego.get('descripcion').value.length > 45 " class="text-danger">El campo descripcionno puede superar los 45 caracteres</span>
+                    <span *ngIf="formularioJuego.get('descripcion').touched && formularioJuego.get('descripcion').errors " class="text-danger">El campo descripcion es obligatorio</span>
                 </div>
                 <div class="field">
                     <label class="label">Comentario:</label>
                     <div class="control">
                         <textarea class="textarea" cols="30" rows="3" formControlName="comentario"></textarea>
-                        {{ formularioJuego.get('descripcion').value.length }}/45
+                        {{ formularioJuego.get('comentario').value.length }}/45
                     </div>
+                    <span *ngIf="formularioJuego.get('comentario').touched && formularioJuego.get('comentario').value.length > 45 " class="text-danger">El campo comentario puede superar los 45 caracteres</span>
+
+
                 </div>
             </div> 
             
@@ -49,6 +56,7 @@
                         <div class="control has-icons-left has-icons-right">
                             <input class="input" type="text" placeholder="pregunta" formControlName="pregunta" />
                         </div>
+
                     </div>
                     <div class="field">
                         <label class="label">Imagen</label>
@@ -62,7 +70,8 @@
                         <div class="control has-icons-left has-icons-right">
                           <input class="input"  type="text" placeholder="Ingrese la respuesta a la pregunta" formControlName="opcion1" />
                         
-                        </div>  
+                        </div> 
+ 
                     </div>
                     <div class="field">
                         <label class="label">Opcion 2</label>
@@ -70,6 +79,7 @@
                           <input class="input"  type="text" placeholder="Ingrese la segunda opcion " formControlName="opcion2" />
                         
                         </div>  
+
                     </div>
                     <div class="field">
                         <label class="label">Opcion 3</label>
@@ -77,13 +87,15 @@
                           <input class="input"  type="text" placeholder="Ingrese la tercera opcion " formControlName="opcion3" />
                         
                         </div>  
+
                     </div>
                     <div class="field">
                         <label class="label">Opcion 4</label>
                         <div class="control has-icons-left has-icons-right">
                           <input class="input"  type="text" placeholder="Ingrese la cuarta opcion " formControlName="opcion4" />
-                        
-                        </div>  
+
+                        </div> 
+ 
                     </div>
                     <mat-form-field class="respuesta" appearance="fill">
                         <mat-select formControlName="respuesta" placeholder="Respuesta" >
@@ -108,7 +120,7 @@
             </ng-container>
         <div id="btnagregar" >
             
-            <button id="agregar" mat-flat-button color="accent" (click)="agregarPregunta()" >
+            <button id="agregar"  mat-flat-button color="accent" (click)="agregarPregunta()" >
             <mat-icon class="add-pregunta-btn"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></mat-icon>
             </button>
             <h1>Agregar pregunta</h1>
@@ -118,7 +130,7 @@
         </div>
         <div>
             <div class="pull-right">
-            <button mat-flat-button color="accent"  value="guardar" (click)="guardar()"> Guardar</button>
+            <button mat-flat-button color="accent" *ngIf="agregoPregunta > 0"  value="guardar" (click)="guardar()"> Guardar</button>
             </div>
         </div>
         </form>

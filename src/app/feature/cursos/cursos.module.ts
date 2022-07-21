@@ -16,7 +16,6 @@ import { JuegoCursoComponent } from './component/juego-curso/juego-curso.compone
 import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 import { RetoService } from '../../shared/service/reto.service';
-import { CrearCategoriaComponent } from './component/crear-categoria/crear-categoria.component';
 import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,7 +37,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     JuegoCursoComponent,
     PrincipalJuegoComponent,
     PrincipalRetoComponent,
-    CrearCategoriaComponent,
     CrearJuegoComponent,
     CrearCursoComponent,
     CrearRetoComponent,

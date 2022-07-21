@@ -4,7 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import { Reto } from '../../../../shared/model/reto.model';
+import { Reto } from '../../shared/model/reto.model';
 import { RetoService } from '../../../../shared/service/reto.service';
 import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
 

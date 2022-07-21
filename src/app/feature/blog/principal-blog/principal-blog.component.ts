@@ -2,9 +2,9 @@ import { Component,  OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
-import { CrearCategoriaComponent } from '../../cursos/component/crear-categoria/crear-categoria.component';
 import { Categoria } from '../../cursos/shared/model/categoria.model';
 import { CategoriaService } from '../../cursos/shared/service/categoria.service';
 
@@ -21,11 +21,11 @@ export class PrincipalBlogComponent implements OnInit {
   INICIO_URL_YOUTUBE:string='https://www.youtube.com/watch?v='
 
   formularioBlog = this.formBuilder.group({
-    titulo:[''],
-    descripcion:[''],
-    imagen:[''],
-    video:[''],
-    categoria:[''],
+    titulo:['',Validators.required],
+    descripcion:['',[Validators.required,Validators.maxLength(1000)]],
+    imagen:['',],
+    video:['',],
+    categoria:['',Validators.required],
     crearCategoria:[''],
     usarCategoria:['']
   }); 
@@ -74,11 +74,7 @@ export class PrincipalBlogComponent implements OnInit {
     return this.listaCategorias;
   }
 
-  modalCrearCategoria(){
-    
-    this.modalCat.open(CrearCategoriaComponent,{
-      width: '450px'});
-  }
+ 
   
   armarObjetoContenido(): Contenido{
     return {
@@ -136,9 +132,32 @@ export class PrincipalBlogComponent implements OnInit {
     this.formularioBlog.controls.video.errors.value=inicioUrlVideo;
   }
 
-
+  
   onSbmit(){
-    this.guardarContenido();
+    event.preventDefault();
+      if (this.formularioBlog.valid  ) {
+        this.guardarContenido();
+        this.showModalCorrecto()
+        const value = this.formularioBlog.value;
+        console.log(value);
+      } else {
+        this.formularioBlog.markAllAsTouched();
+        this.showModalIncorrecto()
+      }
+
+    
+  }
+  showModalCorrecto(){
+    Swal.fire({
+      icon: 'success',
+      title: 'El contenido se guardo con exito',
+    })
+  }
+  showModalIncorrecto(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Validar los datos ingresados como lo son categoria,Titulo y Descripcion',
+    })
   }
 
 }

@@ -9,7 +9,7 @@ import { ListaEstudianteCursoComponent } from '../usuario/component/lista-estudi
 
 const routes: Routes = [
   {path:'curso/:idCursos/estudiante', component: ListaEstudianteCursoComponent, canActivate: [SegurityGuard]},
-  {path:'cursos/:idCursos/reto', component: TablaRetosComponent, canActivate: [SegurityGuard]},
+  {path:'tablaRetos/:idCursos/reto', component: TablaRetosComponent, canActivate: [SegurityGuard]},
   {path:'cursos/:idCursos/juego', component: PrincipalJuegoComponent, canActivate: [SegurityGuard]},
 {path:'cursos/:idCursos/reto', component: PrincipalRetoComponent, canActivate: [SegurityGuard]}];
 

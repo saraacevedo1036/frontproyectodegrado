@@ -74,7 +74,7 @@ export class InicioComponent implements OnInit {
 
   } 
   irTablaReto(): void{
-    this.router.navigate(['cursos',this.idCurso,'reto']);
+    this.router.navigate(['tablaRetos',this.idCurso,'reto']);
 
   } 
   irListaEstudiante(): void{
