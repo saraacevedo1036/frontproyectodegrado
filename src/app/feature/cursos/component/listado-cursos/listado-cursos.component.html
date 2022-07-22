@@ -5,7 +5,6 @@
         <h1 class="title">
           Asignaturas
         </h1>
-
       </div>
     </div>
   </section>
@@ -28,7 +27,7 @@
     <mat-grid-tile *ngFor="let curso of listaCursos" [colspan]="2" [rowspan]="1">
       <button mat-raised-button [routerLink]="['curso',curso.idCursos]"> {{curso.nombre}}
       </button>
-      <mat-grid-tile-footer class="button" (click)="showModalCodigo(curso.codigo)">
+      <mat-grid-tile-footer *ngIf="puedeVisualizar()" class="button" (click)="showModalCodigo(curso.codigo)">
         Ver codigo del curso
 
       </mat-grid-tile-footer>

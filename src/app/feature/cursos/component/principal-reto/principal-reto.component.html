@@ -1,33 +1,31 @@
 <body>
-    <section class="hero is-primary is-bold" >
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-                Retos
-            </h1>
-            
-          </div>
-        </div>
-      </section>
-      <div style="margin-top:1% ;">
-        <div *ngIf="puedeVisualizar()" class="pull-right">
-          <div class="agregarAsignatura"><label >Agregar Reto</label></div>
-            <button mat-flat-button class="hero is-primary is-bold" id="agregar" mat-button (click)="irCrearReto()" ><i class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
-        </div>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Retos
+        </h1>
+
+      </div>
     </div>
-    
-    <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px" >
-        <mat-grid-tile *ngFor="let reto of listaRetos"
-        [colspan]="2"
-        [rowspan]="1"
-        >
-        <button (click)="irJuego(reto.idReto)" mat-raised-button > {{reto.titulo}}
-        </button>
-        <mat-grid-tile-footer>
-            {{reto.descripcion}}
-    
-        </mat-grid-tile-footer>
-        </mat-grid-tile>
-    </mat-grid-list>  
-    
+  </section>
+  <div style="margin-top:1% ;">
+    <div *ngIf="puedeVisualizar()" class="pull-right">
+      <div class="agregarAsignatura"><label>Agregar Reto</label></div>
+      <button mat-flat-button class="hero is-primary is-bold" id="agregar" mat-button (click)="irCrearReto()"><i
+          class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px">
+    <mat-grid-tile *ngFor="let reto of listaRetos" [colspan]="2" [rowspan]="1">
+      <button (click)="irJuego(reto.idReto)" mat-raised-button> {{reto.titulo}}
+      </button>
+      <mat-grid-tile-footer>
+        {{reto.descripcion}}
+
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+
 </body>

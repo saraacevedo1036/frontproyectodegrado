@@ -1,39 +1,35 @@
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Unirme al curso
+      </h1>
 
-<section class="hero is-primary is-bold" >
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Unirme al curso
-        </h1>
-        
-      </div>
     </div>
-  </section>
-  <div class="container">
-    <section class="section">
-      <form [formGroup]="form"  (ngSubmit)="save($event)">
-        <div class="field">
-          <label class="lNombre">Clave asignatura</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input"
-            placeholder="clave"
-             type="text" 
-             formControlName="claveAsignatura" />
-            
-          </div>
-        </div>
-        <div>
-            <label class="duda">La clave sera compartida por tu docente</label>
-        </div>
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-primary" type="submit">Guardar</button>
-            
-          </div>
-          <div class="control">
-            <button (click)="cerrarModal()" class="button is-light" type="reset">Cancelar</button>
-          </div>
-        </div>
-      </form>
-    </section>
   </div>
+</section>
+<div class="container">
+  <section class="section">
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+      <div class="field">
+        <label class="lNombre">Clave asignatura</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" placeholder="clave" type="text" formControlName="claveAsignatura" />
+
+        </div>
+      </div>
+      <div>
+        <label class="duda">La clave sera compartida por tu docente</label>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit">Guardar</button>
+
+        </div>
+        <div class="control">
+          <button (click)="cerrarModal()" class="button is-light" type="reset">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

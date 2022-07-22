@@ -1,86 +1,77 @@
-<body>
-    <form [formGroup]="form">
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
         <div class="container">
-
-            <div class="card">
-                <div class="d-flex justify-content-between">
-                    <div class="image">
-
-                        <img src="{{listaPreguntas[preguntaJuego].imagen}}" alt="logo">
-                    </div>
-                    <div class="quiz-header">
-                        <h4 style="font-family: cursive;">Practiquemos juntos</h4>
-
-                    </div>
-
-                </div>
-
-                <div class="question-remain">
-                    <span style="font-style: italic;"> pregunta {{preguntaJuego+1}} de {{listaPreguntas.length}}</span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="question">
-                <div class="card">
-                    <h5>{{listaPreguntas[preguntaJuego].texto}}</h5>
-                </div>
-
-            </div>
-            <div class="options">
-                
-                <div class="card">
-                    <section class="example-section">
-                        
-                        <div class="card">
-                            
-                            <h2
-                            name="pru"
-                                formControlName="opcion1">a) {{listaPreguntas[preguntaJuego].opcion1}}</h2>
-                            
-                        </div>
-                        <div class="card">
-                            
-                            <h2
-                            name="pru"
-                                formControlName="opcion2">b) {{listaPreguntas[preguntaJuego].opcion2}}</h2>
-                            
-                        </div>
-                        <div class="card">
-                            
-                                <h2
-                                name="pru"
-                                    formControlName="opcion3">c) {{listaPreguntas[preguntaJuego].opcion3}}</h2>
-                            
-                        </div>
-                        <div class="card">
-                            
-                            <h2
-                            name="pru"
-                                formControlName="opcion4">d) {{listaPreguntas[preguntaJuego].opcion4}}</h2>
-                        </div>
-                    
-
-                    </section>
-                </div>
-            </div>
-            <div class="card">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona tu respuesta</option>
-                    <option value="1">a</option>
-                    <option value="2">b</option>
-                    <option value="3">c</option>
-                    <option value="4">d</option>
-                  </select>
-            </div>
-
+            <h1 class="title">
+                Practiquemos juntos
+            </h1>
         </div>
-        <div class="pull-right">
-            <button mat-flat-button color="accent" click="siguientePregunta()"
-                *ngIf="listaPreguntas.length>=preguntaJuego"> Siguiente</button>
-        </div>
+    </div>
+</section>
+
+<body>
+    <form class="contenedor" [formGroup]="formReto">
+        <ng-container formArrayName="preguntas">
+            <div *ngFor="let pregunta of preguntas.controls; let i=index">
+                <ng-container [formGroupName]="i">
+                    <div class="container">
+                        <div class="card">
+                            <div class="question-remain">
+                                <span style="font-style: italic;"> pregunta {{i+1}} de {{listaPreguntas.length}}</span>
+                            </div>
+
+                        </div>
+                        <div class="question">
+                            <div class="card">
+                                <h1>{{obtenerValorControl(i,'pregunta')}}</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="{{obtenerValorControl(i,'imagen')}}" alt="logo">
+                            </div>
+                        </div>
+                        <div class="options">
+                            <div class="card">
+                                <section class="example-section">
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion1"
+                                                (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion1}}</mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion2"
+                                                (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion2}}</mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion3"
+                                                (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion3}}
+                                            </mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion4"
+                                                (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion4}}
+                                            </mat-checkbox>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
     </form>
+    <div *ngIf="validarRolEstudiante()" class="pull-right">
+        <button mat-flat-button color="accent" value="guardar" (click)="enviarRespuestas()"> Enviar</button>
+    </div>
 </body>

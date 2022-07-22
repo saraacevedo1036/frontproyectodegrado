@@ -1,22 +1,20 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Validemos tus conocimientos
+            </h1>
+        </div>
+    </div>
+</section>
+
 <body>
     <form class="contenedor" [formGroup]="formReto">
         <ng-container formArrayName="preguntas">
             <div *ngFor="let pregunta of preguntas.controls; let i=index">
                 <ng-container [formGroupName]="i">
-                    <div class="container" >
+                    <div class="container">
                         <div class="card">
-                            <div class="d-flex justify-content-between">
-
-                                <div class="image">
-                                    <img src="{{obtenerValorControl(i,'imagen')}}" alt="logo" > 
-                                </div>
-
-                                <div class="quiz-header">
-                                    <h4 style="font-family: cursive;">Validemos tus conocimientos</h4>
-                                </div>
-
-                            </div>
-
                             <div class="question-remain">
                                 <span style="font-style: italic;"> pregunta {{i+1}} de {{listaPreguntas.length}}</span>
                             </div>
@@ -24,7 +22,12 @@
                         </div>
                         <div class="question">
                             <div class="card">
-                                <h1>{{obtenerValorControl(i,'pregunta')}}</h1> 
+                                <h1>{{obtenerValorControl(i,'pregunta')}}</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="{{obtenerValorControl(i,'imagen')}}" alt="logo">
                             </div>
                         </div>
                         <div class="options">
@@ -32,26 +35,30 @@
                                 <section class="example-section">
                                     <div class="card">
                                         <p>
-                                            <mat-checkbox formControlName="opcion1" (focus)="detectarCambiosFormulario(i)">
+                                            <mat-checkbox formControlName="opcion1"
+                                                (focus)="detectarCambiosFormulario(i)">
                                                 {{listaPreguntas[i].opcion1}}</mat-checkbox>
                                         </p>
                                     </div>
                                     <div class="card">
                                         <p>
-                                            <mat-checkbox formControlName="opcion2" (focus)="detectarCambiosFormulario(i)">
+                                            <mat-checkbox formControlName="opcion2"
+                                                (focus)="detectarCambiosFormulario(i)">
                                                 {{listaPreguntas[i].opcion2}}</mat-checkbox>
                                         </p>
                                     </div>
                                     <div class="card">
                                         <p>
-                                            <mat-checkbox formControlName="opcion3" (focus)="detectarCambiosFormulario(i)"> 
+                                            <mat-checkbox formControlName="opcion3"
+                                                (focus)="detectarCambiosFormulario(i)">
                                                 {{listaPreguntas[i].opcion3}}
                                             </mat-checkbox>
                                         </p>
                                     </div>
                                     <div class="card">
                                         <p>
-                                            <mat-checkbox formControlName="opcion4" (focus)="detectarCambiosFormulario(i)">
+                                            <mat-checkbox formControlName="opcion4"
+                                                (focus)="detectarCambiosFormulario(i)">
                                                 {{listaPreguntas[i].opcion4}}
                                             </mat-checkbox>
                                         </p>
@@ -64,7 +71,7 @@
             </div>
         </ng-container>
     </form>
-    <div class="pull-right">
+    <div *ngIf="validarRolEstudiante()" class="pull-right">
         <button mat-flat-button color="accent" value="guardar" (click)="enviarRespuestas()"> Enviar</button>
     </div>
 </body>

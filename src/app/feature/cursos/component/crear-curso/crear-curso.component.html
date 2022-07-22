@@ -1,64 +1,59 @@
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Crear Curso
+      </h1>
 
-<section class="hero is-primary is-bold" >
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Crear Curso
-        </h1>
-        
-      </div>
     </div>
-  </section>
-  <div class="container">
-    <section class="section">
-      <form [formGroup]="form"  (ngSubmit)="save($event)">
-        <div class="field">
-          <label class="lNombre">Nombre</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input"
-            placeholder="Nombre"
-            [class.is-danger]="nombreFieldInvalid"
-            [class.is-success]="nombreFieldValid" 
-             type="text" 
-             formControlName="nombre" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-            <span *ngIf="nombreFieldInvalid" class="icon is-small is-right">
-                <i class="fas fa-times"></i>
-              </span>
-              <span *ngIf="nombreFieldValid" class="icon is-small is-right">
-                  <i class="fas fa-check"></i>
-                </span>
-          </div>
-          <p *ngIf="nombreFieldInvalid" class="help is-danger">Validar campo</p>
-        </div>
-        <div class="field">
-            <label class="lGrado">Grado</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" [class.is-danger]="gradoFieldInvalid"
-              [class.is-success]="gradoFieldValid"  type="number" formControlName="grado" placeholder="Grado" />
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-              <span *ngIf="gradoFieldInvalid" class="icon is-small is-right">
-                <i class="fas fa-times"></i>
-              </span>
-              <span *ngIf="gradoFieldValid" class="icon is-small is-right">
-                  <i class="fas fa-check"></i>
-                </span>
-            </div>
-            <p *ngIf="gradoFieldInvalid" class="help is-danger">Validar campo</p>
-        </div>
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-primary" type="submit">Guardar</button>
-            
-          </div>
-          <div class="control">
-            <button (click)="cerrarModal()" class="button is-light" type="reset">Cancelar</button>
-          </div>
-        </div>
-      </form>
-    </section>
   </div>
+</section>
+<div class="container">
+  <section class="section">
+    <form [formGroup]="form" (ngSubmit)="save($event)">
+      <div class="field">
+        <label class="lNombre">Nombre</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" placeholder="Nombre" [class.is-danger]="nombreFieldInvalid"
+            [class.is-success]="nombreFieldValid" type="text" formControlName="nombre" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span *ngIf="nombreFieldInvalid" class="icon is-small is-right">
+            <i class="fas fa-times"></i>
+          </span>
+          <span *ngIf="nombreFieldValid" class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+        <p *ngIf="nombreFieldInvalid" class="help is-danger">Validar campo</p>
+      </div>
+      <div class="field">
+        <label class="lGrado">Grado</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" [class.is-danger]="gradoFieldInvalid" [class.is-success]="gradoFieldValid" type="number"
+            formControlName="grado" placeholder="Grado" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span *ngIf="gradoFieldInvalid" class="icon is-small is-right">
+            <i class="fas fa-times"></i>
+          </span>
+          <span *ngIf="gradoFieldValid" class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+        <p *ngIf="gradoFieldInvalid" class="help is-danger">Validar campo</p>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit">Guardar</button>
+
+        </div>
+        <div class="control">
+          <button (click)="cerrarModal()" class="button is-light" type="reset">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

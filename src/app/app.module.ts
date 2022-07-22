@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './feature/material/material.module';
 import { CoreModule } from './core/core.module';
-import { HomeComponent } from './feature/home/component/home/home.component';
 import { LoginModule } from './feature/login/login.module';
 import { CursosModule } from './feature/cursos/cursos.module';
 import { ContenidoCursoModule } from './feature/contenido-curso/contenido-curso.module';
@@ -23,7 +22,7 @@ import { ReporteCursoModule } from './feature/reporte-curso/reporte-curso.module
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+   
 
   ],
   imports: [

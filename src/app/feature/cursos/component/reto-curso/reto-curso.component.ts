@@ -172,16 +172,14 @@ export class RetoCursoComponent implements OnInit {
       `
     })
   }
-
-  /*obtenerRespuesta(respuestas: any, pregunta:Pregunta):string{
-    let respuesta = ''
-    this.PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO.forEach(propiedad=>{
-      if(respuestas[propiedad]===true){
-       // respuesta = pregunta[]
-      }
-    });
-    return respuesta;
-  }*/
-
+  validarRolEstudiante(){
+    if(this.autorizacionService.esRolEstudiante()==true){
+    return true;
+  }else{
+    return false
+  }
 }
 
+
+
+}

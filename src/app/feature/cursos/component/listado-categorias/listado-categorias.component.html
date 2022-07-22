@@ -1,26 +1,27 @@
-<section class="hero is-primary is-bold" >
+<section class="hero is-primary is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-          Contenido
+        Contenido
       </h1>
-      
+
     </div>
   </div>
 </section>
 <div mat-dialog-content *ngFor="let categoria of data.categorias">
   <ul>
     <li>
-      <h3> Categoria:   {{categoria.nombre}}</h3>
-      <button id="irContenido" mat-raised-button color="accent" (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
+      <h3> Categoria: {{categoria.nombre}}</h3>
+      <button id="irContenido" mat-raised-button color="accent"
+        (click)="irAContenido(categoria.idCategoriaContenido)">Ir a contenido</button>
     </li>
   </ul>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cerrarModal()">Cerrar</button>
-<div *ngIf="puedeVisualizar()" style="position: relative; left: 40%; bottom: 0;">
-  <label >Agregar contenido</label>
-  <button id="agregar" mat-button (click)="crearContenido()"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+  <div *ngIf="puedeVisualizar()" style="position: relative; left: 40%; bottom: 0;">
+    <label>Agregar contenido</label>
+    <button id="agregar" mat-button (click)="crearContenido()"><i class="fa fa-plus fa-2x"
+        aria-hidden="true"></i></button>
+  </div>
 </div>
-</div>
-
