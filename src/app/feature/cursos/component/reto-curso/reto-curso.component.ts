@@ -11,6 +11,14 @@ import { PreguntaService } from '../../shared/service/pregunta.service';
 export class RetoCursoComponent implements OnInit {
   idJuego:number;
   listaPreguntas:Pregunta[]=[];
+  toppings = this.formBuilder.group({
+    pregunta:[],
+    opcion1: false,
+    opcion2: false,
+    opcion3: false,
+    opcion4: false,
+   
+  });
   form = this.formBuilder.group({
     respuestas: this.formBuilder.array([])
   })

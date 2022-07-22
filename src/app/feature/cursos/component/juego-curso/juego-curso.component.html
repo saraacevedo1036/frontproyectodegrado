@@ -19,6 +19,7 @@
                 </div>
                 
             </div>
+           
 
              
                             <div class="question">
@@ -28,29 +29,26 @@
 
                             </div>
                             <div class="options">
-                                <ol>
-                                    <li>
-                                        <div class="card">
-                                            {{pregunta.opcion1}}
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card">
-                                            {{pregunta.opcion2}}
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card">
-                                            {{pregunta.opcion3}}
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card">
-                                            {{pregunta.opcion4}}
-                                        </div>
-                                    </li>
-                                </ol>
+                                
+                                <div class="card">
+                                <section class="example-section" [formGroup]="toppings">
+                                    <div class="card">
+                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion1">{{pregunta.opcion1}}</mat-checkbox></p>
+                                </div>
+                                <div class="card">
+                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false" formControlName="opcion2">{{pregunta.opcion2}}</mat-checkbox></p>
+                                </div>
+                                <div class="card">
+                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion3">{{pregunta.opcion3}}</mat-checkbox></p>
+                                </div>
+                                <div class="card">
+                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion1.value==false" formControlName="opcion4">{{pregunta.opcion4}}</mat-checkbox></p>
+                                </div>
+                                    
+                                  </section>
+                                </div>
                             </div>
+                            
                         </div>
                         <div class="pull-right">
                             <button mat-flat-button color="accent"  value="guardar" > Guardar</button>

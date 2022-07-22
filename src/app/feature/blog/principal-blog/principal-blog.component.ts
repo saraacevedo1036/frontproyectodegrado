@@ -73,8 +73,6 @@ export class PrincipalBlogComponent implements OnInit {
     });
     return this.listaCategorias;
   }
-
- 
   
   armarObjetoContenido(): Contenido{
     return {

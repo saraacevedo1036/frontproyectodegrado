@@ -49,7 +49,6 @@
           <label class="label">Video</label>
         <div class="control has-icons-left has-icons-right">
             <input (focus)="validarUrlYoutube()" class="input"  type="text" placeholder="Ingrese url del video" formControlName="video" />
-            
         </div>  
       </div>
       <div class=" verVideo">
@@ -69,12 +68,7 @@
               <section class="example-section" [formGroup]="toppings">
                 <p  ><mat-checkbox *ngIf="toppings.controls.usarCategoria.value==false" formControlName="crearCategoria">Crear nueva categoria</mat-checkbox></p>
                 <p ><mat-checkbox *ngIf="toppings.controls.crearCategoria.value==false" formControlName="usarCategoria">Categorisa existente</mat-checkbox></p>
-                
               </section>
-              
-              
-                
-              
               <div *ngIf="toppings.controls.usarCategoria.value==true">
                 <label  class="label">Categoria:</label>
                   <mat-form-field class="respuesta" appearance="fill">
@@ -95,12 +89,8 @@
                   </div>
                 </div>
               </div>
-              
-              
-                
             </div>
-          </div>
-          
+          </div>        
       <div class="pull-right">
         <button mat-flat-button color="accent" id="guardar" type="submit" value="guardar"> guardar</button>
       </div>

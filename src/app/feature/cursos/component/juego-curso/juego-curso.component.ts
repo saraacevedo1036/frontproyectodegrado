@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { PreguntaService } from '../../shared/service/pregunta.service';
@@ -11,8 +12,20 @@ import { PreguntaService } from '../../shared/service/pregunta.service';
 export class JuegoCursoComponent implements OnInit {
   idJuego:number;
   listaPreguntas:Pregunta[]=[];
+  toppings = this.formBuilder.group({
+    pregunta:[],
+    opcion1: false,
+    opcion2: false,
+    opcion3: false,
+    opcion4: false,
+   
+  });
 
-  constructor(private preguntaService:PreguntaService, private activeRoute:ActivatedRoute ) { }
+  constructor(private preguntaService:PreguntaService, 
+    private activeRoute:ActivatedRoute,
+    
+    private formBuilder: UntypedFormBuilder,
+    ) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -20,6 +33,7 @@ export class JuegoCursoComponent implements OnInit {
       this.obtenerListaPreguntas();
     });
   }
+ 
   obtenerListaPreguntas(){
     this.preguntaService.listarPorIdReto(this.idJuego).subscribe(preguntas=>{
       if(preguntas.length>0){
@@ -33,6 +47,8 @@ export class JuegoCursoComponent implements OnInit {
       
     })
   }
+  
+ 
 
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
 import { AutorizacionService } from '../../login/shared/service/autorizacion.service';
@@ -17,6 +18,7 @@ export class RegistrosBlogComponent implements OnInit {
   idCurso:number;
   idCategoria:number;
   idCursoContenido:number;
+  nombreCurso:string
   //@ViewChild(MatTable) table: MatTable<>;
   dataSource = new MatTableDataSource<Contenido>([]);
 
@@ -34,6 +36,7 @@ export class RegistrosBlogComponent implements OnInit {
       this.obtenerlistadoContenido(this.idCategoria, this.idCurso);
     });
   }
+ 
 
  /* inicializarSuscripciones(){
     this.eventosService.disparador.pipe(take(1)).subscribe(data =>{
@@ -81,8 +84,30 @@ export class RegistrosBlogComponent implements OnInit {
     return urlVideo!==''?true:false
     
   }
-  borrarContenido(idCursoContenido:number){
-    
+  borrarContenido(idContenido:number){
+    Swal.fire({
+      title: 'Eliminar contenido?',
+      text: "Si eliminas el contenido este no se podra recuperar!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.contenidoService.eliminarContenido(idContenido).subscribe(respuesta=>{
+          window.location.reload();
+        })
+
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
+  
+ 
 
 }

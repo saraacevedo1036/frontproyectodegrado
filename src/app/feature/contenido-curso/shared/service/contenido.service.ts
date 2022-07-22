@@ -20,8 +20,8 @@ export class ContenidoService {
   guardarContenido(contenido:Contenido):Observable<Boolean>{
     return this.httpClient.post<Boolean>(`${this.endPoint}/curso-contenido/save`, contenido);
   }
-  eliminarContenido(idContenido:number):Observable<Boolean>{
-    return this.httpClient.delete<Boolean>(`${this.endPoint}/curso-contenido/save/${idContenido}`);
+  eliminarContenido(idContenido:number):Observable<object>{
+    return this.httpClient.delete<object>(`${this.endPoint}/curso-contenido/${idContenido}`);
   }
   
 }
