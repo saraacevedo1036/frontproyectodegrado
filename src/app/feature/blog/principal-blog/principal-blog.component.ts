@@ -15,7 +15,8 @@ import { CategoriaService } from '../../cursos/shared/service/categoria.service'
 })
 export class PrincipalBlogComponent implements OnInit {
 
-  esCrearCategoria:boolean=false
+  categoriaCreada:Categoria;
+  esCrearCategoria:boolean=false;
   idCurso:number;
   listaCategorias:Categoria[] = [];
   INICIO_URL_YOUTUBE:string='https://www.youtube.com/watch?v='
@@ -75,14 +76,37 @@ export class PrincipalBlogComponent implements OnInit {
   }
   
   armarObjetoContenido(): Contenido{
+    this.guardarCategoria()
     return {
-      idCategoriaContenido: this.formularioBlog.controls.categoria.value.idCategoriaContenido,
+      idCategoriaContenido: this.determinarCategoria(),
       idCurso: this.idCurso,
       comentario: this.formularioBlog.controls.titulo.value,
       descripcion:  this.formularioBlog.controls.descripcion.value,
       imagen:  this.formularioBlog.controls.imagen.value,
       video:  this.formularioBlog.controls.video.value
       };
+  }
+
+  determinarCategoria(): number{
+    if(this.toppings.controls.usarCategoria.value==true){
+      return this.formularioBlog.controls.categoria.value.idCategoriaContenido
+    }
+    else if(this.toppings.controls.crearCategoria.value==true){
+      return this.categoriaCreada.idCategoriaContenido
+    }
+  }
+
+  guardarCategoria(){
+     this.categoriaService.guardarCategorias(this.armarCategoria())
+     .subscribe(categoria =>{
+      this.categoriaCreada=categoria
+     });
+  }
+
+  armarCategoria():Categoria{
+    return{
+      nombre:this.formularioBlog.controls.categoria.value
+    }
   }
 
   guardarContenido(){
