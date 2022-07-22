@@ -1,58 +1,86 @@
 <body>
-    <div *ngFor="let pregunta of listaPreguntas;let i=index" class="container">
-         
-        <div class="card">
-            <div class="d-flex justify-content-between" >
-                <div class="image" >
-                    <img src="{{pregunta.imagen}}" alt="logo" >
-                </div>
-                <div class="quiz-header">
-                    <h4 style="font-family: cursive;">Practiquemos juntos</h4>
-                    
+    <form [formGroup]="form">
+        <div class="container">
+
+            <div class="card">
+                <div class="d-flex justify-content-between">
+                    <div class="image">
+
+                        <img src="{{listaPreguntas[preguntaJuego].imagen}}" alt="logo">
+                    </div>
+                    <div class="quiz-header">
+                        <h4 style="font-family: cursive;">Practiquemos juntos</h4>
+
+                    </div>
+
                 </div>
 
-            </div>
-            
                 <div class="question-remain">
-                    <span style="font-style: italic;"> pregunta {{i+1}} de {{listaPreguntas.length}}</span>
+                    <span style="font-style: italic;"> pregunta {{preguntaJuego+1}} de {{listaPreguntas.length}}</span>
 
                 </div>
-                
+
             </div>
-           
 
-             
-                            <div class="question">
-                                <div class="card">
-                                    <h5>{{pregunta.texto}}</h5>
-                                </div>
 
-                            </div>
-                            <div class="options">
-                                
-                                <div class="card">
-                                <section class="example-section" [formGroup]="toppings">
-                                    <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion1">{{pregunta.opcion1}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false" formControlName="opcion2">{{pregunta.opcion2}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion3">{{pregunta.opcion3}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion1.value==false" formControlName="opcion4">{{pregunta.opcion4}}</mat-checkbox></p>
-                                </div>
-                                    
-                                  </section>
-                                </div>
-                            </div>
+
+            <div class="question">
+                <div class="card">
+                    <h5>{{listaPreguntas[preguntaJuego].texto}}</h5>
+                </div>
+
+            </div>
+            <div class="options">
+                
+                <div class="card">
+                    <section class="example-section">
+                        
+                        <div class="card">
+                            
+                            <h2
+                            name="pru"
+                                formControlName="opcion1">a) {{listaPreguntas[preguntaJuego].opcion1}}</h2>
                             
                         </div>
-                        <div class="pull-right">
-                            <button mat-flat-button color="accent"  value="guardar" > Guardar</button>
-                            </div>
+                        <div class="card">
+                            
+                            <h2
+                            name="pru"
+                                formControlName="opcion2">b) {{listaPreguntas[preguntaJuego].opcion2}}</h2>
+                            
+                        </div>
+                        <div class="card">
+                            
+                                <h2
+                                name="pru"
+                                    formControlName="opcion3">c) {{listaPreguntas[preguntaJuego].opcion3}}</h2>
+                            
+                        </div>
+                        <div class="card">
+                            
+                            <h2
+                            name="pru"
+                                formControlName="opcion4">d) {{listaPreguntas[preguntaJuego].opcion4}}</h2>
+                        </div>
+                    
 
+                    </section>
+                </div>
+            </div>
+            <div class="card">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona tu respuesta</option>
+                    <option value="1">a</option>
+                    <option value="2">b</option>
+                    <option value="3">c</option>
+                    <option value="4">d</option>
+                  </select>
+            </div>
+
+        </div>
+        <div class="pull-right">
+            <button mat-flat-button color="accent" click="siguientePregunta()"
+                *ngIf="listaPreguntas.length>=preguntaJuego"> Siguiente</button>
+        </div>
+    </form>
 </body>
-

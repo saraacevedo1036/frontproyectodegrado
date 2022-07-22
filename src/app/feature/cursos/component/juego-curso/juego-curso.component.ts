@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, UntypedFormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { PreguntaService } from '../../shared/service/pregunta.service';
@@ -11,9 +11,10 @@ import { PreguntaService } from '../../shared/service/pregunta.service';
 })
 export class JuegoCursoComponent implements OnInit {
   idJuego:number;
+  preguntaJuego:number=0;
   listaPreguntas:Pregunta[]=[];
-  toppings = this.formBuilder.group({
-    pregunta:[],
+  form = this.formBuilder.group({
+    pregunta:[0],
     opcion1: false,
     opcion2: false,
     opcion3: false,
@@ -23,7 +24,7 @@ export class JuegoCursoComponent implements OnInit {
 
   constructor(private preguntaService:PreguntaService, 
     private activeRoute:ActivatedRoute,
-    
+    private reactiveFormModule:ReactiveFormsModule,
     private formBuilder: UntypedFormBuilder,
     ) { }
 
@@ -46,6 +47,9 @@ export class JuegoCursoComponent implements OnInit {
       }
       
     })
+  }
+  siguientePregunta(){
+    this.form.value.pregunta = this.form.value.pregunta + 1;
   }
   
  
