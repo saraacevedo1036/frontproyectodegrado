@@ -1,6 +1,6 @@
 
 export interface Estudiante{
-    idEstudianteCurso?:number;
+    idCursoEstudiante?:number;
     nombre:string;
     apellido:string;
     identificacion:number;

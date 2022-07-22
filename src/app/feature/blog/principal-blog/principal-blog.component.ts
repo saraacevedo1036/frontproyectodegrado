@@ -7,6 +7,7 @@ import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
 import { Categoria } from '../../cursos/shared/model/categoria.model';
 import { CategoriaService } from '../../cursos/shared/service/categoria.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-principal-blog',
@@ -41,7 +42,7 @@ export class PrincipalBlogComponent implements OnInit {
     public modalCat: MatDialog,
     private activeRoute: ActivatedRoute,
     private contenidoService:ContenidoService,
-    _formBuilder: FormBuilder
+    _formBuilder: FormBuilder, private location: Location
      ) { }
 
   ngOnInit(): void {
@@ -76,7 +77,6 @@ export class PrincipalBlogComponent implements OnInit {
   }
   
   armarObjetoContenido(): Contenido{
-    this.guardarCategoria()
     return {
       idCategoriaContenido: this.determinarCategoria(),
       idCurso: this.idCurso,
@@ -87,12 +87,15 @@ export class PrincipalBlogComponent implements OnInit {
       };
   }
 
-  determinarCategoria(): number{
+  determinarCategoria():number{
     if(this.toppings.controls.usarCategoria.value==true){
       return this.formularioBlog.controls.categoria.value.idCategoriaContenido
     }
     else if(this.toppings.controls.crearCategoria.value==true){
       return this.categoriaCreada.idCategoriaContenido
+    }
+    else{
+      return 0;
     }
   }
 
@@ -100,6 +103,9 @@ export class PrincipalBlogComponent implements OnInit {
      this.categoriaService.guardarCategorias(this.armarCategoria())
      .subscribe(categoria =>{
       this.categoriaCreada=categoria
+      console.log(categoria)
+      this.onSbmit()
+
      });
   }
 
@@ -139,20 +145,14 @@ export class PrincipalBlogComponent implements OnInit {
        this.formularioBlog.controls.categoria.value).idCategoriaContenido;
   }
   verVideo(){
-    return this.formularioBlog.controls.video.value
+     this.formularioBlog.controls.video.setValue(this.formularioBlog.controls.video.value.replace( this.INICIO_URL_YOUTUBE, ""))
+     return this.formularioBlog.controls.video.value
+
   }
   verImagen(){
     return this.formularioBlog.controls.imagen.value
   }
-  validarUrlYoutube(){
-
-    let inicioUrlVideo:boolean=true
-    if(this.formularioBlog.controls.video.touched){
-      inicioUrlVideo=this.formularioBlog.controls.video.value.containies(this.INICIO_URL_YOUTUBE)
-      
-    }
-    this.formularioBlog.controls.video.errors.value=inicioUrlVideo;
-  }
+  
 
   
   onSbmit(){
@@ -162,6 +162,7 @@ export class PrincipalBlogComponent implements OnInit {
         this.showModalCorrecto()
         const value = this.formularioBlog.value;
         console.log(value);
+        this.location.back()
       } else {
         this.formularioBlog.markAllAsTouched();
         this.showModalIncorrecto()
@@ -180,6 +181,12 @@ export class PrincipalBlogComponent implements OnInit {
       icon: 'error',
       title: 'Validar los datos ingresados como lo son categoria,Titulo y Descripcion',
     })
+  }
+  urlYoutube(){
+    
+
+
+
   }
 
 }

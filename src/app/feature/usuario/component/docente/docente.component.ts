@@ -81,11 +81,6 @@ export class DocenteComponent implements OnInit {
       return this.passwordField!!.touched && this.passwordField!!.invalid;
 
     }
-    get password2FieldInvalid(){
-      
-      return this.form.hasError('match_password');
-
-    }
     
     get identificacionFieldValid(){
       return this.identificacionField!!.touched && this.identificacionField!!.valid;
@@ -95,8 +90,6 @@ export class DocenteComponent implements OnInit {
       return this.identificacionField!!.touched && this.identificacionField!!.invalid;
 
     }
-
-
     get emailField(){
       return this.form.get('email');
 

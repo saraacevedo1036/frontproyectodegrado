@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import { CursoEstudianteService } from 'src/app/feature/cursos/shared/service/curso-estudiante.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
 import { Estudiante } from '../../model/estudiante.model';
@@ -16,8 +17,8 @@ export class ListaEstudianteCursoComponent implements OnInit {
   
   idCurso:number 
   listaEstudiantes: Estudiante[] = [];
-  constructor(private eventosService: EventosService,
-    private estudianteService: EstudianteService,  private activeRoute: ActivatedRoute,
+  constructor(private eventosService: EventosService,private cursoEstudianteService: CursoEstudianteService
+    ,private estudianteService: EstudianteService,  private activeRoute: ActivatedRoute,
      private router: Router, protected autorizacionService: AutorizacionService) { }
 
   ngOnInit(): void {
@@ -33,8 +34,6 @@ export class ListaEstudianteCursoComponent implements OnInit {
       console.log('Juegos: ',  estudiantes)
     });
   }
-  
- 
 
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
@@ -42,6 +41,30 @@ export class ListaEstudianteCursoComponent implements OnInit {
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
+  borrarEstudiante(idEstudianteCurso:number){
+    Swal.fire({
+      title: 'Eliminar contenido?',
+      text: "Si eliminas el estudiante este no se podra recuperar!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cursoEstudianteService.eliminarEstudianteCurso(idEstudianteCurso).subscribe(estudianteCurso=>{
+          window.location.reload();
+        })
+
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+  
   
   
 

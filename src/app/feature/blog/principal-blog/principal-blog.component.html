@@ -50,7 +50,7 @@
       <div class="field">
         <label class="label">Video</label>
         <div class="control has-icons-left has-icons-right">
-          <input (focus)="validarUrlYoutube()" class="input" type="text" placeholder="Ingrese url del video"
+          <input  class="input" type="text" placeholder="Ingrese url del video"
             formControlName="video" />
         </div>
       </div>
@@ -98,8 +98,11 @@
             </div>
           </div>
         </div>
-        <div class="pull-right">
-          <button mat-flat-button color="accent" id="guardar" type="submit" value="guardar"> guardar</button>
+        <div *ngIf="toppings.controls.usarCategoria.value==true" type="submit"  class="pull-right">
+          <button mat-flat-button color="accent"  id="guardar"  value="guardar"> guardarC</button>
+        </div>
+        <div *ngIf="toppings.controls.crearCategoria.value==true" class="pull-right">
+          <button mat-flat-button color="accent" id="guardar" (click)="guardarCategoria()" value="guardar"> guardar</button>
         </div>
       </div>
     </form>
