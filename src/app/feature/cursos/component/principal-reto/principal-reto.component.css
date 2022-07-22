@@ -60,3 +60,13 @@ font-size: 40px;
   text-align: center;
   font-size: 15px;
 }
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+background-color: #437891 !important;
+
+
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #111010;
+}

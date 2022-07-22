@@ -8,6 +8,8 @@ import { Pregunta } from '../../shared/model/pregunta.model';
 import { RespuestasReto } from '../../shared/model/respuestas-reto.model';
 import { EstudianteJuegoRespuestaService } from '../../shared/service/estudiante-juego-respuesta.service';
 import { PreguntaService } from '../../shared/service/pregunta.service';
+import { Location } from '@angular/common'
+
 
 @Component({
   selector: 'app-juego-curso',
@@ -28,7 +30,8 @@ export class JuegoCursoComponent implements OnInit {
     private activeRoute:ActivatedRoute,
     private formBuilder: UntypedFormBuilder,
     protected autorizacionService:AutorizacionService,
-    private estudianteJuegoRespuestaService: EstudianteJuegoRespuestaService ) { }
+    private estudianteJuegoRespuestaService: EstudianteJuegoRespuestaService,
+    private location: Location ) { }
   
 
   ngOnInit(): void {
@@ -95,12 +98,11 @@ export class JuegoCursoComponent implements OnInit {
   }
 
   enviarRespuestas(){
-    console.log('RESPUESTAS',this.formReto.controls.preguntas.value)
-    console.log('CRACION RESPUESTAS',this.armarObjetoAEnviar())
 
     this.estudianteJuegoRespuestaService.calificar(this.armarObjetoAEnviar()).subscribe(calificacion =>{
       this.mostrarModalPuntuacion(calificacion)
       console.log('Calificacion', calificacion)
+      this.location.back();
     })
   }
 

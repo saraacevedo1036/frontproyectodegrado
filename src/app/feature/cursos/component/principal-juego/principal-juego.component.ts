@@ -47,7 +47,7 @@ export class PrincipalJuegoComponent implements OnInit {
   }
   irJuego(idJuego:number): void{
 
-    this.router.navigate(['juego',idJuego]) 
+    this.router.navigate(['juego',idJuego,'curso',this.idCurso]) 
   }
   
 

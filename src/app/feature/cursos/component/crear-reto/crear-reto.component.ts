@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
+import { Location } from '@angular/common'
+
 
 @Component({
   selector: 'app-crear-reto',
@@ -26,7 +28,8 @@ export class CrearRetoComponent implements OnInit {
     comentario:['']
   }); 
 
-  constructor( private formBuilder: UntypedFormBuilder, private juegoService:JuegoService) { }
+  constructor( private formBuilder: UntypedFormBuilder, private juegoService:JuegoService,
+    private location: Location ) { }
 
   ngOnInit(): void {
   }
@@ -58,6 +61,7 @@ export class CrearRetoComponent implements OnInit {
     this.agregarReto();
     console.log('CREACION RETO',this.armarObjetoAGuardar())
     this.showModalCorrecto()
+    this.location.back();
     }else{
       this.showModalIncorrecto()
 

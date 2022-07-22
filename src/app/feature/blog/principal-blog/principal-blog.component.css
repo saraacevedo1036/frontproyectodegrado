@@ -42,7 +42,13 @@ mat-form-field{
     background-color: rgba(83, 81, 84, 0.967);
     width: 83%;
 }
-.chek {
-    background-color: aquamarine;
-    
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+background-color: #437891 !important;
+
+
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #111010;
 }

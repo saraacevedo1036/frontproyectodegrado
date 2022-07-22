@@ -25,7 +25,7 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
-      this.idCurso = params.idCursos
+      this.idCurso = params.idCursos;
       this.obtenerlistadoRetos(this.idCurso);
     })
   }
@@ -38,7 +38,7 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
   }
   irJuego(idJuego:number): void{
 
-    this.router.navigate(['reto',idJuego]) 
+    this.router.navigate(['reto',idJuego,'curso',this.idCurso]) 
   }
   
   irCrearReto(): void{
