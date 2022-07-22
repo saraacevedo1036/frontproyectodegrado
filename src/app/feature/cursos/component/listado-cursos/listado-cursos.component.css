@@ -13,7 +13,9 @@ button  {
   width: 100%;
   height: 100%;
   font-size: 20px;
-  border: #87F;
+  border: aquamarine;
+  border-width: 3px;
+   border-style: solid;
   border-radius: 20px;
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
   0 0 0.2em #87F
