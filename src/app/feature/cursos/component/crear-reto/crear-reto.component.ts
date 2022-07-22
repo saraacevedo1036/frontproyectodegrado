@@ -133,12 +133,14 @@ export class CrearRetoComponent implements OnInit {
     this.preguntas.removeAt(preguntaIndex);
 
   }
+  
   showModalCorrecto(){
     Swal.fire({
       icon: 'success',
       title: 'El juego se guardo con exito',
     })
   }
+
   showModalIncorrecto(){
     Swal.fire({
       icon: 'error',
@@ -147,6 +149,7 @@ export class CrearRetoComponent implements OnInit {
 
     })
   }
+
   validarRespuesta(){
     switch (this.form.controls.imagen.value) {
       case 'opcion1':

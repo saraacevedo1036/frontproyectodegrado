@@ -1,58 +1,70 @@
 <body>
-    <div *ngFor="let pregunta of listaPreguntas;let i=index" class="container">
-         
-        <div class="card">
-            <div class="d-flex justify-content-between" >
-                <div class="image" >
-                    <img src="{{pregunta.imagen}}" alt="logo" >
-                </div>
-                <div class="quiz-header">
-                    <h4 style="font-family: cursive;">Validemos tus conocimientos</h4>
-                    
-                </div>
+    <form class="contenedor" [formGroup]="formReto">
+        <ng-container formArrayName="preguntas">
+            <div *ngFor="let pregunta of preguntas.controls; let i=index">
+                <ng-container [formGroupName]="i">
+                    <div class="container" >
+                        <div class="card">
+                            <div class="d-flex justify-content-between">
 
-            </div>
-            
-                <div class="question-remain">
-                    <span style="font-style: italic;"> pregunta {{i+1}} de {{listaPreguntas.length}}</span>
+                                <div class="image">
+                                    <img src="{{obtenerValorControl(i,'imagen')}}" alt="logo" > 
+                                </div>
 
-                </div>
-                
-            </div>
-           
-
-             
-                            <div class="question">
-                                <div class="card">
-                                    <h5>{{pregunta.texto}}</h5>
+                                <div class="quiz-header">
+                                    <h4 style="font-family: cursive;">Validemos tus conocimientos</h4>
                                 </div>
 
                             </div>
-                            <div class="options">
-                                
-                                <div class="card">
-                                <section class="example-section" [formGroup]="toppings">
-                                    <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion1">{{pregunta.opcion1}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion4.value==false" formControlName="opcion2">{{pregunta.opcion2}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion1.value==false&&this.toppings.controls.opcion4.value==false"  formControlName="opcion3">{{pregunta.opcion3}}</mat-checkbox></p>
-                                </div>
-                                <div class="card">
-                                    <p  ><mat-checkbox *ngIf="this.toppings.controls.opcion2.value==false&&this.toppings.controls.opcion3.value==false&&this.toppings.controls.opcion1.value==false" formControlName="opcion4">{{pregunta.opcion4}}</mat-checkbox></p>
-                                </div>
-                                    
-                                  </section>
-                                </div>
+
+                            <div class="question-remain">
+                                <span style="font-style: italic;"> pregunta {{i+1}} de {{listaPreguntas.length}}</span>
                             </div>
-                            
+
                         </div>
-                        <div class="pull-right">
-                            <button mat-flat-button color="accent"  value="guardar" > Guardar</button>
+                        <div class="question">
+                            <div class="card">
+                                <h1>{{obtenerValorControl(i,'pregunta')}}</h1> 
                             </div>
-
+                        </div>
+                        <div class="options">
+                            <div class="card">
+                                <section class="example-section">
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion1" (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion1}}</mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion2" (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion2}}</mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion3" (focus)="detectarCambiosFormulario(i)"> 
+                                                {{listaPreguntas[i].opcion3}}
+                                            </mat-checkbox>
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p>
+                                            <mat-checkbox formControlName="opcion4" (focus)="detectarCambiosFormulario(i)">
+                                                {{listaPreguntas[i].opcion4}}
+                                            </mat-checkbox>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </form>
+    <div class="pull-right">
+        <button mat-flat-button color="accent" value="guardar" (click)="enviarRespuestas()"> Enviar</button>
+    </div>
 </body>
-
