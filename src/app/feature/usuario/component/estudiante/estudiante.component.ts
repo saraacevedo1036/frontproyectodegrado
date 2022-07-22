@@ -36,7 +36,7 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
       event.preventDefault();
       if (this.form.valid) {
         const value = this.form.value;
-        this.guardarEstudiante();
+        this.validarcontra();
         console.log(value);
       } else {
         this.form.markAllAsTouched();
@@ -131,10 +131,37 @@ export class EstudianteComponent implements OnInit {form: UntypedFormGroup;
         console.log('Se guarda contenido', contenido)
       });
     }
+    validarcontra(){
+      Swal
+        .fire({
+            title: "Validar Contraseña",
+            input: "password",
+            showCancelButton: true,
+            confirmButtonText: "validar",
+            cancelButtonText: "Cancelar",
+        })
+        .then(resultado => {
+            if (resultado.value===this.form.controls.password.value) {
+              this.guardarEstudiante();
+            }
+            else{
+              this.showModalIncorrecto();
 
-    
-  
-    
+            }
+        });
+    }
+    showModalCorrecto(){
+      Swal.fire({
+        icon: 'success',
+        title: 'Bienvenido',
+      })
+    }
+    showModalIncorrecto(){
+      Swal.fire({
+        icon: 'error',
+        title: 'Las contraseñas no coinciden',
+      })
+    }
    
   }
   

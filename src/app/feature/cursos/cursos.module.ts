@@ -40,7 +40,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CrearJuegoComponent,
     CrearCursoComponent,
     CrearRetoComponent,
-    AgregarAsignaturaComponent
+    AgregarAsignaturaComponent,
+    
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { UntypedFormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MyValidators } from 'src/app/utils/my-validations';
+import Swal from 'sweetalert2';
 import { Docente } from '../../model/docente.model';
 import { DocenteService } from '../../service/docente.service';
 
@@ -28,7 +29,6 @@ export class DocenteComponent implements OnInit {
         nombre: ['', [Validators.required,Validators.minLength(3)]],
         apellido: ['', Validators.required],
         password: ['', Validators.required],
-        password2: ['', Validators.required],
         email: ['', [ Validators.required,Validators.email]],
         identificacion: ['', Validators.required]
         
@@ -40,7 +40,7 @@ export class DocenteComponent implements OnInit {
     save(event: Event) {
       event.preventDefault();
       if (this.form.valid  ) {
-        this.guardarDocente();
+        this.validarcontra()
         const value = this.form.value;
         console.log(value);
       } else {
@@ -111,10 +111,6 @@ export class DocenteComponent implements OnInit {
       return this.form.get('password');
 
     }
-    get password2Field(){
-      return this.form.get('password2');
-
-    }
     get identificacionField(){
       return this.form.get('identificacion');
 
@@ -137,6 +133,38 @@ export class DocenteComponent implements OnInit {
         console.log('Se guarda contenido', contenido)
       });
     }
+    validarcontra(){
+      Swal
+        .fire({
+            title: "Validar Contraseña",
+            input: "password",
+            showCancelButton: true,
+            confirmButtonText: "validar",
+            cancelButtonText: "Cancelar",
+        })
+        .then(resultado => {
+            if (resultado.value===this.form.controls.password.value) {
+              this.guardarDocente();
+            }
+            else{
+              this.showModalIncorrecto();
+
+            }
+        });
+    }
+    showModalCorrecto(){
+      Swal.fire({
+        icon: 'success',
+        title: 'Bienvenido',
+      })
+    }
+    showModalIncorrecto(){
+      Swal.fire({
+        icon: 'error',
+        title: 'Las contraseñas no coinciden',
+      })
+    }
+   
   
     
    

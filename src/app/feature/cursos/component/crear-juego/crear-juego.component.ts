@@ -90,10 +90,11 @@ export class CrearJuegoComponent implements OnInit {
   }
 
   armarPregunta(preguntaForm: any): Pregunta{
+    console.log('respuesta',this.validarRespuesta(preguntaForm))
     return {    
       texto: preguntaForm.pregunta,
       imagen: preguntaForm.imagen,
-      respuesta: preguntaForm.opcion1,
+      respuesta: this.validarRespuesta(preguntaForm),
       opcion1: preguntaForm.opcion1,
       opcion2: preguntaForm.opcion2,
       opcion3: preguntaForm.opcion3,
@@ -116,7 +117,7 @@ export class CrearJuegoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
-      respuesta: ['', Validators. required],
+      respuesta: [''],
       
      });
 
@@ -144,26 +145,19 @@ export class CrearJuegoComponent implements OnInit {
 
     })
   }
-  validarRespuesta(){
-    switch (this.form.controls.imagen.value) {
+  validarRespuesta(pregunta:Pregunta){
+    switch (pregunta.respuesta) {
       case 'opcion1':
-         this.respuestaReto=this.form.controls.opcion1.value;
-
-          break;
+         return pregunta.opcion1
       case 'opcion2':
-         this.respuestaReto=this.form.controls.opcion2.value;
-
-          break;
+         return pregunta.opcion2
       case 'opcion3':
-            this.respuestaReto=this.form.controls.opcion3.value;
-   
-             break;
+        return pregunta.opcion3
       case 'opcion4':
-            this.respuestaReto=this.form.controls.opcion4.value;
-   
-             break;
-  }
-    
+        return pregunta.opcion4
+        default:
+          return '';
+  } 
   }
 
   
