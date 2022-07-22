@@ -6,8 +6,9 @@ body {
   font-family: sans-serif;
   height: 100vh;
 }
-button  {
-  background-color:#fff;
+
+button {
+  background-color: #fff;
   border-bottom: aquamarine;
   border-color: aquamarine;
   width: 100%;
@@ -15,47 +16,50 @@ button  {
   font-size: 20px;
   border: aquamarine;
   border-width: 3px;
-   border-style: solid;
+  border-style: solid;
   border-radius: 20px;
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-  0 0 0.2em #87F
-  
-
-  
+    0 0 0.2em #87F
 }
+
 button:hover {
   cursor: pointer;
   background: aquamarine;
   color: #000;
 }
-p{
+
+p {
   text-align: center;
   font-size: 100px;
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-  0 0 0.2em #87F
-  
-
+    0 0 0.2em #87F
 }
+
 mat-grid-list {
   margin: 90px;
   padding: 50px;
   border-color: aquamarine;
 }
+
 mat-grid-tile-footer {
   border-radius: 20px;
 }
-mat-grid-title{
-  
-  background-color:rgb(32, 168, 213);
+
+mat-grid-title {
+
+  background-color: rgb(32, 168, 213);
 }
-.container{
-align-items: center;
-text-align: center;
+
+.container {
+  align-items: center;
+  text-align: center;
 }
-.title{
-font-size: 40px;
+
+.title {
+  font-size: 40px;
 }
-.agregarAsignatura{
+
+.agregarAsignatura {
   align-items: center;
   text-align: center;
   font-size: 15px;

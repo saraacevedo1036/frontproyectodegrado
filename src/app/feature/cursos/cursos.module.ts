@@ -23,6 +23,7 @@ import { AgregarAsignaturaComponent } from './component/agregar-asignatura/agreg
 import { PreguntaService } from './shared/service/pregunta.service';
 import { JuegoService } from './shared/service/juego.services';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ListaRespuestasCorrectasComponent } from './component/lista-respuestas-correctas/lista-respuestas-correctas.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CrearCursoComponent,
     CrearRetoComponent,
     AgregarAsignaturaComponent,
+    ListaRespuestasCorrectasComponent,
     
   ],
   imports: [

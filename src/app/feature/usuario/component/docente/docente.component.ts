@@ -5,6 +5,7 @@ import { MyValidators } from 'src/app/utils/my-validations';
 import Swal from 'sweetalert2';
 import { Docente } from '../../model/docente.model';
 import { DocenteService } from '../../service/docente.service';
+import { Location } from '@angular/common'
 
 
 @Component({
@@ -15,7 +16,8 @@ import { DocenteService } from '../../service/docente.service';
 export class DocenteComponent implements OnInit {
   form: UntypedFormGroup;
   
-  constructor(private formBuilder: UntypedFormBuilder,     private docenteService:DocenteService
+  constructor(private formBuilder: UntypedFormBuilder,
+         private docenteService:DocenteService,private location: Location
     ) {
     this.buildForm();
    }
@@ -145,6 +147,7 @@ export class DocenteComponent implements OnInit {
         .then(resultado => {
             if (resultado.value===this.form.controls.password.value) {
               this.guardarDocente();
+              this.location.back();
             }
             else{
               this.showModalIncorrecto();

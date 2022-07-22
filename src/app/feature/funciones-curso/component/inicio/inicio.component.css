@@ -1,51 +1,56 @@
 body {
-    margin: 40px;
-    padding: 0px;
-    background: rgba(69, 19, 69, 0);
-    background-size: cover;
-    font-family: sans-serif;
-    height: 100vh;
-  }
-  button  {
-    background-color: rgba(155, 146, 221, 0.541);
-    margin-top: 100px;
-    width: 65%;
-    height: 100%;
-    font-size: 40px;
-    border: #87F;
-    border-radius: 20px;
-    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-		0 0 0.2em #87F
-    
+  margin: 40px;
+  padding: 0px;
+  background: rgba(69, 19, 69, 0);
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
 
-    
-  }
-  button:hover {
-    cursor: pointer;
-    background: #ffc107;
-    color: #000;
-  }
-  p{
-    text-align: center;
-    font-size: 100px;
-    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-		0 0 0.2em #87F
-    
+button {
+  background-color: #fff;
+  border-bottom: aquamarine;
+  border-color: aquamarine;
+  margin-top: 100px;
+  width: 65%;
+  height: 100%;
+  font-size: 40px;
+  border: aquamarine;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 20px;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+    0 0 0.2em #87F
+}
 
-  }
-  mat-grid-list {
-    margin: 90px;
-    padding: 50px;
-  }
-  mat-grid-tile-footer {
-    border-radius: 20px;
-  }
-mat-grid-title{
-    
-    background-color:rgb(32, 168, 213);
+button:hover {
+  cursor: pointer;
+  background: aquamarine;
+  color: #000;
+}
+
+p {
+  text-align: center;
+  font-size: 100px;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+    0 0 0.2em #87F
+}
+
+mat-grid-list {
+  margin: 90px;
+  padding: 50px;
+}
+
+mat-grid-tile-footer {
+  border-radius: 20px;
+}
+
+mat-grid-title {
+
+  background-color: rgb(32, 168, 213);
 }
 
 div {
-    text-align: center;
-    
+  text-align: center;
+
 }

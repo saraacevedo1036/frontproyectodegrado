@@ -8,12 +8,14 @@ import { InicioComponent } from '../funciones-curso/component/inicio/inicio.comp
 import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
 import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
 import { JuegoCursoComponent } from './component/juego-curso/juego-curso.component';
+import { ListaRespuestasCorrectasComponent } from './component/lista-respuestas-correctas/lista-respuestas-correctas.component';
 import { ListadoCursosComponent } from './component/listado-cursos/listado-cursos.component';
 import { PrincipalJuegoComponent } from './component/principal-juego/principal-juego.component';
 import { PrincipalRetoComponent } from './component/principal-reto/principal-reto.component';
 import { RetoCursoComponent } from './component/reto-curso/reto-curso.component';
 
 const routes: Routes = [ 
+  {path:'listaRespuesta/:idJuego', component: ListaRespuestasCorrectasComponent, canActivate: [SegurityGuard]},
   {path:'cursos/:idCursos/reto', component: PrincipalRetoComponent, canActivate: [SegurityGuard]},
   {path:'listado-cursos', component: ListadoCursosComponent, canActivate: [SegurityGuard]}, 
   {path:'reto/:idJuego/curso/:idCurso', component: RetoCursoComponent, canActivate: [SegurityGuard]},

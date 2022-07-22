@@ -1,0 +1,37 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Estudiantes
+        </h1>
+  
+      </div>
+    </div>
+  </section>
+  
+  <body>
+    <table class="table">
+      <thead style="background-color: black ;" class="thead-dark">
+        <tr style="color: azure;">
+          <th style="color: azure;" scope="col">#</th>
+          <th style="color: azure;" scope="col">Pregunta</th>
+          <th style="color: azure;" scope="col">Respuesta Correcta</th>
+ 
+  
+        </tr>
+      </thead>
+      <tbody *ngFor="let pregunta of listaPreguntas;let i=index">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{pregunta.texto}}</td>
+          <td>{{pregunta.respuesta}}</td>
+        
+          
+        </tr>
+  
+  
+  
+      </tbody>
+    </table>
+  
+  </body>

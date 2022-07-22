@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import { Juego } from '../../shared/model/juego.model';
 import { JuegoService } from '../../shared/service/juego.services';
-import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
 
 @Component({
   selector: 'app-principal-juego',
