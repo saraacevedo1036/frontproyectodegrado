@@ -51,6 +51,7 @@ button {
     text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
       0 0 0.2em #87F
   }
+  
 }
 
 button:hover {
@@ -67,7 +68,7 @@ p {
 }
 
 mat-grid-list {
-  margin: 5%;
+  margin: 10%;
   padding: 50px;
   border-color: aquamarine;
 }
