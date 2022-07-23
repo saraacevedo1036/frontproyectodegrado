@@ -141,6 +141,7 @@ export class DocenteComponent implements OnInit {
             if (resultado.value===this.form.controls.password.value) {
               this.guardarDocente();
               this.location.back();
+              this.showModalCorrecto();
             }
             else{
               this.showModalIncorrecto();
@@ -151,7 +152,7 @@ export class DocenteComponent implements OnInit {
     showModalCorrecto(){
       Swal.fire({
         icon: 'success',
-        title: 'Bienvenido',
+        title: 'El docente se ha creado con exito',
       })
     }
     showModalIncorrecto(){

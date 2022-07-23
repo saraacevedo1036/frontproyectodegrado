@@ -1,8 +1,32 @@
-<mat-toolbar    color="accent"  >
-    <span >Proyecto De Grado</span>
-     <a mat-button (click)="inicial()">Asignaturas</a>
-     <a mat-button >Login</a>
-     <a mat-button (click)="logout()">Logout</a>
-     <a mat-button *ngIf="puedeVisualizar()" (click)="crearDocente()">Crear docente</a>
-     <a mat-button *ngIf="esDocente()" (click)="crearEstudiante()">Crear Estudiante</a>
-</mat-toolbar>
+<nav class="navbar-dark bg-dark navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" >CONSTRUYENDO MI CONOCIMIENTO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active"  *ngIf="puedeVisualizar()==false" aria-current="page"  (click)="inicial()">Asignaturas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"   *ngIf="puedeVisualizar()" (click)="crearDocente()">Crear docente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"   *ngIf="esDocente()" (click)="crearEstudiante()">Crear Estudiante</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"   *ngIf="puedeVisualizar()" (click)="logout()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"   *ngIf="puedeVisualizar()==false" (click)="logout()">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+

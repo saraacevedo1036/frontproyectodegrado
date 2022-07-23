@@ -146,6 +146,7 @@ export class EstudianteComponent implements OnInit {
         if (resultado.value === this.form.controls.password.value) {
           this.guardarEstudiante();
           this.location.back();
+          this.showModalCorrecto();
         }
         else {
           this.showModalIncorrecto();
@@ -156,7 +157,7 @@ export class EstudianteComponent implements OnInit {
   showModalCorrecto() {
     Swal.fire({
       icon: 'success',
-      title: 'Bienvenido',
+      title: 'El estudiante se ha creado con exito',
     })
   }
   showModalIncorrecto() {
