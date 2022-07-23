@@ -10,7 +10,8 @@
 </section>
 
 <body>
-  <table class="table">
+  <h1 *ngIf="listaEstudiantes.length==0">No hay estudiantes matriculados para este curso</h1>
+  <table *ngIf="listaEstudiantes.length!=0" class="table">
     <thead style="background-color: black ;" class="thead-dark">
       <tr style="color: azure;">
         <th style="color: azure;" scope="col">#</th>

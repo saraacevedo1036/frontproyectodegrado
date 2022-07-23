@@ -30,11 +30,13 @@
                 {{contenido.descripcion}}
 
               </p>
+            
               <hr class="tm-hr-primary">
               <a *ngIf="visualizarVideo(contenido.video)" class="effect-lily tm-post-link tm-pt-60">
                 <div class="youtubeVideo">
-                  <youtube-player videoId="{{contenido.video}}" suggestedQuality="highres" [startSeconds]="4">
+                  <youtube-player videoId="{{contenido.video}}" [startSeconds]="4">
                   </youtube-player>
+                
                 </div>
               </a>
 
@@ -42,7 +44,7 @@
 
 
 
-              <a *ngIf="rolDocente()" class="btn btn-danger">
+              <a *ngIf="rolDocente()" (click)="borrarContenido(contenido.idCursoContenido)" class="btn btn-danger">
                 <mat-icon class="delete-btn" (click)="borrarContenido(contenido.idCursoContenido)"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-archive-fill" viewBox="0 0 16 16">
