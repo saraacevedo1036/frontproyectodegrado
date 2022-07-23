@@ -8,20 +8,21 @@
       </div>
     </div>
   </section>
-  <
+  
 
       <div *ngIf="puedeVisualizar()" class="pull-right">
-        <div class="agregarAsignatura"><label>Agregar asignatura</label></div>
+        <div class="agregarAsignatura"><label>Agregar </label></div>
 
         <button mat-flat-button color="accent" (click)="modalCrearCurso()"><i class="fa fa-plus fa-1x"
             aria-hidden="true"></i></button>
       </div>
     
+    
       <div class="agregarEs" *ngIf="puedeVisualizarEstudiante()" >
 
         <button  mat-flat-button color="accent" (click)="modalAgregarAsignatura()"><h2 class="agregarEs">Agregar</h2></button>
       </div>
-    <div class="contenedor-cursos">
+   
 
       <mat-grid-list cols="4" rowHeight="250px" style="height: 250px;" gutterSize="40px">
         <mat-grid-tile *ngFor="let curso of listaCursos" [colspan]="2" [rowspan]="1">
@@ -33,5 +34,5 @@
           </mat-grid-tile-footer>
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
+    
 </body>
