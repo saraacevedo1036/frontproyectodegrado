@@ -29,10 +29,18 @@ img{
     height: 50%;
     width: 90%;
 }
-.card{
-    background-color: rgb(169, 169, 169);
-}
+
 img{
     width: 100%;
     height: 30%;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+background-color: #437891 !important;
+
+
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #111010;
 }
