@@ -30,7 +30,7 @@
 
             </p>
             <hr class="tm-hr-primary">
-            <a *ngIf="visualizarVideo(listaContenidos[1].video)" class="effect-lily tm-post-link tm-pt-60">
+            <a *ngIf="visualizarVideo(listaContenidos[i].video)" class="effect-lily tm-post-link tm-pt-60">
               <div #demoYouTubePlayer class="demo-youtube-player">
                 <section class="videoCent" *ngIf="tamano<950">
                   <youtube-player videoId="{{listaContenidos[i].video}}" [width]="200" [height]="200">
