@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
 import { AutorizacionService } from '../../login/shared/service/autorizacion.service';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-registros-blog',
@@ -12,7 +12,9 @@ import { AutorizacionService } from '../../login/shared/service/autorizacion.ser
   styleUrls: ['./registros-blog.component.css']
 })
 export class RegistrosBlogComponent implements OnInit {
-
+ 
+  tamano= window.screen.width
+ 
   listaContenidos: Contenido[] = []; 
   displayedColumns : string [] = [ 'descripcion'];
   idCurso:number;
@@ -23,7 +25,7 @@ export class RegistrosBlogComponent implements OnInit {
   dataSource = new MatTableDataSource<Contenido>([]);
 
   constructor(
-
+    private _changeDetectorRef: ChangeDetectorRef,
     private contenidoService: ContenidoService,
     private activeRoute: ActivatedRoute, 
     private router: Router,
@@ -36,6 +38,9 @@ export class RegistrosBlogComponent implements OnInit {
       this.obtenerlistadoContenido(this.idCategoria, this.idCurso);
     });
   }
+  
+  
+  
  
 
  /* inicializarSuscripciones(){
@@ -64,9 +69,7 @@ export class RegistrosBlogComponent implements OnInit {
     
     this.router.navigate(['/post-blog']);
   }
-  ngOnDestroy(){
-    //this.eventosService.disparador.unsubscribe();
-  }
+  
   rolDocente(){
     if(this.autorizacionService.esRolDocente()){
       return true

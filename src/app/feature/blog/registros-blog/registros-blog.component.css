@@ -1,7 +1,9 @@
 mat-icon {
     width: 100%;
 }
-
+.videoCent{
+    margin: auto;
+}
 img {
     
     width: 50%;
@@ -29,11 +31,7 @@ article {
     margin-top: 5%;
 }
 
-.youtubeVideo {
-    margin-left: 2%;
-    align-items: center;
 
-}
 body {
     margin: 0;
     padding: 0;
@@ -69,10 +67,6 @@ hr.tm-hr-primary {
     border-top: 5px solid #0CC;
 }
 
-video {
-    width: 100%;
-    height: auto;
-}
 
 .tm-color-primary,
 span.tm-color-primary {
@@ -100,3 +94,101 @@ a:hover {
     text-decoration: none;
     color: #048c8c;
 }
+
+@media screen and (max-width: 700px) {
+    mat-icon {
+        width: 100%;
+    }
+    
+    img {
+        
+        width: 80%;
+    
+    }
+    .verImagen{
+       
+        text-align: center;
+        
+    }
+    
+    #tituloPrincipal {
+        height: 80px;
+        margin-left: 0%;
+    }
+    
+    .title {
+        margin-top: 0%;
+        text-align: center;
+    }
+    
+    article {
+        height: 85%;
+        width: 85%;
+        margin-top: 5%;
+    }
+    
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 19px;
+        line-height: 2em;
+    }
+    
+    .tm-site-logo i {
+        color: #0CC;
+    }
+    
+    .tm-main {
+        margin-left: 0%;
+        padding: 0px 0px 0px;
+    }
+    
+    .tm-post {
+        max-width: 470px;
+    }
+    
+    .tm-row {
+        max-width: 980px;
+        justify-content: space-between;
+    }
+    
+    .tm-post-link:hover .tm-post-title {
+        color: #0CC;
+    }
+    
+    /* Single Post page */
+    hr.tm-hr-primary {
+        border-top: 5px solid #0CC;
+    }
+    
+    
+    .tm-color-primary,
+    span.tm-color-primary {
+        color: #099;
+    }
+    
+    a.tm-color-gray,
+    .tm-color-gray {
+        color: #999;
+    }
+    
+    a.tm-color-gray:hover {
+        color: #099;
+    }
+    
+    .tm-bg-gray {
+        background-color: #F3F4F5;
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        color: #048c8c;
+    }
+    
+  }
