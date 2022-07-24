@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SegurityGuard } from 'src/app/core/guard/segurity-guard.service';
 import { PrincipalBlogComponent } from '../blog/principal-blog/principal-blog.component';
 import { RegistrosBlogComponent } from '../blog/registros-blog/registros-blog.component';
-import { ListadoContenidoComponent } from '../contenido-curso/component/listado-contenido/listado-contenido.component';
 import { InicioComponent } from '../funciones-curso/component/inicio/inicio.component';
 import { CrearJuegoComponent } from './component/crear-juego/crear-juego.component';
 import { CrearRetoComponent } from './component/crear-reto/crear-reto.component';
@@ -20,8 +19,8 @@ const routes: Routes = [
   {path:'listado-cursos', component: ListadoCursosComponent, canActivate: [SegurityGuard]}, 
   {path:'reto/:idJuego/curso/:idCurso', component: RetoCursoComponent, canActivate: [SegurityGuard]},
   {path:'juego/:idJuego/curso/:idCurso', component: JuegoCursoComponent, canActivate: [SegurityGuard]},
-  {path:'crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard]},
-  {path:'crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard]},
+  {path:'curso/:idCursos/crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard]},
+  {path:'curso/:idCursos/crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard]},
   {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard]},
   {path:'listado-cursos/curso/:idCursos', component: InicioComponent, canActivate: [SegurityGuard]},
   {path:'listado-contenido/curso/:idCurso/categoria/:idCategoria', component: RegistrosBlogComponent, canActivate: [SegurityGuard]},

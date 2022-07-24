@@ -82,7 +82,7 @@ export class CrearJuegoComponent implements OnInit {
     });
     return {
       reto:{
-        idCurso: 1,
+        idCurso: 1, //valor quemado se debería de estar mandando desde el componente anterior 
         tipo:this.TIPO_JUEGO,
         titulo: this.formularioJuego.controls.titulo.value,
         descripcion: this.formularioJuego.controls.descripcion.value,
@@ -120,7 +120,7 @@ export class CrearJuegoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
-      respuesta: [''],
+      respuesta: ['', Validators.required],
       
      });
 
@@ -134,12 +134,14 @@ export class CrearJuegoComponent implements OnInit {
     this.preguntas.removeAt(preguntaIndex);
 
   }
+  
   showModalCorrecto(){
     Swal.fire({
       icon: 'success',
       title: 'El juego se guardo con exito',
     })
   }
+
   showModalIncorrecto(){
     Swal.fire({
       icon: 'error',
@@ -148,6 +150,7 @@ export class CrearJuegoComponent implements OnInit {
 
     })
   }
+
   validarRespuesta(pregunta:Pregunta){
     switch (pregunta.respuesta) {
       case 'opcion1':
@@ -160,7 +163,7 @@ export class CrearJuegoComponent implements OnInit {
         return pregunta.opcion4
         default:
           return '';
-  } 
+    } 
   }
 
   

@@ -5,6 +5,7 @@ import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
 import { Location } from '@angular/common'
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -15,8 +16,7 @@ import { Location } from '@angular/common'
 export class CrearRetoComponent implements OnInit {
   TIPO_RETO:string = "R";
   agregoPregunta:number=0;
-  respuestaReto:string
-
+  idCurso:number
 
   form = this.formBuilder.group({
     preguntas: this.formBuilder.array([])
@@ -29,9 +29,12 @@ export class CrearRetoComponent implements OnInit {
   }); 
 
   constructor( private formBuilder: UntypedFormBuilder, private juegoService:JuegoService,
-    private location: Location ) { }
+    private location: Location, private activeRoute:ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((params:Params)=>{
+      this.idCurso = params.idCursos;
+    })
   }
  
   inicializarFormularioLogin(){
@@ -84,7 +87,7 @@ export class CrearRetoComponent implements OnInit {
     });
     return {
       reto:{
-        idCurso: 1,
+        idCurso: this.idCurso,
         tipo:this.TIPO_RETO,
         titulo: this.formularioReto.controls.titulo.value,
         descripcion: this.formularioReto.controls.descripcion.value,
@@ -98,7 +101,7 @@ export class CrearRetoComponent implements OnInit {
     return {    
       texto: preguntaForm.pregunta,
       imagen: preguntaForm.imagen,
-      respuesta: preguntaForm.respuesta,
+      respuesta: this.validarRespuesta(preguntaForm),
       opcion1: preguntaForm.opcion1,
       opcion2: preguntaForm.opcion2,
       opcion3: preguntaForm.opcion3,
@@ -122,7 +125,7 @@ export class CrearRetoComponent implements OnInit {
       opcion2: ['', Validators. required],
       opcion3: ['', Validators. required],
       opcion4: ['', Validators. required],
-      respuesta:['',]
+      respuesta:['', Validators. required]
       
      });
 
@@ -154,29 +157,19 @@ export class CrearRetoComponent implements OnInit {
     })
   }
 
-  validarRespuesta(){
-    switch (this.form.controls.imagen.value) {
+  validarRespuesta(pregunta:Pregunta){
+    switch (pregunta.respuesta) {
       case 'opcion1':
-         this.respuestaReto=this.form.controls.opcion1.value;
-
-          break;
+         return pregunta.opcion1
       case 'opcion2':
-         this.respuestaReto=this.form.controls.opcion2.value;
-
-          break;
+         return pregunta.opcion2
       case 'opcion3':
-            this.respuestaReto=this.form.controls.opcion3.value;
-   
-             break;
+        return pregunta.opcion3
       case 'opcion4':
-            this.respuestaReto=this.form.controls.opcion4.value;
-   
-             break;
+        return pregunta.opcion4
+        default:
+          return '';
+    } 
   }
-    
-  }
-  
- 
-  
-  
+      
 }

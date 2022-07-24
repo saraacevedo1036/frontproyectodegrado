@@ -42,7 +42,7 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
   }
   
   irCrearReto(): void{
-    this.router.navigateByUrl('crear-reto');
+    this.router.navigate(['curso',this.idCurso,'crear-reto']);
     
     
   } 
