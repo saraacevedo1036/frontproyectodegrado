@@ -1,63 +1,50 @@
-.preguntaTitulo{
+.preguntaTitulo {
     text-align: center;
     margin-top: 15px;
 }
 
-mat-form-field{
+mat-form-field {
     margin-left: 9%;
     margin-top: 30px;
-    
-    
+
+
 }
-.enunciadoPrincipal{
+
+.enunciadoPrincipal {
     margin-left: 5%;
     margin-top: 10px;
-    
+
 }
-.form-control{
+
+.form-control {
     margin-left: 5%;
     margin-top: 10px;
     width: 90%;
     border-color: blueviolet;
 }
- #btnagregar {
+
+#btnagregar {
     text-align: center;
-    
+
 }
-.creajuego{
+
+.creajuego {
     margin-top: 15px;
     text-align: center;
 }
-#guardar{
+
+#guardar {
     border-radius: 40px;
     background-color: blueviolet;
     border-color: azure;
 }
-.imagen {
-    background-color: rgba(83, 81, 84, 0.967);
-    width: 83%;
-}
-.opcion1 {
-    background-color: rgba(83, 81, 84, 0.967);
-    width: 37%;
-}
-.opcion2 {
-    background-color: rgba(83, 81, 84, 0.967);
-    width: 37%;
-}
-.opcion3 {
-    background-color: rgba(83, 81, 84, 0.967);
-    width: 37%;
-}
-.pregunta {
-    width: 83%;
-    background-color: rgba(83, 81, 84, 0.967);
-}
-.opcion4 {
-    background-color: rgba(83, 81, 84, 0.967);
-    width: 37%;
-}
+
 .respuesta {
-    background-color: rgba(83, 81, 84, 0.967);
+    background-color: rgba(182, 181, 182, 0.967);
     width: 83%;
+    height: 50px;
+}
+.card{
+    margin-top: 0.5%;
+    margin-left: 0.5%;
 }

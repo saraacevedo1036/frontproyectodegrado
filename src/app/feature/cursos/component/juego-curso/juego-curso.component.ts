@@ -187,7 +187,7 @@ export class JuegoCursoComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      cancelButtonColor: 'No',
       confirmButtonText: 'Si!'
     }).then((result) => {
       if (result.isConfirmed) {

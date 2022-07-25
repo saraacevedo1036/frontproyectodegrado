@@ -50,8 +50,7 @@
       <div class="field">
         <label class="label">Video</label>
         <div class="control has-icons-left has-icons-right">
-          <input  class="input" type="text" placeholder="Ingrese url del video"
-            formControlName="video" />
+          <input class="input" type="text" placeholder="Ingrese url del video" formControlName="video" />
         </div>
       </div>
       <div class=" verVideo">
@@ -74,7 +73,8 @@
                   Crear nueva categoria</mat-checkbox>
               </p>
               <p>
-                <mat-checkbox *ngIf="toppings.controls.crearCategoria.value==false" formControlName="usarCategoria">
+                <mat-checkbox *ngIf="toppings.controls.crearCategoria.value==false && listaCategorias.length!=0"
+                  formControlName="usarCategoria">
                   Categoria existente</mat-checkbox>
               </p>
             </section>
@@ -98,11 +98,12 @@
             </div>
           </div>
         </div>
-        <div *ngIf="toppings.controls.usarCategoria.value==true" type="submit"  class="pull-right">
-          <button mat-flat-button color="accent"  id="guardar"  value="guardar"> guardar</button>
+        <div *ngIf="toppings.controls.usarCategoria.value==true" type="submit" class="pull-right">
+          <button mat-flat-button color="accent" id="guardar" value="guardar"> guardar</button>
         </div>
         <div *ngIf="toppings.controls.crearCategoria.value==true" class="pull-right">
-          <button mat-flat-button color="accent" id="guardar" (click)="guardarCategoria()" value="guardar"> guardar</button>
+          <button mat-flat-button color="accent" id="guardar" (click)="guardarCategoria()" value="guardar">
+            guardar</button>
         </div>
       </div>
     </form>

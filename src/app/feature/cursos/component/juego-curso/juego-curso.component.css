@@ -44,3 +44,6 @@ background-color: #437891 !important;
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
     border-color: #111010;
 }
+.question{
+    text-align: center;
+}

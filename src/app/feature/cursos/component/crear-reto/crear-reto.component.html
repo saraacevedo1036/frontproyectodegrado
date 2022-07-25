@@ -28,24 +28,24 @@
                             <label class="label">Descripción:</label>
                             <div class="control">
                                 <textarea class="textarea" cols="30" rows="3" formControlName="descripcion"></textarea>
-                                {{ formularioReto.get('descripcion').value.length }}/45
+                                {{ formularioReto.get('descripcion').value.length }}/500
                             </div>
                             <span
-                                *ngIf="formularioReto.get('descripcion').touched && formularioReto.get('descripcion').value.length > 45 "
-                                class="text-danger">El campo descripcionno puede superar los 45 caracteres</span>
+                                *ngIf="formularioReto.get('descripcion').touched && formularioReto.get('descripcion').value.length > 500 "
+                                class="text-danger">El campo descripción no puede superar los 500 caracteres</span>
                             <span
                                 *ngIf="formularioReto.get('descripcion').touched && formularioReto.get('descripcion').errors "
-                                class="text-danger">El campo descripcion es obligatorio</span>
+                                class="text-danger">El campo descripción es obligatorio</span>
                         </div>
                         <div class="field">
                             <label class="label">Comentario:</label>
                             <div class="control">
                                 <textarea class="textarea" cols="30" rows="3" formControlName="comentario"></textarea>
-                                {{ formularioReto.get('comentario').value.length }}/45
+                                {{ formularioReto.get('comentario').value.length }}/500
                             </div>
                             <span
-                                *ngIf="formularioReto.get('comentario').touched && formularioReto.get('comentario').value.length > 45 "
-                                class="text-danger">El campo comentario puede superar los 45 caracteres</span>
+                                *ngIf="formularioReto.get('comentario').touched && formularioReto.get('comentario').value.length > 500 "
+                                class="text-danger">El campo comentario no puede superar los 500 caracteres</span>
 
 
                         </div>
@@ -77,8 +77,7 @@
                                     <div class="field">
                                         <label class="label">Opcion 1</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text"
-                                                placeholder="Ingrese la respuesta a la pregunta"
+                                            <input class="input" type="text" placeholder="Ingrese la primera opción"
                                                 formControlName="opcion1" />
                                         </div>
 
@@ -86,7 +85,7 @@
                                     <div class="field">
                                         <label class="label">Opcion 2</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Ingrese la segunda opcion "
+                                            <input class="input" type="text" placeholder="Ingrese la segunda opción "
                                                 formControlName="opcion2" />
                                         </div>
 
@@ -94,7 +93,7 @@
                                     <div class="field">
                                         <label class="label">Opcion 3</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Ingrese la tercera opcion "
+                                            <input class="input" type="text" placeholder="Ingrese la tercera opción "
                                                 formControlName="opcion3" />
                                         </div>
 
@@ -102,13 +101,14 @@
                                     <div class="field">
                                         <label class="label">Opcion 4</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Ingrese la cuarta opcion "
+                                            <input class="input" type="text" placeholder="Ingrese la cuarta opción "
                                                 formControlName="opcion4" />
                                         </div>
 
                                     </div>
+                                    <label class="label">Selecciona la opcion correcta</label>
                                     <mat-form-field class="respuesta" appearance="fill">
-                                        <mat-select formControlName="respuesta" placeholder="Respuesta">
+                                        <mat-select formControlName="respuesta">
                                             <mat-option value="opcion1"> opcion 1</mat-option>
                                             <mat-option value="opcion2"> Opcion 2</mat-option>
                                             <mat-option value="opcion3"> Opcion 3</mat-option>
@@ -116,17 +116,17 @@
                                         </mat-select>
 
                                     </mat-form-field>
-
-                                    <a class="btn btn-danger">
-                                        <mat-icon class="delete-btn" (click)="borrarPregunta(i)"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z" />
-                                            </svg></mat-icon>
-                                    </a>
-
                                 </div>
+                                <div class="pull-right">
+                                <a class="btn btn-danger" (click)="borrarPregunta(i)" style="align-items:center;">
+                                    <mat-icon class="delete-btn" (click)="borrarPregunta(i)"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z" />
+                                        </svg></mat-icon>
+                                </a>
+                            </div>
 
                             </ng-container>
 
