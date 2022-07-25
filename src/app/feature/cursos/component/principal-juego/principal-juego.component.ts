@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
+import Swal from 'sweetalert2';
 import { Juego } from '../../shared/model/juego.model';
 import { JuegoService } from '../../shared/service/juego.services';
 
@@ -46,6 +47,13 @@ export class PrincipalJuegoComponent implements OnInit {
   irJuego(idJuego:number): void{
 
     this.router.navigate(['juego',idJuego,'curso',this.idCurso]) 
+  }
+  showModalCodigo(descripcion:string){
+    Swal.fire({
+      icon: 'info',
+      title: 'Descripción ',
+      text: descripcion ,
+    })
   }
   
 

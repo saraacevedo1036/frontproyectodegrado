@@ -185,6 +185,10 @@ export class RetoCursoComponent implements OnInit {
     return false
   }
 }
+visualizarImagen(urlImagen:string):boolean{
+  return urlImagen!==''?true:false
+  
+}
 
 
 }

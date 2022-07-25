@@ -21,10 +21,11 @@
     <mat-grid-tile *ngFor="let juego of listaJuegos" [colspan]="2" [rowspan]="1">
       <button (click)="irJuego(juego.idReto)" mat-raised-button> {{juego.titulo}}
       </button>
-      <mat-grid-tile-footer>
-        {{juego.descripcion}}
-
+      <mat-grid-tile-footer class="button" (click)="showModalCodigo(juego.descripcion)" >
+        Descripción
       </mat-grid-tile-footer>
+
+     
     </mat-grid-tile>
   </mat-grid-list>
 </body>

@@ -7,6 +7,8 @@ import { AutorizacionService } from 'src/app/feature/login/shared/service/autori
 import { Reto } from '../../shared/model/reto.model';
 import { RetoService } from '../../../../shared/service/reto.service';
 import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
+import Swal from 'sweetalert2';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-principal-reto',
@@ -52,5 +54,12 @@ export class PrincipalRetoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     //this.eventosService.disparador.unsubscribe();
+  }
+  showModalCodigo(descripcion:string){
+    Swal.fire({
+      icon: 'info',
+      title: 'Descripción ',
+      text: descripcion ,
+    })
   }
 }
