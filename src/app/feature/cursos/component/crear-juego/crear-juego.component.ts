@@ -5,6 +5,7 @@ import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
 import { Location } from '@angular/common'
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-crear-juego',
@@ -15,6 +16,7 @@ export class CrearJuegoComponent implements OnInit {
   TIPO_JUEGO: string = "J";
   agregoPregunta: number = 0;
   respuestaReto: string;
+  idCurso: number
 
   form = this.formBuilder.group({
     preguntas: this.formBuilder.array([])
@@ -27,9 +29,12 @@ export class CrearJuegoComponent implements OnInit {
   });
 
   constructor(private formBuilder: UntypedFormBuilder, private juegoService: JuegoService,
-    private location: Location) { }
+    private location: Location, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((params: Params) => {
+      this.idCurso = params.idCursos;
+    })
   }
 
   inicializarFormularioLogin() {
@@ -60,7 +65,6 @@ export class CrearJuegoComponent implements OnInit {
       console.log('CREACION RETO', this.armarObjetoAGuardar())
       this.showModalCorrecto()
       this.location.back();
-
     }
     else {
       this.showModalIncorrecto()
@@ -82,7 +86,7 @@ export class CrearJuegoComponent implements OnInit {
     });
     return {
       reto: {
-        idCurso: 1, //valor quemado se debería de estar mandando desde el componente anterior 
+        idCurso: this.idCurso, 
         tipo: this.TIPO_JUEGO,
         titulo: this.formularioJuego.controls.titulo.value,
         descripcion: this.formularioJuego.controls.descripcion.value,

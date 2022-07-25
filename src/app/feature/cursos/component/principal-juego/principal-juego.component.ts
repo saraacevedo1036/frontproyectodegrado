@@ -33,8 +33,9 @@ export class PrincipalJuegoComponent implements OnInit {
       console.log('Juegos: ',  juegos)
     });
   }
+  
   irCrearJuego(): void{
-    this.router.navigateByUrl('crear-juego'); 
+    this.router.navigate(['curso',this.idCurso,'crear-juego']); 
   } 
  
 

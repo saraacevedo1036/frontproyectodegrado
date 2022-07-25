@@ -60,12 +60,10 @@ export class CrearRetoComponent implements OnInit {
       console.log('RETO: ', value);
       const valuePre = this.form.value.preguntas;
       console.log('Preguntas: ', valuePre)
-
       this.agregarReto();
       console.log('CREACION RETO', this.armarObjetoAGuardar())
       this.showModalCorrecto()
       this.location.back();
-      window.location.reload();
     } else {
       this.showModalIncorrecto()
 
@@ -147,7 +145,7 @@ export class CrearRetoComponent implements OnInit {
   showModalCorrecto() {
     Swal.fire({
       icon: 'success',
-      title: 'El juego se guardo con exito',
+      title: 'El reto se guardo con exito',
     })
   }
 

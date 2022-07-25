@@ -25,7 +25,7 @@
                                 <h1>{{obtenerValorControl(i,'pregunta')}}</h1>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card" *ngIf="visualizarImagen(obtenerValorControl(i,'imagen'))">
                             <div class="image">
                                 <img src="{{obtenerValorControl(i,'imagen')}}" alt="logo">
                             </div>

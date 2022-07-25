@@ -204,4 +204,9 @@ export class JuegoCursoComponent implements OnInit {
 
     this.router.navigate(['listaRespuesta', idJuego])
   }
+  visualizarImagen(urlImagen:string):boolean{
+    return urlImagen!==''?true:false
+    
+  }
+  
 }
