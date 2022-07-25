@@ -1,65 +1,4 @@
-body {
-  margin: 40px;
-  padding: 0px;
-  background: rgba(69, 19, 69, 0);
-  background-size: cover;
-  font-family: sans-serif;
-  height: 100vh;
-}
-button  {
-  background-color:#fff;
-  border-bottom: aquamarine;
-  border-color: aquamarine;
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  border: aquamarine;
-  border-width: 3px;
-   border-style: solid;
-  border-radius: 20px;
-  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-  0 0 0.2em #87F
-  
 
-  
-}
-button:hover {
-  cursor: pointer;
-  background: aquamarine;
-  color: #000;
-}
-p{
-  text-align: center;
-  font-size: 100px;
-  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-  0 0 0.2em #87F
-  
-
-}
-mat-grid-list {
-  margin: 90px;
-  padding: 50px;
-  border-color: aquamarine;
-}
-mat-grid-tile-footer {
-  border-radius: 20px;
-}
-mat-grid-title{
-  
-  background-color:rgb(32, 168, 213);
-}
-.container{
-align-items: center;
-text-align: center;
-}
-.title{
-font-size: 40px;
-}
-.agregarAsignatura{
-  align-items: center;
-  text-align: center;
-  font-size: 15px;
-}
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
 ::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
 background-color: #437891 !important;
@@ -69,4 +8,104 @@ background-color: #437891 !important;
 
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
     border-color: #111010;
+}
+body {
+  margin: 0.5%;
+  padding: 0px;
+  background: rgba(69, 19, 69, 0);
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+.agregarAsignaturaEst{
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+}
+.agregarEs{
+  margin-top: 1%;
+  font-size: 40px;
+  height: 15%;
+  text-shadow: 0 0 0.2em rgb(235, 233, 248), 0 0 0.2em rgb(239, 238, 244),
+    0 0 0.2em rgb(248, 248, 251)
+
+}
+button {
+  background-color: #fff;
+  border-bottom: aquamarine;
+  border-color: aquamarine;
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+  border: aquamarine;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 20px;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+    0 0 0.2em #87F
+}
+
+@media screen and (max-width: 700px) {
+  button {
+    background-color: #fff;
+    border-bottom: aquamarine;
+    border-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    border: aquamarine;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+      0 0 0.2em #87F
+  }
+  
+}
+
+button:hover {
+  cursor: pointer;
+  background: aquamarine;
+  color: #000;
+}
+
+p {
+  text-align: center;
+  font-size: 100px;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+    0 0 0.2em #87F
+}
+
+mat-grid-list {
+  margin: 5%;
+  margin-right: 15%;
+  padding: 50px;
+  border-color: aquamarine;
+}
+
+mat-grid-tile-footer {
+  border-radius: 20px;
+}
+
+mat-grid-title {
+
+  background-color: rgb(32, 168, 213);
+}
+
+.container {
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 40px;
+}
+
+.agregarAsignatura {
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  
 }
