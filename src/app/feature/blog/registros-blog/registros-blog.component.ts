@@ -95,7 +95,8 @@ export class RegistrosBlogComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      cancelButtonText: 'No',
+      confirmButtonText: 'Si, eliminar ahora!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.contenidoService.eliminarContenido(idContenido).subscribe(respuesta=>{
