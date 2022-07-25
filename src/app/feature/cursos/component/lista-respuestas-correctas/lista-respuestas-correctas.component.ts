@@ -15,6 +15,7 @@ import { Location } from '@angular/common'
 })
 export class ListaRespuestasCorrectasComponent implements OnInit {
   idJuego:number;
+  idCurso:number;
   listaPreguntas:Pregunta[]=[];
   PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO:string[] = ['opcion1', 'opcion2', 'opcion3', 'opcion4'];
 
@@ -34,6 +35,7 @@ export class ListaRespuestasCorrectasComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
       this.idJuego = params.idJuego;
+      this.idCurso= params.idCurso;
       this.obtenerlistadoPreguntas(this.idJuego);
 
     });
@@ -44,6 +46,10 @@ export class ListaRespuestasCorrectasComponent implements OnInit {
       console.log('Juegos: ',  preguntas)
     });
   }
+  inicial(){
+    this.router.navigate(['/listado-cursos']);
+  }
+ 
 
 
 

@@ -18,6 +18,7 @@ import { Location } from '@angular/common'
 })
 export class JuegoCursoComponent implements OnInit {
   idJuego: number;
+  idCurso:number;
   listaPreguntas: Pregunta[] = [];
   PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO: string[] = ['opcion1', 'opcion2', 'opcion3', 'opcion4'];
 
@@ -37,6 +38,7 @@ export class JuegoCursoComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params: Params) => {
       this.idJuego = params.idJuego;
+      this.idCurso = params.idCursos;
       this.obtenerListaPreguntas();
     });
   }
@@ -187,12 +189,13 @@ export class JuegoCursoComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
-      cancelButtonColor: 'No',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'No',
       confirmButtonText: 'Si!'
     }).then((result) => {
       if (result.isConfirmed) {
         
-        this.irJuego(this.idJuego);
+        this.irRespuestaJuego(this.idJuego);
 
       } else {
         this.location.back();
@@ -200,9 +203,10 @@ export class JuegoCursoComponent implements OnInit {
       }
     })
   }
-  irJuego(idJuego: number): any {
+  irRespuestaJuego(idJuego: number): any {
 
-    this.router.navigate(['listaRespuesta', idJuego])
+    
+    this.router.navigate(['listaRespuesta',idJuego]) 
   }
   visualizarImagen(urlImagen:string):boolean{
     return urlImagen!==''?true:false
