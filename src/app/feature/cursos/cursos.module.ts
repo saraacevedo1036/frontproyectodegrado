@@ -24,6 +24,7 @@ import { PreguntaService } from './shared/service/pregunta.service';
 import { JuegoService } from './shared/service/juego.services';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListaRespuestasCorrectasComponent } from './component/lista-respuestas-correctas/lista-respuestas-correctas.component';
+import { AgregarEstudianteComponent } from './component/agregar-estudiante/agregar-estudiante.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { ListaRespuestasCorrectasComponent } from './component/lista-respuestas-
     CrearRetoComponent,
     AgregarAsignaturaComponent,
     ListaRespuestasCorrectasComponent,
+    AgregarEstudianteComponent,
     
   ],
   imports: [

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
+import { AgregarEstudianteComponent } from 'src/app/feature/cursos/component/agregar-estudiante/agregar-estudiante.component';
 import { CursoEstudianteService } from 'src/app/feature/cursos/shared/service/curso-estudiante.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
@@ -19,7 +21,7 @@ export class ListaEstudianteCursoComponent implements OnInit {
   listaEstudiantes: Estudiante[] = [];
   constructor(private eventosService: EventosService,private cursoEstudianteService: CursoEstudianteService
     ,private estudianteService: EstudianteService,  private activeRoute: ActivatedRoute,
-     private router: Router, protected autorizacionService: AutorizacionService) { }
+     private router: Router, protected autorizacionService: AutorizacionService, public modalCur: MatDialog) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
@@ -64,6 +66,11 @@ export class ListaEstudianteCursoComponent implements OnInit {
         )
       }
     })
+  }
+  modalAgregarEstudiante(){
+    
+    this.modalCur.open(AgregarEstudianteComponent,{
+      width: '450px'});
   }
   
   
