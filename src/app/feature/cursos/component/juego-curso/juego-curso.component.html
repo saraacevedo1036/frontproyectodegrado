@@ -1,11 +1,14 @@
 <section class="hero is-primary is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">
+            <h1 *ngIf="validarRolEstudiante()==true" class="title">
                 Practiquemos juntos
             </h1>
-            <div class="card" (click)=" borrarJuego()" style="background-color: #dc3545;">
-                <a (click)=" borrarJuego()" *ngIf="validarRolEstudiante()==false" class="btn btn-danger">
+            <h1 *ngIf="validarRolEstudiante()==false" class="title">
+                Eliminar Juego
+            </h1>
+            <div *ngIf="validarRolEstudiante()==false" class="card" (click)=" borrarJuego()" style="background-color: #dc3545;">
+                <a (click)=" borrarJuego()"  class="btn btn-danger">
                     <mat-icon (click)=" borrarJuego()" class="delete-btn"><svg xmlns="http://www.w3.org/2000/svg"
                             width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
                             <path

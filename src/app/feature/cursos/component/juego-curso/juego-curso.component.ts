@@ -216,7 +216,7 @@ export class JuegoCursoComponent implements OnInit {
   }
   borrarJuego(){
     Swal.fire({
-      title: 'Eliminar juego?',
+      title: 'Estas seguro de eliminar este juego?',
       text: "Si eliminas el juego este no se podra recuperar!",
       icon: 'warning',
       showCancelButton: true,

@@ -193,8 +193,8 @@ visualizarImagen(urlImagen:string):boolean{
 }
 borrarReto(){
   Swal.fire({
-    title: 'Eliminar juego?',
-    text: "Si eliminas el juego este no se podra recuperar!",
+    title: 'Esta seguro de eliminar este Reto?',
+    text: "Si eliminas el reto este no se podra recuperar!",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
