@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { EventosService } from 'src/app/core/service/eventos.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
+import { Curso } from '../../shared/model/curso.model';
 import { AsignarCurso } from '../../shared/model/estudiante-curso.model';
 import { CursoEstudianteService } from '../../shared/service/curso-estudiante.service';
+import { CursoService } from '../../shared/service/curso.service';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
 
 @Component({
@@ -16,47 +16,49 @@ import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
 })
 export class AgregarEstudianteComponent implements OnInit {
   form: UntypedFormGroup;
-
+  curso:Curso;
 
   constructor(public modal: MatDialogRef<CrearCursoComponent>,
-    private eventosService: EventosService,
     private formBuilder: UntypedFormBuilder, 
-    protected autorizacionService: AutorizacionService ,private router: Router,
+    protected autorizacionService: AutorizacionService ,
     private cursoEstudianteService: CursoEstudianteService,
+    private cursoService:CursoService,
+    @Inject(MAT_DIALOG_DATA) public data: any
     ) { 
       this.buildForm();
     }
 
   ngOnInit(): void {
+    this.obtenerCursoPorId(this.data.idCurso); 
   }
+
   cerrarModal(): void{
     this.modal.close();
   }
+
   private buildForm() {
     this.form = this.formBuilder.group({
       correoEstudiante: ['', [Validators.required,Validators.email]]
       
     });
   }
+
   save(event: Event) {
     event.preventDefault();
-    if (this.form.valid  ) {
+    if (this.form.valid) {
       this.guardarCurso();
     } else {
       this.form.markAllAsTouched();
       this.showModalIncorrecto();
     }
   }
+
   armarObjetoCurso(): AsignarCurso{
     return {
-      codigoCurso: this.form.controls.correoEstudiante.value ,
       correoEstudiante: this.form.controls.correoEstudiante.value,
-      
-       
-
+      codigoCurso:this.curso.codigo
       };
   }
-  
 
   guardarCurso(){
     this.cursoEstudianteService.asignarCurso(this.armarObjetoCurso())
@@ -64,20 +66,24 @@ export class AgregarEstudianteComponent implements OnInit {
       window.location.reload();
       this.modal.close();
       this.showModalCorrecto();
-      console.log('Se guarda curso', curso)
     }
     ,error=>{
       this.form.reset();
-      this.showModalIncorrecto()
-      
-    }
-    );
-   
+      this.showModalIncorrecto()  
+    });
   }
+
+  
+  obtenerCursoPorId(idCurso:number){
+    this.cursoService.obtenerCursoPorId(idCurso).subscribe(curso =>{
+      this.curso = curso;
+    });
+  }
+
   showModalCorrecto(){
     Swal.fire({
       icon: 'success',
-      title: 'El curso fue creado con exito',
+      title: 'El estudiante fue asignado al curso con exito',
     })
   }
   showModalIncorrecto(){
@@ -87,10 +93,4 @@ export class AgregarEstudianteComponent implements OnInit {
     })
   }
   
-  
-  
- 
-  
- 
-
 }
