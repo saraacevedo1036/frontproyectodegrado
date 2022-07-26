@@ -11,13 +11,13 @@
   </section>
   <div style="margin-top:1% ;">
     <div *ngIf="puedeVisualizar()" class="pull-right">
-      <div class="agregarAsignatura"><label>Agregar Reto</label></div>
+      <div class="agregarReto"><label>Agregar Reto</label></div>
       <button mat-flat-button class="hero is-primary is-bold" id="agregar" mat-button (click)="irCrearReto()"><i
           class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
     </div>
   </div>
 
-  <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px">
+  <mat-grid-list [cols]="colSize"  rowHeight="250px" style="height: 250px; " gutterSize="40px">
     <mat-grid-tile *ngFor="let reto of listaRetos" [colspan]="2" [rowspan]="1">
       <div class="nombreJuego" (click)="irJuego(reto.idReto)" mat-raised-button> <p class="nombreC">{{reto.titulo}}</p>
       </div>

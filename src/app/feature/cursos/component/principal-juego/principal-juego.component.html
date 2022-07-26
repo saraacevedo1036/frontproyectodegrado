@@ -11,21 +11,24 @@
   </section>
   <div style="margin-top:1% ;">
     <div *ngIf="puedeVisualizar()" class="pull-right">
-      <div class="agregarAsignatura"><label>Agregar juego</label></div>
+      <div class="agregarJuego"><label>Agregar juego</label></div>
       <button mat-flat-button class="hero is-primary is-bold" id="agregar" mat-button (click)="irCrearJuego()"><i
           class="fa fa-plus fa-1x" aria-hidden="true"></i></button>
     </div>
   </div>
 
-  <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px">
+  <mat-grid-list [cols]="colSize"  rowHeight="250px" style="height: 250px; " gutterSize="40px">
     <mat-grid-tile *ngFor="let juego of listaJuegos" [colspan]="2" [rowspan]="1">
-      <div class="nombreJuego" (click)="irJuego(juego.idReto)" mat-raised-button> <p class="nombreC">{{juego.titulo}}</p>
+      <div class="nombreJuego" (click)="irJuego(juego.idReto)" mat-raised-button>
+        <p class="nombreC">{{juego.titulo}}</p>
       </div>
-      <mat-grid-tile-footer class="button" (click)="showModalCodigo(juego.descripcion)" >
+      <mat-grid-tile-footer class="button" (click)="showModalCodigo(juego.descripcion)">
         Descripción
-      </mat-grid-tile-footer>
+      </mat-grid-tile-footer>  
+      
 
-     
     </mat-grid-tile>
+    
   </mat-grid-list>
+ 
 </body>

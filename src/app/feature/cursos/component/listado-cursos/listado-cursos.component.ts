@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -18,13 +19,22 @@ import { ListadoCategoriasComponent } from '../listado-categorias/listado-catego
 })
 export class ListadoCursosComponent implements OnInit {
 
-  
+  public colSize=6;
+  public isMobile: boolean =false;
   listaCategorias: Categoria[] = []; 
   listaCursos: Curso[] = []; 
-  constructor(private cursoService: CursoService,private router: Router,
+  constructor(breakpointObserver:BreakpointObserver,
+    private cursoService: CursoService,private router: Router,
     private categoriaService:CategoriaService, public modal: MatDialog,public modalCur: MatDialog,
     protected autorizacionService: AutorizacionService
-    ) { }
+    ) {breakpointObserver.observe([Breakpoints.Handset]).subscribe(result=>{
+      this.isMobile=result.matches;
+      if(this.isMobile){
+        this.colSize=2;
+      }else{
+        this.colSize=6
+      }
+    }) }
 
   ngOnInit(): void {
     this.obtenerListadoCursos();

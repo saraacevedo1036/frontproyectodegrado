@@ -9,6 +9,7 @@ import { RetoService } from '../../../../shared/service/reto.service';
 import { CrearJuegoComponent } from '../crear-juego/crear-juego.component';
 import Swal from 'sweetalert2';
 import { style } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-principal-reto',
@@ -16,14 +17,23 @@ import { style } from '@angular/animations';
   styleUrls: ['./principal-reto.component.css']
 })
 export class PrincipalRetoComponent implements OnInit, OnDestroy {
-
+  public colSize=6;
+  public isMobile: boolean =false;
   TIPO_RETO: string = "R";
   idCurso:number 
   listaRetos: Reto[] = [];
-  constructor(private eventosService: EventosService,
+  constructor(breakpointObserver:BreakpointObserver,
+    private eventosService: EventosService,
     private retoService: RetoService,  private activeRoute: ActivatedRoute,
     private router: Router,
-    protected autorizacionService: AutorizacionService) { }
+    protected autorizacionService: AutorizacionService) {breakpointObserver.observe([Breakpoints.Handset]).subscribe(result=>{
+      this.isMobile=result.matches;
+      if(this.isMobile){
+        this.colSize=2;
+      }else{
+        this.colSize=6
+      }
+    }) }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params:Params)=>{
