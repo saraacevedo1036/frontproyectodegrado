@@ -14,7 +14,6 @@ export class SegurityGuard implements CanActivate{
   ) { }
 
   canActivate(): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    console.log('Esta autenticado: ',this.autorizacionService.estaAutenticado())
     if(this.autorizacionService.estaAutenticado()){
       return true;
     }

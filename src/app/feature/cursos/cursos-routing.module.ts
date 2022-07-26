@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DocenteGuard } from 'src/app/core/guard/docente.guard';
 import { SegurityGuard } from 'src/app/core/guard/segurity-guard.service';
 import { PrincipalBlogComponent } from '../blog/principal-blog/principal-blog.component';
 import { RegistrosBlogComponent } from '../blog/registros-blog/registros-blog.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:'listado-cursos', component: ListadoCursosComponent, canActivate: [SegurityGuard]}, 
   {path:'reto/:idJuego/curso/:idCurso', component: RetoCursoComponent, canActivate: [SegurityGuard]},
   {path:'juego/:idJuego/curso/:idCurso', component: JuegoCursoComponent, canActivate: [SegurityGuard]},
-  {path:'curso/:idCursos/crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard]},
+  {path:'curso/:idCursos/crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard,DocenteGuard]},
   {path:'curso/:idCursos/crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard]},
   {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard]},
   {path:'listado-cursos/curso/:idCursos', component: InicioComponent, canActivate: [SegurityGuard]},
