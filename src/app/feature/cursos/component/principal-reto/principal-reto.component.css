@@ -2,8 +2,6 @@
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
 ::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
 background-color: #437891 !important;
-
-
 }
 
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
@@ -46,12 +44,43 @@ button {
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
     0 0 0.2em #87F
 }
+.nombreJuego{
+  background-color: #fff;
+  border-bottom: aquamarine;
+  border-color: aquamarine;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+  border: aquamarine;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 20px;
+  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+    0 0 0.2em #87F
+}
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 830px) {
   button {
     background-color: #fff;
     border-bottom: aquamarine;
     border-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    border: aquamarine;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+      0 0 0.2em #87F
+  }
+  .nombrejuego{
+    background-color: #fff;
+    border-bottom: aquamarine;
+    border-color: aquamarine;
+    text-align: center;
     width: 100%;
     height: 100%;
     font-size: 13px;
@@ -61,6 +90,7 @@ button {
     border-radius: 20px;
     text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
       0 0 0.2em #87F
+ 
   }
   
 }
@@ -70,13 +100,13 @@ button:hover {
   background: aquamarine;
   color: #000;
 }
-
-p {
-  text-align: center;
-  font-size: 100px;
-  text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
-    0 0 0.2em #87F
+.nombreJuego:hover {
+  cursor: pointer;
+  background: aquamarine;
+  color: #000;
 }
+
+
 
 mat-grid-list {
   margin: 5%;

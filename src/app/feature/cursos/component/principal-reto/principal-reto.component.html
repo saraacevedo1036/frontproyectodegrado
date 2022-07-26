@@ -19,8 +19,8 @@
 
   <mat-grid-list cols="6" rowHeight="250px" style="height: 250px;" gutterSize="40px">
     <mat-grid-tile *ngFor="let reto of listaRetos" [colspan]="2" [rowspan]="1">
-      <button (click)="irJuego(reto.idReto)" mat-raised-button> {{reto.titulo}}
-      </button>
+      <div class="nombreJuego" (click)="irJuego(reto.idReto)" mat-raised-button> <p class="nombreC">{{reto.titulo}}</p>
+      </div>
       <mat-grid-tile-footer class="button" (click)="showModalCodigo(reto.descripcion)" >
         Descripción
       </mat-grid-tile-footer>
