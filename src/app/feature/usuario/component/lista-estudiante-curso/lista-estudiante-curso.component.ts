@@ -71,6 +71,14 @@ export class ListaEstudianteCursoComponent implements OnInit {
       width: '450px',
       data: {idCurso: this.idCurso}});
   }
+  validarDocente(){
+    if (this.autorizacionService.ROLE_DOCENTE){
+      return true
+    }else{
+      return false
+    }
+
+  }
   
   
   

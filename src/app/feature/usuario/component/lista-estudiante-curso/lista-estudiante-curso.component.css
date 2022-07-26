@@ -7,3 +7,15 @@ body{
     margin-left: 15%;
     margin-top: 3%;
 }
+/* Mensaje de alerta */
+.alerta {
+    background: #FEEFB3   ;
+    background-position: 15px 50%;
+    color: #9F6000;
+    font-family: Arial;
+    font-size: 30px;
+    text-align: center;
+    padding: 28px 20px 25px 45px;
+    border-top: 5px double #9F6000;
+    border-bottom: 5px double #9F6000;
+    }
