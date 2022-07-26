@@ -8,15 +8,14 @@
           <button mat-flat-button color="accent" value="guardar"  (click)="modalAgregarEstudiante()"> Agregar Estudiante</button>
       </div>
       </h1>
-      
-
     </div>
   </div>
 </section>
+<div *ngIf="listaEstudiantes.length==0" class="alerta">
+  No hay estudiantes matriculados para este curso    </div>
 
 <body>
-  <div *ngIf="listaEstudiantes.length==0" class="alerta">
-    No hay estudiantes matriculados para este curso    </div>
+  
  
   <table *ngIf="listaEstudiantes.length!=0" class="table">
     <thead style="background-color: black ;" class="thead-dark">

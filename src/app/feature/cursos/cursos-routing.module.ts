@@ -21,8 +21,8 @@ const routes: Routes = [
   {path:'reto/:idJuego/curso/:idCurso', component: RetoCursoComponent, canActivate: [SegurityGuard]},
   {path:'juego/:idJuego/curso/:idCurso', component: JuegoCursoComponent, canActivate: [SegurityGuard]},
   {path:'curso/:idCursos/crear-reto', component: CrearRetoComponent, canActivate: [SegurityGuard,DocenteGuard]},
-  {path:'curso/:idCursos/crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard]},
-  {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard]},
+  {path:'curso/:idCursos/crear-juego', component: CrearJuegoComponent, canActivate: [SegurityGuard,DocenteGuard]},
+  {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard,DocenteGuard]},
   {path:'listado-cursos/curso/:idCursos', component: InicioComponent, canActivate: [SegurityGuard]},
   {path:'listado-contenido/curso/:idCurso/categoria/:idCategoria', component: RegistrosBlogComponent, canActivate: [SegurityGuard]},
   {path:'principal-juegos', component: PrincipalJuegoComponent, canActivate: [SegurityGuard]}];
