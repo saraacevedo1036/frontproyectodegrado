@@ -9,6 +9,7 @@ import { RespuestasReto } from '../../shared/model/respuestas-reto.model';
 import { EstudianteJuegoRespuestaService } from '../../shared/service/estudiante-juego-respuesta.service';
 import { PreguntaService } from '../../shared/service/pregunta.service';
 import { Location } from '@angular/common'
+import { RetoService } from 'src/app/shared/service/reto.service';
 
 @Component({
   selector: 'app-reto-curso',
@@ -31,7 +32,8 @@ export class RetoCursoComponent implements OnInit {
     private formBuilder: UntypedFormBuilder,
     protected autorizacionService:AutorizacionService,
     private estudianteJuegoRespuestaService: EstudianteJuegoRespuestaService,
-    private router: Router,private location: Location
+    private router: Router,private location: Location,
+    private retoService: RetoService
      ) { }
   
 
@@ -189,6 +191,31 @@ visualizarImagen(urlImagen:string):boolean{
   return urlImagen!==''?true:false
   
 }
+borrarReto(){
+  Swal.fire({
+    title: 'Eliminar juego?',
+    text: "Si eliminas el juego este no se podra recuperar!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'No',
+    confirmButtonText: 'Si, eliminar ahora!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.retoService.eliminarReto(this.idJuego).subscribe(respuesta=>{
+        this.location.back();
+      })
+
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+}
+
 
 
 }
