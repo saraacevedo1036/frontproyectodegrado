@@ -1,3 +1,4 @@
+<section *ngIf="validarDocente()==true">
 <section class="hero is-primary is-bold">
   <div class="hero-body">
     <div class="container">
@@ -14,7 +15,9 @@
 </section>
 
 <body>
-  <h1 *ngIf="listaEstudiantes.length==0">No hay estudiantes matriculados para este curso</h1>
+  <div *ngIf="listaEstudiantes.length==0" class="alerta">
+    No hay estudiantes matriculados para este curso    </div>
+ 
   <table *ngIf="listaEstudiantes.length!=0" class="table">
     <thead style="background-color: black ;" class="thead-dark">
       <tr style="color: azure;">
@@ -50,3 +53,4 @@
 
 
 </body>
+</section>
