@@ -7,11 +7,13 @@ import { MaterialModule } from '../material/material.module';
 import { HttpClientModule} from '@angular/common/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { LoginRoutingModule } from './login-routing.module';
+import { OlvidoPasswordComponent } from './component/olvido-password/olvido-password.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    OlvidoPasswordComponent
   ],
   imports: [
     CommonModule,

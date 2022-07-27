@@ -1,9 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Autenticacion } from '../../shared/model/autenticacion.model';
 import { AutorizacionService } from '../../shared/service/autorizacion.service';
+import { OlvidoPasswordComponent } from '../olvido-password/olvido-password.component';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: UntypedFormBuilder,
     private autorizacionService: AutorizacionService,
-    private router: Router) { 
+    private router: Router, public modalCur: MatDialog) { 
       this.inicializarFormularioLogin();
     }
 
@@ -75,5 +77,10 @@ export class LoginComponent implements OnInit {
       icon: 'error',
       title: 'Usuario o contraseña invalidos',
     })
+  }
+  modalolvideContrasena(){
+    
+    this.modalCur.open(OlvidoPasswordComponent,{
+      width: '450px'});
   }
 }

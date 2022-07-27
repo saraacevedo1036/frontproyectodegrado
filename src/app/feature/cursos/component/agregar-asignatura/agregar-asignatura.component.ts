@@ -85,11 +85,4 @@ export class AgregarAsignaturaComponent implements OnInit {
       title: 'La clave ingresada no es correcta, valida con tu docente',
     })
   }
-  
-  
-  
- 
-  
- 
-
 }
