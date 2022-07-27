@@ -24,6 +24,10 @@
                     <a class="nav-link active" *ngIf="puedeVisualizar()" (click)="logout()">Login</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" *ngIf="puedeVisualizar()==false" (click)="logout()">Cambiar contraseña</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link active" *ngIf="puedeVisualizar()==false" (click)="logout()">Logout</a>
                 </li>
 
