@@ -10,7 +10,6 @@ import { CategoriaService } from '../../shared/service/categoria.service';
 import { CursoService } from '../../shared/service/curso.service';
 import { AgregarAsignaturaComponent } from '../agregar-asignatura/agregar-asignatura.component';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
-import { ListadoCategoriasComponent } from '../listado-categorias/listado-categorias.component';
 
 @Component({
   selector: 'app-listado-cursos',
@@ -60,7 +59,6 @@ export class ListadoCursosComponent implements OnInit {
       width: '450px'});
   }
   modalAgregarAsignatura(){
-    
     this.modalCur.open(AgregarAsignaturaComponent,{
       width: '450px'});
   }

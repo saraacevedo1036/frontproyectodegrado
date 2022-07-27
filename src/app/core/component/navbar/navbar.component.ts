@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
+import { CambiarContrasenaComponent } from 'src/app/feature/usuario/component/cambiar-contrasena/cambiar-contrasena.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private autorizacionService: AutorizacionService
+    private autorizacionService: AutorizacionService,public modalCur: MatDialog
     ) { }
 
   ngOnInit(): void {
@@ -66,6 +68,10 @@ export class NavbarComponent implements OnInit {
 
     }
     
+  }
+  modalCambiarContra(){
+    this.modalCur.open(CambiarContrasenaComponent,{
+      width: '450px'});
   }
  
 

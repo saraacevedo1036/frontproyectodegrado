@@ -7,13 +7,15 @@ import { EstudianteComponent } from './component/estudiante/estudiante.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { ListaEstudianteCursoComponent } from './component/lista-estudiante-curso/lista-estudiante-curso.component';
+import { CambiarContrasenaComponent } from './component/cambiar-contrasena/cambiar-contrasena.component';
 
 
 @NgModule({
   declarations: [
     DocenteComponent,
     EstudianteComponent,
-    ListaEstudianteCursoComponent
+    ListaEstudianteCursoComponent,
+    CambiarContrasenaComponent
   ],
   imports: [
     CommonModule,

@@ -30,7 +30,8 @@ export class OlvidoPasswordComponent implements OnInit {
   }
   private buildForm() {
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required,Validators.email]]
+      email: ['', [Validators.required,Validators.email]],
+      identificacion: ['', [Validators.required]]
       
     });
   }
@@ -47,13 +48,13 @@ export class OlvidoPasswordComponent implements OnInit {
   showModalCorrecto(){
     Swal.fire({
       icon: 'success',
-      title: 'El curso fue creado con exito',
+      title: 'La contraseña fue enviada con exito',
     })
   }
   showModalIncorrecto(){
     Swal.fire({
       icon: 'error',
-      title: 'El correo no es correcto',
+      title: 'Valida los datos ingresados',
     })
   }
 }
