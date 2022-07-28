@@ -1,1 +1,35 @@
-<p>cambiar-contrasena works!</p>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Cambiar contraseña
+        </h1>
+  
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <section class="section">
+      <form [formGroup]="form" (ngSubmit)="save($event)">
+        <div class="field">
+          <label class="lNombre">Nueva clave</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" placeholder="clave" type="password" formControlName="clave" />
+            <label >Al cambiar la contraseña el sistema te pedira loguearte de nuevo</label>
+  
+          </div>
+        </div>
+        <div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+  
+          </div>
+          <div class="control">
+            <button (click)="cerrarModal()" class="button is-light" type="reset">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
