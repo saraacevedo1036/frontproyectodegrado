@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Location } from '@angular/common'
 
 
@@ -18,7 +17,6 @@ export class CambiarContrasenaComponent implements OnInit {
 
 
   constructor(public modal: MatDialogRef<CambiarContrasenaComponent>,
-    private eventosService: EventosService,
     private formBuilder: UntypedFormBuilder, 
     protected autorizacionService: AutorizacionService ,private router: Router, 
     private location: Location
@@ -43,25 +41,12 @@ export class CambiarContrasenaComponent implements OnInit {
       this.validarcontra();
     } else {
       this.form.markAllAsTouched();
-      this.showModalIncorrecto();
+      this.showModal('error','Error validar clave ingresada');
     }
   }
  
-  showModalCorrecto(){
-    Swal.fire({
-      icon: 'success',
-      title: 'La contraseña fue Cambiada con exito',
-      
-    })
-    this.autorizacionService.limpiarLocalStorage();
-    this.router.navigate(['/login']);
-  }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'La clave ingresada no es correcta, valida con tu docente',
-    })
-  }
+  
+ 
   validarcontra() {
     Swal
       .fire({
@@ -73,14 +58,20 @@ export class CambiarContrasenaComponent implements OnInit {
       })
       .then(resultado => {
         if (resultado.value === this.form.controls.clave.value) {
-          
-          this.location.back();
-          this.showModalCorrecto();
+          this.showModal('success','La contraseña fue Cambiada con exito');
+          this.autorizacionService.limpiarLocalStorage();
+          this.router.navigate(['/login']);
         }
         else {
-          this.showModalIncorrecto();
+          this.showModal('error','Las contraseñas no son iguales');
 
         }
       });
+  }
+  showModal(icon:SweetAlertIcon,title:string) {
+    Swal.fire({
+      icon: icon,
+      title: title,
+    })
   }
 }

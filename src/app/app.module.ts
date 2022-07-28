@@ -13,7 +13,6 @@ import {   YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule } from '@angular/forms';
 import { BlogModule } from './feature/blog/blog.module';
 import { UsuarioModule } from './feature/usuario/usuario.module';
-import { CommonModule } from '@angular/common';
 import { ReporteCursoModule } from './feature/reporte-curso/reporte-curso.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 

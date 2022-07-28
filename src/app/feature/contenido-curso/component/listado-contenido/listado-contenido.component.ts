@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contenido } from '../../shared/model/contenido.model';
@@ -9,14 +9,13 @@ import { ContenidoService } from '../../shared/service/contenido.service';
   templateUrl: './listado-contenido.component.html',
   styleUrls: ['./listado-contenido.component.css']
 })
-export class ListadoContenidoComponent implements OnInit, OnDestroy {
+export class ListadoContenidoComponent implements OnInit {
 
   listaContenidos: Contenido[] = []; 
   displayedColumns : string [] = [ 'descripcion'];
   idCurso:number;
   idCategoria:number;
   idCursoContenido:number;
-  //@ViewChild(MatTable) table: MatTable<>;
   dataSource = new MatTableDataSource<Contenido>([]);
 
   constructor(
@@ -33,13 +32,6 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
     });
   }
 
- /* inicializarSuscripciones(){
-    this.eventosService.disparador.pipe(take(1)).subscribe(data =>{
-      this.obtenerlistadoContenido(data);
-      console.log('Recibiendo data:', data)
-    })
-  }*/
-
   obtenerlistadoContenido(idCategoria:number, idCurso:number){
     this.contenidoService.listarContenidoPorIdCategoriaYIdCurso(idCategoria, idCurso)
     .subscribe(contenidos =>{
@@ -47,21 +39,13 @@ export class ListadoContenidoComponent implements OnInit, OnDestroy {
         this.listaContenidos = contenidos;
         this.dataSource.data = contenidos;
       }else{
-        console.log('No tiene Contenidos, mostrar este mensaje')
         this.listaContenidos = [];
       }
-      console.log('Contenidos: ',  this.listaContenidos)
-      console.log('dataSourse: ',  this.dataSource.data)
-
     });
   }
   postBlog(){
     
     this.router.navigate(['/post-blog']);
   }
-  ngOnDestroy(){
-    //this.eventosService.disparador.unsubscribe();
-  }
-  
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
@@ -62,7 +62,7 @@ export class CrearRetoComponent implements OnInit {
       console.log('Preguntas: ', valuePre)
       this.agregarReto();
       console.log('CREACION RETO', this.armarObjetoAGuardar())
-      this.showModalCorrecto()
+      this.showModal('success','El reto se guardo con exito')
       this.location.back();
     } else {
       this.showModalIncorrecto()
@@ -74,9 +74,9 @@ export class CrearRetoComponent implements OnInit {
     this.juegoService.guardarJuego(this.armarObjetoAGuardar())
       .subscribe(contenido => {
         console.log('Se guarda contenido', contenido)
+      },error=>{
+        this.showModalIncorrecto()
       });
-
-
   }
 
   armarObjetoAGuardar(): CreacionReto {
@@ -109,9 +109,6 @@ export class CrearRetoComponent implements OnInit {
       estado: true
     }
   }
-
-
-
   get preguntas() {
     return this.form.controls["preguntas"] as UntypedFormArray;
   }
@@ -137,27 +134,9 @@ export class CrearRetoComponent implements OnInit {
 
   borrarPregunta(preguntaIndex: number) {
     this.agregoPregunta = this.agregoPregunta - 1;
-
     this.preguntas.removeAt(preguntaIndex);
-
   }
-
-  showModalCorrecto() {
-    Swal.fire({
-      icon: 'success',
-      title: 'El reto se guardo con exito',
-    })
-  }
-
-  showModalIncorrecto() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Validar los datos ingresados ',
-      text: 'Recuerda que el formulario de pregunta debe estar diligenciado',
-
-    })
-  }
-
+  
   validarRespuesta(pregunta: Pregunta) {
     switch (pregunta.respuesta) {
       case 'opcion1':
@@ -173,4 +152,18 @@ export class CrearRetoComponent implements OnInit {
     }
   }
 
+  showModalIncorrecto() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Validar los datos ingresados ',
+      text: 'Recuerda que el formulario de pregunta debe estar diligenciado',
+    })
+  }
+
+  showModal(icon:SweetAlertIcon,title:string) {
+    Swal.fire({
+      icon: icon,
+      title: title,
+    })
+  }
 }

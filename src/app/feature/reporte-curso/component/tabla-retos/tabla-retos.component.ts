@@ -41,8 +41,4 @@ export class TablaRetosComponent implements OnInit {
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
-
-  ngOnDestroy(){
-    //this.eventosService.disparador.unsubscribe();
-  }
 }

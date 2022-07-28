@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Curso } from '../../shared/model/curso.model';
 import { AsignarCurso } from '../../shared/model/estudiante-curso.model';
 import { CursoEstudianteService } from '../../shared/service/curso-estudiante.service';
@@ -49,7 +49,7 @@ export class AgregarEstudianteComponent implements OnInit {
       this.guardarCurso();
     } else {
       this.form.markAllAsTouched();
-      this.showModalIncorrecto();
+      this.showModal('error','El correo ingresado no es correcto');
     }
   }
 
@@ -65,11 +65,11 @@ export class AgregarEstudianteComponent implements OnInit {
     .subscribe(curso =>{
       window.location.reload();
       this.modal.close();
-      this.showModalCorrecto();
+      this.showModal('success','El estudiante fue asignado al curso con exito');
     }
     ,error=>{
       this.form.reset();
-      this.showModalIncorrecto()  
+      this.showModal('error','El correo ingresado no es correcto')  
     });
   }
 
@@ -79,18 +79,11 @@ export class AgregarEstudianteComponent implements OnInit {
       this.curso = curso;
     });
   }
-
-  showModalCorrecto(){
-    Swal.fire({
-      icon: 'success',
-      title: 'El estudiante fue asignado al curso con exito',
-    })
-  }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'El correo ingresado no es correcto',
-    })
-  }
   
+  showModal(icon:SweetAlertIcon,title:string) {
+    Swal.fire({
+      icon: icon,
+      title: title,
+    })
+  }
 }

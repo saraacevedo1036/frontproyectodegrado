@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { CreacionReto } from '../../shared/model/creacion-reto.model';
 import { Pregunta } from '../../shared/model/pregunta.model';
 import { JuegoService } from '../../shared/service/juego.services';
@@ -74,7 +74,6 @@ export class CrearJuegoComponent implements OnInit {
   agregarJuego() {
     this.juegoService.guardarJuego(this.armarObjetoAGuardar())
       .subscribe(contenido => {
-        console.log('Se guarda contenido', contenido)
       });
 
   }
@@ -153,7 +152,6 @@ export class CrearJuegoComponent implements OnInit {
       icon: 'error',
       title: 'Validar los datos ingresados ',
       text: 'Recuerda que el formulario de pregunta debe estar diligenciado',
-
     })
   }
 
@@ -171,9 +169,6 @@ export class CrearJuegoComponent implements OnInit {
         return '';
     }
   }
-
-
-
-
+ 
 
 }

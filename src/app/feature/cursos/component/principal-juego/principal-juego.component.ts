@@ -1,7 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
 import { Juego } from '../../shared/model/juego.model';
@@ -19,7 +18,6 @@ export class PrincipalJuegoComponent implements OnInit {
   idCurso:number 
   listaJuegos: Juego[] = [];
   constructor(breakpointObserver:BreakpointObserver,
-    private eventosService: EventosService,
     private juegoService: JuegoService,  private activeRoute: ActivatedRoute,
      private router: Router, protected autorizacionService: AutorizacionService ) {breakpointObserver.observe([Breakpoints.Handset]).subscribe(result=>{
       this.isMobile=result.matches;
@@ -48,17 +46,15 @@ export class PrincipalJuegoComponent implements OnInit {
     this.router.navigate(['curso',this.idCurso,'crear-juego']); 
   } 
  
-
-  ngOnDestroy(){
-    //this.eventosService.disparador.unsubscribe();
-  }
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
+  
   irJuego(idJuego:number): void{
 
     this.router.navigate(['juego',idJuego,'curso',this.idCurso]) 
   }
+
   showModalCodigo(descripcion:string){
     Swal.fire({
       icon: 'info',
@@ -66,6 +62,5 @@ export class PrincipalJuegoComponent implements OnInit {
       text: descripcion ,
     })
   }
-  
 
 }

@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { AsignarCurso } from '../../shared/model/estudiante-curso.model';
 import { CursoEstudianteService } from '../../shared/service/curso-estudiante.service';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
@@ -43,46 +43,36 @@ export class AgregarAsignaturaComponent implements OnInit {
       this.guardarCurso();
     } else {
       this.form.markAllAsTouched();
-      this.showModalIncorrecto();
+      this.showModal('error','La clave ingresada no es correcta, valida con tu docente');
     }
   }
   armarObjetoCurso(): AsignarCurso{
     return {
       correoEstudiante: this.autorizacionService.obtenerCorreo(),
       codigoCurso: this.form.controls.claveAsignatura.value,
-      
-       
-
       };
   }
   
-
   guardarCurso(){
     this.cursoEstudianteService.asignarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
       window.location.reload();
       this.modal.close();
-      this.showModalCorrecto();
+      this.showModal('success','El curso fue creado con exito');
       console.log('Se guarda curso', curso)
     }
     ,error=>{
       this.form.reset();
-      this.showModalIncorrecto()
-      
+      this.showModal('error','La clave ingresada no es correcta, valida con tu docente')
     }
     );
    
   }
-  showModalCorrecto(){
+  
+  showModal(icon:SweetAlertIcon,title:string) {
     Swal.fire({
-      icon: 'success',
-      title: 'El curso fue creado con exito',
-    })
-  }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'La clave ingresada no es correcta, valida con tu docente',
+      icon: icon,
+      title: title,
     })
   }
 }

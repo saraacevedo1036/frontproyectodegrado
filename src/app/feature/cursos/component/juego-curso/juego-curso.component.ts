@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder } from '@angular/forms';
+import { FormArray,  FormGroup, UntypedFormArray, UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
@@ -54,7 +54,6 @@ export class JuegoCursoComponent implements OnInit {
       } else {
         console.log('No tiene Contenidos, mostrar este mensaje')
         this.listaPreguntas = [];
-
       }
 
     })
@@ -132,8 +131,6 @@ export class JuegoCursoComponent implements OnInit {
     }
   }
 
-
-
   validarRespuesta(respuestas: any, pregunta: Pregunta): string {
     if (respuestas.opcion1 === true) {
       return pregunta.opcion1
@@ -196,24 +193,21 @@ export class JuegoCursoComponent implements OnInit {
       confirmButtonText: 'Si!'
     }).then((result) => {
       if (result.isConfirmed) {
-        
         this.irRespuestaJuego(this.idJuego);
-
       } else {
         this.location.back();
-
       }
     })
   }
-  irRespuestaJuego(idJuego: number): any {
 
-    
+  irRespuestaJuego(idJuego: number): any {
     this.router.navigate(['listaRespuesta',idJuego]) 
   }
+
   visualizarImagen(urlImagen:string):boolean{
     return urlImagen!==''?true:false
-    
   }
+  
   borrarJuego(){
     Swal.fire({
       title: 'Estas seguro de eliminar este juego?',

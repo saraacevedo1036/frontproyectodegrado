@@ -6,7 +6,6 @@ import { AutorizacionService } from 'src/app/feature/login/shared/service/autori
 import Swal from 'sweetalert2';
 import { Categoria } from '../../shared/model/categoria.model';
 import { Curso } from '../../shared/model/curso.model';
-import { CategoriaService } from '../../shared/service/categoria.service';
 import { CursoService } from '../../shared/service/curso.service';
 import { AgregarAsignaturaComponent } from '../agregar-asignatura/agregar-asignatura.component';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
@@ -24,7 +23,7 @@ export class ListadoCursosComponent implements OnInit {
   listaCursos: Curso[] = []; 
   constructor(breakpointObserver:BreakpointObserver,
     private cursoService: CursoService,private router: Router,
-    private categoriaService:CategoriaService, public modal: MatDialog,public modalCur: MatDialog,
+     public modal: MatDialog,public modalCur: MatDialog,
     protected autorizacionService: AutorizacionService
     ) {breakpointObserver.observe([Breakpoints.Handset]).subscribe(result=>{
       this.isMobile=result.matches;
@@ -44,7 +43,6 @@ export class ListadoCursosComponent implements OnInit {
       if(data.length > 0){
         this.listaCursos = data;
       }else{
-        console.log('No tiene cursos, mostrar este mensaje')
       }
     });
   }
@@ -53,21 +51,26 @@ export class ListadoCursosComponent implements OnInit {
     this.router.navigateByUrl('inicio');
     
   } 
+
   modalCrearCurso(){
     
     this.modalCur.open(CrearCursoComponent,{
       width: '450px'});
   }
+
   modalAgregarAsignatura(){
     this.modalCur.open(AgregarAsignaturaComponent,{
       width: '450px'});
   }
+
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
+
   puedeVisualizarEstudiante():boolean{
     return  this.autorizacionService.esRolEstudiante();
   }
+
   showModalCodigo(codigo:string){
     Swal.fire({
       icon: 'info',
@@ -76,7 +79,4 @@ export class ListadoCursosComponent implements OnInit {
     })
   }
   
-  
-
-
 }

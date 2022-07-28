@@ -2,7 +2,7 @@ import { Component,  OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Contenido } from '../../contenido-curso/shared/model/contenido.model';
 import { ContenidoService } from '../../contenido-curso/shared/service/contenido.service';
 import { Categoria } from '../../cursos/shared/model/categoria.model';
@@ -106,7 +106,10 @@ export class PrincipalBlogComponent implements OnInit {
       console.log(categoria)
       this.onSbmit()
 
-     });
+     },error=>{
+      console.log(error);
+      
+    });
   }
 
   armarCategoria():Categoria{
@@ -119,17 +122,22 @@ export class PrincipalBlogComponent implements OnInit {
     this.contenidoService.guardarContenido(this.armarObjetoContenido())
     .subscribe(contenido =>{
       console.log('Se guarda contenido:', contenido)
+      this.showModal('success','El contenido se guardo con exito')
+    },error=>{
+     
+      this.showModal('error','Validar los datos ingresados como lo son categoria,Titulo y Descripcion')
+      
     });
   }
   validarCrearCategoria(){
     if(this.toppings.controls.crearCategoria.value===true){
       
-
     }else{
       this.esCrearCategoria=false;
      
     }
   }
+
   validarCategoria(){
     if(this.formularioBlog.controls.usarCategoria.value===true){
       this.esCrearCategoria=false;
@@ -153,40 +161,31 @@ export class PrincipalBlogComponent implements OnInit {
     return this.formularioBlog.controls.imagen.value
   }
   
-
-  
   onSbmit(){
     event.preventDefault();
       if (this.formularioBlog.valid  ) {
         this.guardarContenido();
-        this.showModalCorrecto()
         const value = this.formularioBlog.value;
         console.log(value);
         this.location.back()
       } else {
         this.formularioBlog.markAllAsTouched();
-        this.showModalIncorrecto()
+        this.showModal('error','Validar los datos ingresados como lo son categoria,Titulo y Descripcion')
       }
-
-    
   }
-  showModalCorrecto(){
+ 
+  showModal(icon:SweetAlertIcon,title:string) {
     Swal.fire({
-      icon: 'success',
-      title: 'El contenido se guardo con exito',
+      icon: icon,
+      title: title,
     })
   }
-  showModalIncorrecto(){
+  infoUrlImagen(){
+    
     Swal.fire({
-      icon: 'error',
-      title: 'Validar los datos ingresados como lo son categoria,Titulo y Descripcion',
+      icon: 'info',
+      text: 'Para subir una imagen te invitamos a ver el siguiente video!',
+      footer: '<a href="https://www.youtube.com/watch?v=F1fCeOR_RIE">Clic para ver el video tutorial?</a>'
     })
   }
-  urlYoutube(){
-    
-
-
-
-  }
-
 }

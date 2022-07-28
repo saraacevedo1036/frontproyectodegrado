@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Autenticacion } from '../../shared/model/autenticacion.model';
 import { AutorizacionService } from '../../shared/service/autorizacion.service';
 import { OlvidoPasswordComponent } from '../olvido-password/olvido-password.component';
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   iniciarSesion(){
     this.autorizacionService.login(this.generarComandoAutenticacion()).subscribe((data)=>{
       if(data){
-        this.showModalCorrecto()
+        this.showModal('success','Bienvenido')
         this.router.navigateByUrl('listado-cursos');
         
         
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       }
     },error=>{
       this.formularioLogin.reset();
-      this.showModalIncorrecto()
+      this.showModal('error','Usuario o contraseña invalidos')
       
 
     });
@@ -66,20 +66,15 @@ export class LoginComponent implements OnInit {
       password: this.formularioLogin.controls.contrasenia.value
     }
   }
-  showModalCorrecto(){
+  
+  showModal(icon:SweetAlertIcon,title:string) {
     Swal.fire({
-      icon: 'success',
-      title: 'Bienvenido',
+      icon: icon,
+      title: title,
     })
   }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'Usuario o contraseña invalidos',
-    })
-  }
-  modalolvideContrasena(){
-    
+  
+  modalOlvideContrasena(){ 
     this.modalCur.open(OlvidoPasswordComponent,{
       width: '450px'});
   }

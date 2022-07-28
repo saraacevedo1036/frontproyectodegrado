@@ -45,9 +45,4 @@ export class ListaReporteComponent implements OnInit {
   puedeVisualizar():boolean{
     return  this.autorizacionService.esRolDocente();
   }
-
-  ngOnDestroy(){
-    //this.eventosService.disparador.unsubscribe();
-  }
 }
-

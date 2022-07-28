@@ -20,14 +20,17 @@
           class="text-danger">El campo titulo es obligatorio</span>
       </div>
       <div class="field">
-        <label class="label">Imagen</label>
+        <label class="label">Imagen</label> 
+        <span  class="icon is-small is-right button" (click)="infoUrlImagen()">
+          <button (click)="infoUrlImagen()"  class="fas fa-info-circle"></button>
+        </span>
+       
         <div class="control has-icons-left has-icons-right">
           <input class="input" type="text" placeholder="Ingrese url de la imagen" formControlName="imagen" />
-
         </div>
       </div>
       <div class=" verImagen">
-        <div class="verImagen" *ngIf="formularioBlog.get('imagen')?.touched">
+        <div class="verImagen" *ngIf="formularioBlog.get('imagen')?.touched  ">
 
           <h2 class="tituloVideo">Previsualización de la imagen</h2>
 

@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { EventosService } from 'src/app/core/service/eventos.service';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { CreacionCurso } from '../../shared/model/creacion-curso.model';
-import { Curso } from '../../shared/model/curso.model';
 import { CursoService } from '../../shared/service/curso.service';
 
 @Component({
@@ -19,7 +17,6 @@ export class CrearCursoComponent implements OnInit {
 
 
   constructor(public modal: MatDialogRef<CrearCursoComponent>,
-    private eventosService: EventosService,
     private formBuilder: UntypedFormBuilder, private cursoService:CursoService,
     protected autorizacionService: AutorizacionService ,private router: Router,
     ) { 
@@ -43,14 +40,10 @@ export class CrearCursoComponent implements OnInit {
     if (this.form.valid  ) {
       window.location.reload();
       this.guardarCurso();
-      this.modal.close();
-      this.showModalCorrecto();
-
-      
     } else {
       
       this.form.markAllAsTouched();
-      this.showModalIncorrecto();
+      this.showModal('error','Los datos ingresados no son validos');
     }
   }
   
@@ -84,8 +77,6 @@ export class CrearCursoComponent implements OnInit {
       correoDocente: this.autorizacionService.obtenerCorreo(),
       nombre: this.form.controls.nombre.value,
       grado:this.form.controls.grado.value,
-       
-
       };
   }
   
@@ -93,23 +84,20 @@ export class CrearCursoComponent implements OnInit {
   guardarCurso(){
     this.cursoService.guardarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
-      console.log('Se guarda contenido', curso)
+      this.modal.close();
+      this.showModal('success','El curso fue creado con exito');
+      
+    },error=>{
+      
+      this.showModal('error','Los datos ingresados no son validos')
+      
     });
    
   }
-  showModalCorrecto(){
+  showModal(icon:SweetAlertIcon,title:string) {
     Swal.fire({
-      icon: 'success',
-      title: 'El curso fue creado con exito',
+      icon: icon,
+      title: title,
     })
   }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'Validar datos invalidos',
-    })
-  }
-
- 
-
 }

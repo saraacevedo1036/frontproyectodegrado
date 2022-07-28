@@ -25,7 +25,6 @@ export class RegistrosBlogComponent implements OnInit {
   dataSource = new MatTableDataSource<Contenido>([]);
 
   constructor(
-    private _changeDetectorRef: ChangeDetectorRef,
     private contenidoService: ContenidoService,
     private activeRoute: ActivatedRoute, 
     private router: Router,
@@ -38,17 +37,6 @@ export class RegistrosBlogComponent implements OnInit {
       this.obtenerlistadoContenido(this.idCategoria, this.idCurso);
     });
   }
-  
-  
-  
- 
-
- /* inicializarSuscripciones(){
-    this.eventosService.disparador.pipe(take(1)).subscribe(data =>{
-      this.obtenerlistadoContenido(data);
-      console.log('Recibiendo data:', data)
-    })
-  }*/
 
   obtenerlistadoContenido(idCategoria:number, idCurso:number){
     this.contenidoService.listarContenidoPorIdCategoriaYIdCurso(idCategoria, idCurso)
@@ -62,7 +50,6 @@ export class RegistrosBlogComponent implements OnInit {
       }
       console.log('Contenidos: ',  this.listaContenidos)
       console.log('dataSourse: ',  this.dataSource.data)
-
     });
   }
   postBlog(){
@@ -112,6 +99,4 @@ export class RegistrosBlogComponent implements OnInit {
     })
   }
   
- 
-
 }

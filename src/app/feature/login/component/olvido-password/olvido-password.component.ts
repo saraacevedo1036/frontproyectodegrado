@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { RestablecerContrasena } from '../../shared/model/restablecer-contrasena.model';
 import { AutorizacionService } from '../../shared/service/autorizacion.service';
 
@@ -41,7 +41,7 @@ export class OlvidoPasswordComponent implements OnInit {
       
     } else {
       this.form.markAllAsTouched();
-      this.showModalIncorrecto();
+      this.showModal('error','Valida los datos ingresados');
     }
   }
   armarObjetoRestablecer(): RestablecerContrasena{
@@ -54,39 +54,30 @@ export class OlvidoPasswordComponent implements OnInit {
       };
   }
   
-
   restablecerContrasena(){
     this.autorizacionService.restablecerContrasena(this.armarObjetoRestablecer())
     .subscribe(respuesta =>{
       if(respuesta==true){
         window.location.reload();
         this.modal.close();
-        this.showModalCorrecto();
-        console.log('Se guarda curso', respuesta)
+        this.showModal('success','La contraseña fue enviada con exito');
       }else{
         this.form.reset();
-       this.showModalIncorrecto() 
+       this.showModal('error','Valida los datos ingresados') 
       }
      
     }
     ,error=>{
       this.form.reset();
-      this.showModalIncorrecto()  
+      this.showModal('error','Valida los datos ingresados')  
     }
     );
-   
+  }
+  showModal(icon:SweetAlertIcon,title:string) {
+    Swal.fire({
+      icon: icon,
+      title: title,
+    })
   }
  
-  showModalCorrecto(){
-    Swal.fire({
-      icon: 'success',
-      title: 'La contraseña fue enviada con exito',
-    })
-  }
-  showModalIncorrecto(){
-    Swal.fire({
-      icon: 'error',
-      title: 'Valida los datos ingresados',
-    })
-  }
 }

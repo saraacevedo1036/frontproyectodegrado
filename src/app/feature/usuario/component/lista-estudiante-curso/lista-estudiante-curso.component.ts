@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params} from '@angular/router';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup, UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormArray, FormGroup, UntypedFormArray, UntypedFormBuilder } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import Swal from 'sweetalert2';
 import { EstudianteJuegoRespuesta } from '../../shared/model/estudiante-juego.respuesta.model';
@@ -32,7 +32,7 @@ export class RetoCursoComponent implements OnInit {
     private formBuilder: UntypedFormBuilder,
     protected autorizacionService:AutorizacionService,
     private estudianteJuegoRespuestaService: EstudianteJuegoRespuestaService,
-    private router: Router,private location: Location,
+    private location: Location,
     private retoService: RetoService
      ) { }
   
@@ -132,8 +132,6 @@ export class RetoCursoComponent implements OnInit {
     } 
   }
 
-
-
   validarRespuesta(respuestas: any,pregunta:Pregunta):string{
     if(respuestas.opcion1===true){
       return pregunta.opcion1
@@ -161,7 +159,6 @@ export class RetoCursoComponent implements OnInit {
       });
   }
 
-
   mostrarModalPuntuacion(calificacion:any){
 
     Swal.fire({
@@ -176,7 +173,6 @@ export class RetoCursoComponent implements OnInit {
         left top
         no-repeat
       `
-      
     })
       
   }
@@ -215,7 +211,5 @@ borrarReto(){
     }
   })
 }
-
-
 
 }

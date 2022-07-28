@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import {  UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MyValidators } from 'src/app/utils/my-validations';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Estudiante } from '../../model/estudiante.model';
 import { EstudianteService } from '../../service/estudiante.service';
 import { Location } from '@angular/common'
@@ -130,7 +130,18 @@ export class EstudianteComponent implements OnInit {
   guardarEstudiante() {
     this.estudianteService.guardarEstudiante(this.armarObjetoEstudiante())
       .subscribe(contenido => {
-        console.log('Se guarda contenido', contenido)
+        if(contenido){
+        this.showModal('success','El estudiante se creo con exito');
+        this.location.back();
+        }
+        else{
+          this.showModal('error','No fue posible crear el estudiante, por favor valida la información ')
+        }
+        
+      },error=>{
+        this.form.reset();
+        this.showModal('error','No fue posible crear el estudiante, por favor valida la información ')
+        
       });
   }
   validarcontra() {
@@ -145,28 +156,21 @@ export class EstudianteComponent implements OnInit {
       .then(resultado => {
         if (resultado.value === this.form.controls.password.value) {
           this.guardarEstudiante();
-          this.location.back();
-          this.showModalCorrecto();
+          
         }
         else {
-          this.showModalIncorrecto();
+          this.showModal('error','Las contraseñas no coinciden');
 
         }
       });
   }
-  showModalCorrecto() {
+  showModal(icon:SweetAlertIcon,title:string) {
     Swal.fire({
-      icon: 'success',
-      title: 'El estudiante se ha creado con exito',
+      icon: icon,
+      title: title,
     })
   }
-  showModalIncorrecto() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Las contraseñas no coinciden',
-    })
-  }
-
+ 
 }
 
 
