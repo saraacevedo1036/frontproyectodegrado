@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { EventosService } from 'src/app/core/service/eventos.service';
 import Swal from 'sweetalert2';
+import { RestablecerContrasena } from '../../shared/model/restablecer-contrasena.model';
 import { AutorizacionService } from '../../shared/service/autorizacion.service';
 
 @Component({
@@ -16,9 +15,8 @@ export class OlvidoPasswordComponent implements OnInit {
 
 
   constructor(public modal: MatDialogRef<OlvidoPasswordComponent>,
-    private eventosService: EventosService,
     private formBuilder: UntypedFormBuilder, 
-    protected autorizacionService: AutorizacionService ,private router: Router
+    protected autorizacionService: AutorizacionService 
     ) { 
       this.buildForm();
     }
@@ -35,14 +33,48 @@ export class OlvidoPasswordComponent implements OnInit {
       
     });
   }
+
   save(event: Event) {
     event.preventDefault();
     if (this.form.valid  ) {
+      this. restablecerContrasena();
       
     } else {
       this.form.markAllAsTouched();
       this.showModalIncorrecto();
     }
+  }
+  armarObjetoRestablecer(): RestablecerContrasena{
+    return {
+      correo: this.form.controls.email.value,
+      identificacion: this.form.controls.identificacion.value,
+      
+       
+
+      };
+  }
+  
+
+  restablecerContrasena(){
+    this.autorizacionService.restablecerContrasena(this.armarObjetoRestablecer())
+    .subscribe(respuesta =>{
+      if(respuesta==true){
+        window.location.reload();
+        this.modal.close();
+        this.showModalCorrecto();
+        console.log('Se guarda curso', respuesta)
+      }else{
+        this.form.reset();
+       this.showModalIncorrecto() 
+      }
+     
+    }
+    ,error=>{
+      this.form.reset();
+      this.showModalIncorrecto()  
+    }
+    );
+   
   }
  
   showModalCorrecto(){

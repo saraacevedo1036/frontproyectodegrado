@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Autenticacion } from '../model/autenticacion.model';
 import { Autorizacion } from '../model/autorizacion.model';
 import { LocalStorageService } from 'ngx-webstorage';
+import { RestablecerContrasena } from '../model/restablecer-contrasena.model';
 
 
 @Injectable({
@@ -18,13 +19,15 @@ export class AutorizacionService {
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(autenticacion:Autenticacion): Observable<boolean>{
-    console.log('autenticacion',autenticacion)
-    console.log('JWT',localStorage.getItem('ng2-webstorage|jwt'))
     this.limpiarLocalStorage();
    return this.httpClient.post<Autorizacion>(`${this.endPoint}/auth/authenticate`,autenticacion).pipe(map(data =>{
      this.cargarLocalStorage(data);
       return true; 
     }));
+  }
+
+  restablecerContrasena(restablecerContrasena:RestablecerContrasena): Observable<boolean>{
+      return this.httpClient.post<boolean>(`${this.endPoint}/auth/recuperar-password`, restablecerContrasena);
   }
 
   estaAutenticado(): boolean{
@@ -33,7 +36,6 @@ export class AutorizacionService {
   noEstaAutenticado(): boolean{
     return this.localStorageService.retrieve('jwt') == null;
   }
-
 
   obtenerToken(): string{
     return this.localStorageService.retrieve('jwt');
@@ -67,5 +69,6 @@ export class AutorizacionService {
     this.localStorageService.clear('scope')
     this.localStorageService.clear('sub')
    }
+
    
 }
