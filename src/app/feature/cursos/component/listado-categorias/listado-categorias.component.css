@@ -13,3 +13,7 @@
     align-items: center;
     text-align: center;
     }
+.card{
+    border-radius: 40px;
+    background-color: aquamarine;
+}
