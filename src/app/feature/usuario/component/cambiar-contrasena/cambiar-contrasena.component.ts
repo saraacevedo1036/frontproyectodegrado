@@ -76,6 +76,7 @@ export class CambiarContrasenaComponent implements OnInit {
     Swal
       .fire({
         title: "Validar Contraseña",
+        text:'Al cambiar la contraseña el sistema te pedira loguearte de nuevo',
         input: "password",
         showCancelButton: true,
         confirmButtonText: "validar",
