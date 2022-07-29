@@ -7,7 +7,7 @@ import { Pregunta } from '../model/pregunta.model';
 })
 export class PreguntaService {
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
   constructor(protected httpClient: HttpClient)
    { }
 

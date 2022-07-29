@@ -8,7 +8,7 @@ import { Reto } from '../../feature/cursos/shared/model/reto.model';
 })
 export class RetoService {
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
   constructor(protected httpClient: HttpClient)
    { }
 

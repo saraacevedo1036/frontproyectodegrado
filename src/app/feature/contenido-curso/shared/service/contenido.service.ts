@@ -10,7 +10,7 @@ export class ContenidoService {
 
   constructor(protected httpClient: HttpClient) {}
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
 
   
   listarContenidoPorIdCategoriaYIdCurso(idCategoria:number,idCurso: number){

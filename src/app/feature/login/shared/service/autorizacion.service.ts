@@ -16,7 +16,7 @@ export class AutorizacionService {
   ROLE_DOCENTE:string = "ROLE_DOCENTE"
   ROLE_ESTUDIANTE:string = "ROLE_ESTUDIANTE"
 
-  private endPoint = 'http://localhost:8080';
+  private endPoint = 'http://cygnuspr.herokuapp.com';
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(autenticacion:Autenticacion): Observable<boolean>{

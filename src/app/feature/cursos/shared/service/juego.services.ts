@@ -9,7 +9,7 @@ import { Juego } from '../model/juego.model';
 })
 export class JuegoService {
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
   constructor(protected httpClient: HttpClient)
    { }
 

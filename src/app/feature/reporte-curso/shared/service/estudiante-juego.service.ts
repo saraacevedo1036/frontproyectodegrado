@@ -9,7 +9,7 @@ export class EstudianteJuegoService {
 
   constructor(protected httpClient: HttpClient) {}
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
 
   
   listarReporte(idReto:number){

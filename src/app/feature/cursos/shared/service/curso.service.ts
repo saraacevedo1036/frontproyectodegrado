@@ -13,7 +13,7 @@ export class CursoService {
   constructor(protected httpClient: HttpClient,
               protected autorizacionService: AutorizacionService) {}
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = 'http://cygnuspr.herokuapp.com/api';
 
   crear(curso: Curso){
     return this.httpClient.post<Curso>(`${this.endPoint}/curso/save`,curso);
