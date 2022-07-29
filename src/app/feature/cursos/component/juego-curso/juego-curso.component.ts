@@ -146,6 +146,7 @@ export class JuegoCursoComponent implements OnInit {
     }
     return '';
   }
+  
 
   detectarCambiosFormulario(index: any) {
     this.PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO.forEach(propiedad => {
@@ -207,7 +208,7 @@ export class JuegoCursoComponent implements OnInit {
   visualizarImagen(urlImagen:string):boolean{
     return urlImagen!==''?true:false
   }
-  
+
   borrarJuego(){
     Swal.fire({
       title: 'Estas seguro de eliminar este juego?',

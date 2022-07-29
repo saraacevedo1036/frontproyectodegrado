@@ -76,7 +76,6 @@ export class ListaEstudianteCursoComponent implements OnInit {
     }else{
       return false
     }
-
   }
   
   
