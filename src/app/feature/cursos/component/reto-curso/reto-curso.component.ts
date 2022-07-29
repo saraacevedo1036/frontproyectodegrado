@@ -50,11 +50,8 @@ export class RetoCursoComponent implements OnInit {
       if(preguntas.length>0){
         this.listaPreguntas=preguntas;
         this.listaPreguntas.forEach((pregunta:Pregunta) => this.agregarPregunta(pregunta))
-        console.log('listapreguntas',this.listaPreguntas)
       }else{
-        console.log('No tiene Contenidos, mostrar este mensaje')
         this.listaPreguntas = [];
-
       }
       
     })
@@ -148,13 +145,11 @@ export class RetoCursoComponent implements OnInit {
     return '';
   }
 
-  detectarCambiosFormulario(index: any){
+  detectarCambiosFormulario(index: string, propiedadSelecionada:string){
+
       this.PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO.forEach(propiedad => {
-        this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(true)
-        if (!this.formReto.controls['preguntas'].get(index).get(propiedad).value) {
-          this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(true)
-        }else{
-          this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(false)
+        if(propiedad !=propiedadSelecionada){
+          this.formReto.controls['preguntas'].get(index.toString()).get(propiedad.toString()).setValue(false)
         }
       });
   }

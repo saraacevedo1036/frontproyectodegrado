@@ -148,16 +148,15 @@ export class JuegoCursoComponent implements OnInit {
   }
   
 
-  detectarCambiosFormulario(index: any) {
+
+  detectarCambiosFormulario(index: string, propiedadSelecionada:string){
+
     this.PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO.forEach(propiedad => {
-      this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(true)
-      if (!this.formReto.controls['preguntas'].get(index).get(propiedad).value) {
-        this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(true)
-      } else {
-        this.formReto.controls['preguntas'].get(index).get(propiedad).setValue(false)
+      if(propiedad !=propiedadSelecionada){
+        this.formReto.controls['preguntas'].get(index.toString()).get(propiedad.toString()).setValue(false)
       }
     });
-  }
+}
 
 
   mostrarModalPuntuacion(calificacion: any) {

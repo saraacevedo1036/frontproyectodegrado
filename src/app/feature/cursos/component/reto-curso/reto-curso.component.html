@@ -48,21 +48,21 @@
                                     <div class="card">
                                         <p>
                                             <mat-checkbox formControlName="opcion1"
-                                                (focus)="detectarCambiosFormulario(i)">
+                                                (change)="detectarCambiosFormulario(i,'opcion1')">
                                                 {{listaPreguntas[i].opcion1}}</mat-checkbox>
                                         </p>
                                     </div>
                                     <div class="card">
                                         <p>
                                             <mat-checkbox formControlName="opcion2"
-                                                (focus)="detectarCambiosFormulario(i)">
+                                                (change)="detectarCambiosFormulario(i,'opcion2')">
                                                 {{listaPreguntas[i].opcion2}}</mat-checkbox>
                                         </p>
                                     </div>
                                     <div class="card">
                                         <p>
                                             <mat-checkbox formControlName="opcion3"
-                                                (focus)="detectarCambiosFormulario(i)">
+                                                (change)="detectarCambiosFormulario(i,'opcion3')">
                                                 {{listaPreguntas[i].opcion3}}
                                             </mat-checkbox>
                                         </p>
@@ -70,7 +70,7 @@
                                     <div class="card">
                                         <p>
                                             <mat-checkbox formControlName="opcion4"
-                                                (focus)="detectarCambiosFormulario(i)">
+                                                (change)="detectarCambiosFormulario(i,'opcion4')">
                                                 {{listaPreguntas[i].opcion4}}
                                             </mat-checkbox>
                                         </p>
