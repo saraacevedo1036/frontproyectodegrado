@@ -69,6 +69,7 @@ export class NavbarComponent implements OnInit {
     }
     
   }
+  
   modalCambiarContra(){
     this.modalCur.open(CambiarContrasenaComponent,{
       width: '450px'});

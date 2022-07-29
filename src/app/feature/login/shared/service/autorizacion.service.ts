@@ -5,6 +5,7 @@ import { Autenticacion } from '../model/autenticacion.model';
 import { Autorizacion } from '../model/autorizacion.model';
 import { LocalStorageService } from 'ngx-webstorage';
 import { RestablecerContrasena } from '../model/restablecer-contrasena.model';
+import { CambioContrasena } from 'src/app/shared/model/cambio-contrasena.model';
 
 
 @Injectable({
@@ -29,6 +30,12 @@ export class AutorizacionService {
   restablecerContrasena(restablecerContrasena:RestablecerContrasena): Observable<boolean>{
       return this.httpClient.post<boolean>(`${this.endPoint}/auth/recuperar-password`, restablecerContrasena);
   }
+
+  
+  cambioContrasena(cambioContrasena:CambioContrasena): Observable<boolean>{
+    return this.httpClient.post<boolean>(`${this.endPoint}/auth/cambio-password`, cambioContrasena);
+ }
+
 
   estaAutenticado(): boolean{
     return this.localStorageService.retrieve('jwt') != null;
@@ -64,7 +71,6 @@ export class AutorizacionService {
   }
 
    limpiarLocalStorage(): void{
-     //Revisar si cambiar por IMsalService
     this.localStorageService.clear('jwt')
     this.localStorageService.clear('scope')
     this.localStorageService.clear('sub')
