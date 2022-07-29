@@ -50,6 +50,13 @@ button:hover {
   background: aquamarine;
   color: #000;
 }
+.nombreJ:hover{
+  cursor: pointer;
+  color: #000;
+}
+.nombreJ{
+  color:#fff;
+}
 
 
 

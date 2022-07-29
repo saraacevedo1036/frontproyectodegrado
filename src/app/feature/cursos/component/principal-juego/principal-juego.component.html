@@ -20,7 +20,7 @@
   <mat-grid-list [cols]="colSize"  rowHeight="250px" style="height: 250px; " gutterSize="40px">
     <mat-grid-tile *ngFor="let juego of listaJuegos" [colspan]="2" [rowspan]="1">
       <div class="nombreJuego" (click)="irJuego(juego.idReto)" mat-raised-button>
-        <p class="nombreC">{{juego.titulo}}</p>
+        <p class="nombreJ">{{juego.titulo}}</p>
       </div>
       <mat-grid-tile-footer class="button" (click)="showModalCodigo(juego.descripcion)">
         Descripción

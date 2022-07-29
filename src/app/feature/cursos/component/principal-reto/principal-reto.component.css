@@ -22,7 +22,7 @@ button {
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
     0 0 0.2em #87F
 }
-.nombreJuego{
+.nombreReto{
   background-color: #fff;
   border-bottom: aquamarine;
   border-color: aquamarine;
@@ -46,11 +46,19 @@ button:hover {
   background: aquamarine;
   color: #000;
 }
-.nombreJuego:hover {
+.nombreReto:hover {
   cursor: pointer;
   background: aquamarine;
   color: #000;
 }
+.nombreR:hover {
+  cursor: pointer;
+  color: #000;
+}
+.nombreR {
+  color:#fff;
+}
+
 
 
 

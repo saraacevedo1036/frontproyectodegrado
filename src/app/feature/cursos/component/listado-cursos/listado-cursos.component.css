@@ -1,5 +1,4 @@
 body {
-  margin: 0.5%;
   padding: 0px;
   background: rgba(69, 19, 69, 0);
   background-size: cover;
@@ -51,6 +50,9 @@ button {
   text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
     0 0 0.2em #87F
 }
+.nombreC{
+  color: #fff;
+}
 
 
 button:hover {
@@ -61,6 +63,10 @@ button:hover {
 .nombreCurso:hover {
   cursor: pointer;
   background: aquamarine;
+  color: #000;
+}
+.nombreC:hover {
+  cursor: pointer;
   color: #000;
 }
 
