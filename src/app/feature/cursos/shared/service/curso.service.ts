@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AutorizacionService } from 'src/app/feature/login/shared/service/autorizacion.service';
 import { CreacionCurso } from '../model/creacion-curso.model';
 import { Curso } from '../model/curso.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class CursoService {
   constructor(protected httpClient: HttpClient,
               protected autorizacionService: AutorizacionService) {}
 
-  private endPoint = 'http://localhost:8080/api';
+  private endPoint = environment.baseUrl;
 
   crear(curso: Curso){
     return this.httpClient.post<Curso>(`${this.endPoint}/curso/save`,curso);

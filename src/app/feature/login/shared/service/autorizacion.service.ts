@@ -6,6 +6,7 @@ import { Autorizacion } from '../model/autorizacion.model';
 import { LocalStorageService } from 'ngx-webstorage';
 import { RestablecerContrasena } from '../model/restablecer-contrasena.model';
 import { CambioContrasena } from 'src/app/shared/model/cambio-contrasena.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class AutorizacionService {
   ROLE_DOCENTE:string = "ROLE_DOCENTE"
   ROLE_ESTUDIANTE:string = "ROLE_ESTUDIANTE"
 
-  private endPoint = 'http://localhost:8080';
+  private endPoint = environment.baseUrl;
   constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(autenticacion:Autenticacion): Observable<boolean>{

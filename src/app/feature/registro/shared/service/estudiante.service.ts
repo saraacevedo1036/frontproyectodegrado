@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estudiante } from '../model/estudiante.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Estudiante } from '../model/estudiante.model';
 export class EstudianteService {
 
   constructor(protected httpClient: HttpClient) { }
-  private endPoint = 'http://localhost:8080';
+  private endPoint = environment.baseUrl;
 
   crear(docente: Estudiante){
     return this.httpClient.post<Estudiante>(`${this.endPoint}/teachers/save`,docente);
