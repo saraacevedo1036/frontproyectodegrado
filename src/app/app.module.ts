@@ -15,6 +15,8 @@ import { BlogModule } from './feature/blog/blog.module';
 import { UsuarioModule } from './feature/usuario/usuario.module';
 import { ReporteCursoModule } from './feature/reporte-curso/reporte-curso.module';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 
 
@@ -44,7 +46,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     
     
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
