@@ -85,8 +85,8 @@ export class CrearCursoComponent implements OnInit {
     this.cursoService.guardarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
       this.showModal('success','El curso fue creado con exito');
+      window.location.reload();
       this.modal.close();
-      
       
     },error=>{
       
