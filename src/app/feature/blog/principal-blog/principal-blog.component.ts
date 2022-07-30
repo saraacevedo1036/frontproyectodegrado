@@ -100,6 +100,11 @@ export class PrincipalBlogComponent implements OnInit {
   }
 
   guardarCategoria(){
+    let categoriaExiste = this.listaCategorias.filter(categoria => categoria.nombre.toUpperCase() === this.formularioBlog.controls.categoria.value.toUpperCase())
+    console.log('EXISTE',categoriaExiste)
+    if(categoriaExiste.length !=0){
+      this.showModal('error','La categoria existe valida nombre de la categoria o elige el nombre en la lista de categorias existentes')
+    }else{
      this.categoriaService.guardarCategorias(this.armarCategoria())
      .subscribe(categoria =>{
       this.categoriaCreada=categoria
@@ -110,6 +115,7 @@ export class PrincipalBlogComponent implements OnInit {
       console.log(error);
       
     });
+  }
   }
 
   armarCategoria():Categoria{
@@ -147,7 +153,6 @@ export class PrincipalBlogComponent implements OnInit {
     }
   }
 
-  //Obtener id categoria a partir de nombre
   obtenerIdCategoriaSeleccionada(): number{
     return  this.listaCategorias.find(categoria => categoria.nombre ==
        this.formularioBlog.controls.categoria.value).idCategoriaContenido;
@@ -170,7 +175,7 @@ export class PrincipalBlogComponent implements OnInit {
         this.location.back()
       } else {
         this.formularioBlog.markAllAsTouched();
-        this.showModal('error','Validar los datos ingresados como lo son categoria,Titulo y Descripcion')
+        this.showModal('error','La categoría existe válida nombre de la categoría o elige el nombre en la lista de categorías existentes')
       }
   }
  

@@ -10,7 +10,7 @@ export class EstudianteService {
 
   constructor(protected httpClient: HttpClient) {}
 
-  private endPoint = 'http://cygnuspr.herokuapp.com/api';
+  private endPoint = 'http://localhost:8080/api';
 
   
   listarEstudianteId(idCurso:number){

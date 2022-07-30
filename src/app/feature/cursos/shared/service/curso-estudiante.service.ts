@@ -12,7 +12,7 @@ export class CursoEstudianteService {
   constructor(protected httpClient: HttpClient,
               protected autorizacionService: AutorizacionService) {}
 
-  private endPoint = 'http://cygnuspr.herokuapp.com/api';
+  private endPoint = 'http://localhost:8080/api';
 
   
   asignarCurso(asignarCurso:AsignarCurso):Observable<Boolean>{

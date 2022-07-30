@@ -8,7 +8,7 @@ import { Estudiante } from '../model/estudiante.model';
 export class EstudianteService {
 
   constructor(protected httpClient: HttpClient) { }
-  private endPoint = 'http://cygnuspr.herokuapp.com';
+  private endPoint = 'http://localhost:8080';
 
   crear(docente: Estudiante){
     return this.httpClient.post<Estudiante>(`${this.endPoint}/teachers/save`,docente);

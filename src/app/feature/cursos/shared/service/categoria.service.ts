@@ -10,7 +10,7 @@ export class CategoriaService {
 
   constructor(protected httpClient: HttpClient) { }
 
-  private endPoint = 'http://cygnuspr.herokuapp.com/api';
+  private endPoint = 'http://localhost:8080/api';
 
   listarCategoriasPorIdCurso(idCurso:number){
     return this.httpClient.get<Categoria[]>(`${this.endPoint}/categoria-contenido/curso/${idCurso}`);
