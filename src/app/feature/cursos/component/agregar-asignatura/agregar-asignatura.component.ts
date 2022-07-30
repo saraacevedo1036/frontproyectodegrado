@@ -56,9 +56,10 @@ export class AgregarAsignaturaComponent implements OnInit {
   guardarCurso(){
     this.cursoEstudianteService.asignarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
-      window.location.reload();
+      
       this.modal.close();
       this.showModal('success','El curso fue creado con exito');
+      window.location.reload();
       console.log('Se guarda curso', curso)
     }
     ,error=>{

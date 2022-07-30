@@ -63,9 +63,10 @@ export class AgregarEstudianteComponent implements OnInit {
   guardarCurso(){
     this.cursoEstudianteService.asignarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
-      window.location.reload();
       this.modal.close();
       this.showModal('success','El estudiante fue asignado al curso con exito');
+      window.location.reload();
+
     }
     ,error=>{
       this.form.reset();

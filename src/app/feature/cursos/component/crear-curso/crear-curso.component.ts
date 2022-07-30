@@ -38,7 +38,7 @@ export class CrearCursoComponent implements OnInit {
   save(event: Event) {
     event.preventDefault();
     if (this.form.valid  ) {
-      window.location.reload();
+      
       this.guardarCurso();
     } else {
       
@@ -84,8 +84,9 @@ export class CrearCursoComponent implements OnInit {
   guardarCurso(){
     this.cursoService.guardarCurso(this.armarObjetoCurso())
     .subscribe(curso =>{
-      this.modal.close();
       this.showModal('success','El curso fue creado con exito');
+      this.modal.close();
+      
       
     },error=>{
       

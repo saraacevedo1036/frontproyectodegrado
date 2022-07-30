@@ -132,7 +132,6 @@ export class DocenteComponent implements OnInit {
           this.showModal('error','No fue posible crear el docente, por favor valida la información');
         }
       },error=>{
-        this.form.reset();
         this.showModal('error','No fue posible crear el docente, por favor valida la información')
         
       });

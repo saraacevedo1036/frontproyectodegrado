@@ -19,7 +19,7 @@ export class EstudianteService {
   }
 
   guardarEstudiante(docente:Estudiante):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}/estudiante/save`, docente);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/estudiante/save`, docente);
   }
   
 }
