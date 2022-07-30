@@ -58,9 +58,10 @@ export class OlvidoPasswordComponent implements OnInit {
     this.autorizacionService.restablecerContrasena(this.armarObjetoRestablecer())
     .subscribe(respuesta =>{
       if(respuesta==true){
-        window.location.reload();
-        this.modal.close();
+        
         this.showModal('success','La contraseña fue enviada con exito');
+        this.modal.close();
+        
       }else{
         this.form.reset();
        this.showModal('error','Valida los datos ingresados') 

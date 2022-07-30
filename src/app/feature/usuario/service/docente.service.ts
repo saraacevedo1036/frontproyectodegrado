@@ -15,7 +15,7 @@ export class DocenteService {
 
   
   listarDocente(){
-    return this.httpClient.get<Docente[]>(`${this.endPoint}/docente`);
+    return this.httpClient.get<Docente[]>(`${this.endPoint}/api/docente`);
   }
 
   guardarDocente(docente:Docente):Observable<Boolean>{

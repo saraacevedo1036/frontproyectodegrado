@@ -12,10 +12,10 @@ export class EstudianteService {
   private endPoint = environment.baseUrl;
 
   crear(docente: Estudiante){
-    return this.httpClient.post<Estudiante>(`${this.endPoint}/teachers/save`,docente);
+    return this.httpClient.post<Estudiante>(`${this.endPoint}/api/teachers/save`,docente);
   }
 
   listar(){
-    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/teachers`);
+    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/api/teachers`);
   }
 }

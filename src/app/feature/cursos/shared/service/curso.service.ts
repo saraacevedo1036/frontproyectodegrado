@@ -17,20 +17,20 @@ export class CursoService {
   private endPoint = environment.baseUrl;
 
   crear(curso: Curso){
-    return this.httpClient.post<Curso>(`${this.endPoint}/curso/save`,curso);
+    return this.httpClient.post<Curso>(`${this.endPoint}/api/curso/save`,curso);
   }
 
   guardarCurso(creacionCurso:CreacionCurso):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}/curso/save`, creacionCurso);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/curso/save`, creacionCurso);
   }
  
   listarCursosPorDocenteId(){
     let params = new HttpParams().set("email",this.autorizacionService.obtenerCorreo())
     .set("rolUsuario", this.autorizacionService.obtenerRol()); 
-    return this.httpClient.get<Curso[]>(`${this.endPoint}/curso/obtener-segun-escenario`,{params:params});
+    return this.httpClient.get<Curso[]>(`${this.endPoint}/api/curso/obtener-segun-escenario`,{params:params});
   }
 
   obtenerCursoPorId(idCurso:number){
-    return this.httpClient.get<Curso>(`${this.endPoint}/curso/${idCurso}`);
+    return this.httpClient.get<Curso>(`${this.endPoint}/api/curso/${idCurso}`);
   }
 }

@@ -17,10 +17,10 @@ export class CursoEstudianteService {
 
   
   asignarCurso(asignarCurso:AsignarCurso):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}/curso-estudiante/save`, asignarCurso);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/curso-estudiante/save`, asignarCurso);
   }
   eliminarEstudianteCurso(idContenido:number):Observable<Boolean>{
-    return this.httpClient.delete<boolean>(`${this.endPoint}/curso-estudiante/${idContenido}`);
+    return this.httpClient.delete<boolean>(`${this.endPoint}/api/curso-estudiante/${idContenido}`);
   }
 
  

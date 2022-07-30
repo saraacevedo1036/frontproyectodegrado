@@ -15,9 +15,9 @@ export class JuegoService {
    { }
 
   listarPorIdCursoYTipo(idCurso:number, tipo:string){
-    return this.httpClient.get<Juego[]>(`${this.endPoint}/reto/curso/${idCurso}/tipo/${tipo}`);
+    return this.httpClient.get<Juego[]>(`${this.endPoint}/api/reto/curso/${idCurso}/tipo/${tipo}`);
   }
   guardarJuego(creacionReto:CreacionReto):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}/reto/save/creacion-reto`, creacionReto);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/reto/save/creacion-reto`, creacionReto);
   }
 }

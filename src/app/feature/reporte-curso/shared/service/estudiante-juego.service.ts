@@ -14,7 +14,7 @@ export class EstudianteJuegoService {
 
   
   listarReporte(idReto:number){
-    return this.httpClient.get<Reporte[]>(`${this.endPoint}/estudianteJuego/reporte/reto/${idReto}`);
+    return this.httpClient.get<Reporte[]>(`${this.endPoint}/api/estudianteJuego/reporte/reto/${idReto}`);
   }
 
  

@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://cygnuspr.herokuapp.com/'
+  baseUrl:'http://localhost:8080'
 };
 
 

@@ -14,9 +14,9 @@ export class CategoriaService {
   private endPoint = environment.baseUrl;
 
   listarCategoriasPorIdCurso(idCurso:number){
-    return this.httpClient.get<Categoria[]>(`${this.endPoint}/categoria-contenido/curso/${idCurso}`);
+    return this.httpClient.get<Categoria[]>(`${this.endPoint}/api/categoria-contenido/curso/${idCurso}`);
   }
   guardarCategorias(categoria:Categoria):Observable<Categoria>{
-    return this.httpClient.post<Categoria>(`${this.endPoint}/categoria-contenido/save`, categoria);
+    return this.httpClient.post<Categoria>(`${this.endPoint}/api/categoria-contenido/save`, categoria);
   }
 }

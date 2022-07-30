@@ -15,7 +15,7 @@ export class EstudianteService {
 
   
   listarEstudianteId(idCurso:number){
-    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/estudiante/curso/${idCurso}`);
+    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/api/estudiante/curso/${idCurso}`);
   }
 
   guardarEstudiante(docente:Estudiante):Observable<Boolean>{

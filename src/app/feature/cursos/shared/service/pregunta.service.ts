@@ -12,7 +12,7 @@ export class PreguntaService {
    { }
 
   listarPorIdReto( idReto:number){
-    return this.httpClient.get<Pregunta[]>(`${this.endPoint}/pregunta/reto/${idReto}`);
+    return this.httpClient.get<Pregunta[]>(`${this.endPoint}/api/pregunta/reto/${idReto}`);
   }
  
 }

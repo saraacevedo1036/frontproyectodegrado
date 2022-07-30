@@ -16,6 +16,6 @@ constructor(protected httpClient: HttpClient,
 private endPoint = environment.baseUrl;
 
 calificar(respuestasReto: RespuestasReto){
-  return this.httpClient.post<EstudianteJuegoRespuesta>(`${this.endPoint}/estudianteJuegoRespuestas/resultado-reto`,respuestasReto);
+  return this.httpClient.post<EstudianteJuegoRespuesta>(`${this.endPoint}/api/estudianteJuegoRespuestas/resultado-reto`,respuestasReto);
  }
 }
