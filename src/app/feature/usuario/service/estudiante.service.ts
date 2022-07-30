@@ -15,11 +15,11 @@ export class EstudianteService {
 
   
   listarEstudianteId(idCurso:number){
-    return this.httpClient.get<Estudiante[]>(`${this.endPoint}api/estudiante/curso/${idCurso}`);
+    return this.httpClient.get<Estudiante[]>(`${this.endPoint}/api/estudiante/curso/${idCurso}`);
   }
 
   guardarEstudiante(docente:Estudiante):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}api/estudiante/save`, docente);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/estudiante/save`, docente);
   }
   
 }

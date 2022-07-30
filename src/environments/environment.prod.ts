@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl:'https://cygnuspr.herokuapp.com/'
+  baseUrl:'https://cygnuspr.herokuapp.com'
 
 };

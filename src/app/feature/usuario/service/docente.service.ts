@@ -15,11 +15,11 @@ export class DocenteService {
 
   
   listarDocente(){
-    return this.httpClient.get<Docente[]>(`${this.endPoint}api/docente`);
+    return this.httpClient.get<Docente[]>(`${this.endPoint}/api/docente`);
   }
 
   guardarDocente(docente:Docente):Observable<Boolean>{
-    return this.httpClient.post<Boolean>(`${this.endPoint}api/docente/save`, docente);
+    return this.httpClient.post<Boolean>(`${this.endPoint}/api/docente/save`, docente);
   }
   
 }
