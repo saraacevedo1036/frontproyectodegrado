@@ -2,11 +2,10 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { UrlHandlingStrategy } from "@angular/router";
 
 export const environment = {
   production: false,
-  baseUrl:'http://localhost:8080/api'
+  baseUrl:'https://cygnuspr.herokuapp.com/'
 };
 
 
