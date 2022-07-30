@@ -16,6 +16,6 @@ export class DocenteService {
   }
 
   listar(){
-    return this.httpClient.get<Docente[]>(`${this.endPoint}/api/students`);
+    return this.httpClient.get<Docente[]>(`${this.endPoint}api/students`);
   }
 }
