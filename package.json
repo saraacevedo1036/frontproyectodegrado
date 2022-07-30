@@ -6,7 +6,7 @@
     "build": "ng build",
     "test": "ng test",
     "heroku-postbuild": "ng build --configuration production --aot",
-    "build-prod": "ng build --prod",
+    "build-prod": "ng build --configuration production --aot",
     "start": "node server.js"
   },
   "private": true,
