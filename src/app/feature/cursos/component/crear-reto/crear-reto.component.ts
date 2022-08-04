@@ -64,6 +64,7 @@ export class CrearRetoComponent implements OnInit {
       console.log('CREACION RETO', this.armarObjetoAGuardar())
       this.showModal('success','El reto se guardo con exito')
       this.location.back();
+      window.location.reload();
     } else {
       this.showModalIncorrecto()
 

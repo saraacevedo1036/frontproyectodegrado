@@ -83,7 +83,7 @@
             </div>
         </ng-container>
     </form>
-    <div *ngIf="validarRolEstudiante()" class="pull-right">
+        <div (click)="enviarRespuestas()" class="card">
         <button mat-flat-button color="accent" value="guardar"  (click)="enviarRespuestas()"> Enviar</button>
     </div>
 </body>
