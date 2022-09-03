@@ -10,6 +10,7 @@ import { EstudianteJuegoRespuestaService } from '../../shared/service/estudiante
 import { PreguntaService } from '../../shared/service/pregunta.service';
 import { Location } from '@angular/common'
 import { RetoService } from 'src/app/shared/service/reto.service';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-reto-curso',
@@ -18,6 +19,7 @@ import { RetoService } from 'src/app/shared/service/reto.service';
 })
 export class RetoCursoComponent implements OnInit {
   idCurso:number;
+  resultadoPrueba:string;
   idJuego:number;
   listaPreguntas:Pregunta[]=[];
   PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO:string[] = ['opcion1', 'opcion2', 'opcion3', 'opcion4'];
@@ -155,9 +157,15 @@ export class RetoCursoComponent implements OnInit {
   }
 
   mostrarModalPuntuacion(calificacion:any){
+    if((calificacion)>=3){
+       this.resultadoPrueba='Exelente cumpliste con el objetivo <br /> Nota: ';
+
+    }else{
+      this.resultadoPrueba='Debes practicar un poco más <br /> Nota: ';
+    }
 
     Swal.fire({
-      title: 'su nota es: '.concat(calificacion) ,
+      title: this.resultadoPrueba.concat(parseFloat(calificacion).toFixed(1)) ,
       width: 600,
       padding: '3em',
       color: '#716add',
@@ -199,8 +207,8 @@ borrarReto(){
       })
 
       Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Eliminado!',
+        'El reto se ha eliminado con exito.',
         'success'
       )
     }

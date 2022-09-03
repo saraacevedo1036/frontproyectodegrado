@@ -29,11 +29,7 @@ img{
     margin-left: 25% !important;
     height: 50%;
     width: 50%;
-}
-
-img{
-    width: 100%;
-    height: 30%;
+  
 }
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
 ::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {

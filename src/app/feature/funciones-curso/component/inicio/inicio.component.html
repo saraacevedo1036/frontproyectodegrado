@@ -1,11 +1,10 @@
 <body>
             <div id="container">
 
-
+                  <button type="button" class="btn btn-default btn-lg btn-block"
+                  (click)="obtenerListadoCategorias(idCurso)">Contenido</button>
                   <button id="juego" (click)="irJuego()" type="button"
                         class="btn btn-default btn-lg btn-block">Juego</button>
-                  <button type="button" class="btn btn-default btn-lg btn-block"
-                        (click)="obtenerListadoCategorias(idCurso)">Contenido</button>
                   <button type="button" (click)="irReto()" class="btn btn-default btn-lg btn-block">Reto</button>
 
                   <div *ngIf="validarRol()">
@@ -15,4 +14,5 @@
                               class="btn btn-default btn-lg btn-block">Estudiantes</button>
                   </div>
             </div>
+            
 </body>

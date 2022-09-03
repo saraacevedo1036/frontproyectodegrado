@@ -21,14 +21,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" *ngIf="puedeVisualizar()" (click)="logout()">Login</a>
+                    <a class="nav-link active" *ngIf="puedeVisualizar()" (click)="logout()">Iniciar sesión</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" *ngIf="puedeVisualizar()==false" (click)="modalCambiarContra()">Cambiar contraseña</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" *ngIf="puedeVisualizar()==false" (click)="logout()">Logout</a>
+                    <a class="nav-link active" *ngIf="puedeVisualizar()==false" (click)="logout()">Cerrar sesión</a>
                 </li>
 
             </ul>

@@ -15,6 +15,7 @@
         <label class="lNombre">Clave asignatura</label>
         <div class="control has-icons-left has-icons-right">
           <input class="input" placeholder="clave" type="text" formControlName="claveAsignatura" />
+          <p *ngIf="((this.form.get('claveAsignatura').touched)&&(this.form.get('claveAsignatura')!!.invalid ))" class="help is-danger">Recuerda que este campo es obligatorio</p>
 
         </div>
       </div>
@@ -23,7 +24,7 @@
       </div>
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-primary" type="submit">Guardar</button>
+          <button class="button is-primary" type="submit" *ngIf="(this.form.get('claveAsignatura')!!.valid )" >Guardar</button>
 
         </div>
         <div class="control">

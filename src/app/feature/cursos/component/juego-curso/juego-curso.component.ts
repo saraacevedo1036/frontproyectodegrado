@@ -20,6 +20,7 @@ import { RetoService } from 'src/app/shared/service/reto.service';
 export class JuegoCursoComponent implements OnInit {
   idJuego: number;
   idCurso:number;
+  resultadoPrueba:string;
   listaPreguntas: Pregunta[] = [];
   PROPIEDADES_VALIDAR_CAMBIOS_FORMULARIO: string[] = ['opcion1', 'opcion2', 'opcion3', 'opcion4'];
 
@@ -160,6 +161,7 @@ export class JuegoCursoComponent implements OnInit {
 
 
   mostrarModalPuntuacion(calificacion: any) {
+   
     Swal.fire({
       title: 'su nota es: '.concat(calificacion),
       width: 600,
@@ -182,8 +184,14 @@ export class JuegoCursoComponent implements OnInit {
     }
   }
   validarRespuestas(calificacion: any) {
+    if((calificacion)>=3){
+      this.resultadoPrueba='Exelente cumpliste con el objetivo <br /> Su nota es: ';
+
+   }else{
+     this.resultadoPrueba='Debes practicar un poco más <br /> Nota: ';
+   }
     Swal.fire({
-      title: 'Su nota es:  '.concat(calificacion),
+      title: this.resultadoPrueba.concat(parseFloat(calificacion).toFixed(1)),
       text: "Deseas comprobar las respuestas?",
       icon: 'question',
       showCancelButton: true,
@@ -225,8 +233,8 @@ export class JuegoCursoComponent implements OnInit {
         })
 
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          'Eliminado!',
+          'El juego ha sido eliminado con exito.',
           'success'
         )
       }

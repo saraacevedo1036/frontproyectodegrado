@@ -53,6 +53,11 @@ button {
 .nombreC{
   color: #fff;
 }
+.nombreG{
+  font-size: 30px;
+  text-shadow: 0 0 0.2em rgb(242, 242, 244), 0 0 0.2em rgb(246, 246, 248),
+  0 0 0.2em rgb(241, 240, 243)
+}
 
 
 button:hover {

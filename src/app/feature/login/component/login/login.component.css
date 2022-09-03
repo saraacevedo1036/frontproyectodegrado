@@ -4,7 +4,7 @@ body {
     background: url(../imgLogin/fondo.jpg) no-repeat center top;
     background-size: cover;
     font-family: sans-serif;
-    height: 100vh;
+    height: 150vh;
   }
   
   .login-box {
@@ -71,6 +71,11 @@ body {
   .login-box input[type="submit"]:hover {
     cursor: pointer;
     background: #ffc107;
+    color: #000;
+  }
+  .login-box input[type="submit"]:disabled {
+    cursor: pointer;
+    background: #dad9d6;
     color: #000;
   }
   

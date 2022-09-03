@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   inicializarFormularioLogin(){
     this.formularioLogin = this.formBuilder.group({
-      usuario:['', Validators.required],
+      usuario:['', Validators.email],
       contrasenia:['', Validators.required]
     });
   }

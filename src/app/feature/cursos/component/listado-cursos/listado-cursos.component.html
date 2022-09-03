@@ -20,13 +20,15 @@
     
       <div class="agregarEs" *ngIf="puedeVisualizarEstudiante()" >
 
-        <button  mat-flat-button color="accent" (click)="modalAgregarAsignatura()"><h2 class="agregarEs">Agregar</h2></button>
+        <button  mat-flat-button color="accent" (click)="modalAgregarAsignatura()"><h2 class="agregarEs">Unirme a un curso</h2></button>
       </div>
    
 
       <mat-grid-list [cols]="colSize"  rowHeight="250px" style="height: 250px; " gutterSize="40px">
         <mat-grid-tile *ngFor="let curso of listaCursos" [colspan]="2" [rowspan]="1">
-          <div class="nombreCurso" mat-raised-button [routerLink]="['curso',curso.idCursos]"><p  class="nombreC">{{curso.nombre}}</p> 
+          <div class="nombreCurso" mat-raised-button [routerLink]="['curso',curso.idCursos]">
+            <p  class="nombreC"> {{curso.nombre }} </p> 
+            <p  class="nombreG"> Grado: {{curso.grado }}</p> 
           </div>
           <mat-grid-tile-footer *ngIf="puedeVisualizar()" class="button" (click)="showModalCodigo(curso.codigo)">
             Ver codigo del curso
