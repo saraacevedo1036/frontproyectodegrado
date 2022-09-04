@@ -28,7 +28,7 @@
         <mat-grid-tile *ngFor="let curso of listaCursos" [colspan]="2" [rowspan]="1">
           <div class="nombreCurso" mat-raised-button [routerLink]="['curso',curso.idCursos]">
             <p  class="nombreC"> {{curso.nombre }} </p> 
-            <p  class="nombreG"> Grado: {{curso.grado }}</p> 
+            <p  class="nombreG"   > Grado: {{curso.grado }}</p> 
           </div>
           <mat-grid-tile-footer *ngIf="puedeVisualizar()" class="button" (click)="showModalCodigo(curso.codigo)">
             Ver codigo del curso
