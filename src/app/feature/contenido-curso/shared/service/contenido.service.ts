@@ -21,6 +21,11 @@ export class ContenidoService {
   guardarContenido(contenido:Contenido):Observable<Boolean>{
     return this.httpClient.post<Boolean>(`${this.endPoint}/api/curso-contenido/save`, contenido);
   }
+
+  actualizarContenido(contenido:Contenido):Observable<Boolean>{
+    return this.httpClient.put<Boolean>(`${this.endPoint}/api/curso-contenido/actualizar`, contenido);
+  }
+
   eliminarContenido(idContenido:number):Observable<object>{
     return this.httpClient.delete<object>(`${this.endPoint}/api/curso-contenido/${idContenido}`);
   }

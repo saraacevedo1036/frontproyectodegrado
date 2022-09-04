@@ -2,9 +2,8 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Agregar Contenido
+        {{textoActualizarCrearContenido}}
       </h1>
-
     </div>
   </div>
 </section>
@@ -66,8 +65,8 @@
           </youtube-player>
         </div>
       </div>
-      <div class="chek">
-        <div class="field">
+      <div class="chek" >
+        <div class="field"  *ngIf="!esActualizacionContenido">
           <label class="label">Categoria:</label>
           <div>
             <section class="example-section" [formGroup]="toppings">
@@ -101,12 +100,16 @@
             </div>
           </div>
         </div>
-        <div *ngIf="toppings.controls.usarCategoria.value==true" type="submit" class="pull-right">
+        <div *ngIf="toppings.controls.usarCategoria.value==true && !esActualizacionContenido" type="submit" class="pull-right">
           <button mat-flat-button color="accent" id="guardar" value="guardar"> guardar</button>
         </div>
-        <div *ngIf="toppings.controls.crearCategoria.value==true" class="pull-right">
+        <div *ngIf="toppings.controls.crearCategoria.value==true && !esActualizacionContenido" class="pull-right">
           <button mat-flat-button color="accent" id="guardar" (click)="guardarCategoria()" value="guardar">
             guardar</button>
+        </div>
+        <div *ngIf="esActualizacionContenido" class="pull-right">
+          <button mat-flat-button color="accent" id="actualizar" (click)="actualizarContenido()" value="actualizar">
+            Actualizar</button>
         </div>
       </div>
     </form>

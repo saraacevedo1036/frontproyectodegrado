@@ -25,7 +25,9 @@ const routes: Routes = [
   {path:'crear-contenido/:idCurso', component:PrincipalBlogComponent , canActivate: [SegurityGuard,DocenteGuard]},
   {path:'listado-cursos/curso/:idCursos', component: InicioComponent, canActivate: [SegurityGuard]},
   {path:'listado-contenido/curso/:idCurso/categoria/:idCategoria', component: RegistrosBlogComponent, canActivate: [SegurityGuard]},
-  {path:'principal-juegos', component: PrincipalJuegoComponent, canActivate: [SegurityGuard]}];
+  {path:'principal-juegos', component: PrincipalJuegoComponent, canActivate: [SegurityGuard]},
+  {path:'actualizar-contenido/:idCurso/categoria/:idCategoria/curso-contenido/idCursoContenido', component:PrincipalBlogComponent , canActivate: [SegurityGuard,DocenteGuard]},
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

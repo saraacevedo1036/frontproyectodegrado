@@ -5,8 +5,7 @@ import { PrincipalBlogComponent } from './principal-blog/principal-blog.componen
 import { YouTubePlayer, YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
-
-
+import { BlogRoutingModule } from './blog-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,8 @@ import { MaterialModule } from '../material/material.module';
     YouTubePlayerModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    BlogRoutingModule
   ]
 })
 export class BlogModule { }
